@@ -450,6 +450,16 @@ h2 {
   50% { transform: translateY(-12px); }
   100% { transform: translateY(0px); }
 }
+  .icon-float {
+  display: inline-block;
+  font-size: 28px;
+  animation: floatIcon 2.5s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
 </style>
 </head>
 
@@ -460,7 +470,10 @@ h2 {
   <div class="hero-left">
     <div class="eyebrow">Ecommerce Operations • Systems • Shopify Execution</div>
 
-    <h1>Rea Bernales</h1>
+    <h1 style="display:flex; align-items:center; gap:12px;">
+  Rea Bernales
+  <span class="icon-float">⚡</span>
+</h1>
 
     <div class="role">
       I help ecommerce teams move faster across
