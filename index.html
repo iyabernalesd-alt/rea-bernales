@@ -298,9 +298,15 @@ h2 {
   max-width: 180px;
   object-fit: contain;
   margin-bottom: 16px;
-  filter: grayscale(100%);
-  opacity: 0.85;
-  transition: all 0.2s ease;
+  filter: grayscale(60%);
+  opacity: 0.9;
+  transition: all 0.25s ease;
+}
+
+.logo-card:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
 }
 
 .logo-card:hover img {
