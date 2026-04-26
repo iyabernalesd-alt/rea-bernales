@@ -25,6 +25,10 @@ body {
 .hero {
   padding: 70px 0 35px;
   position: relative;
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 50px;
+  align-items: center;
 }
 
 .hero::before {
@@ -42,7 +46,7 @@ body {
   animation: floatGlow 6s ease-in-out infinite;
 }
 
-  .hero::after {
+.hero::after {
   content: "";
   position: absolute;
   width: 220px;
@@ -60,7 +64,6 @@ body {
 @keyframes floatGlow {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
-}pacity: 0.8;
 }
 
 .eyebrow {
@@ -98,6 +101,39 @@ h1 {
   margin-bottom: 34px;
 }
 
+.hero-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #eadff8;
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 20px 50px rgba(109, 40, 217, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+.hero-card h3 {
+  font-size: 26px;
+  color: #121a33;
+  margin-bottom: 18px;
+}
+
+.hero-card ul {
+  padding-left: 20px;
+  color: #475569;
+}
+
+.hero-card li {
+  margin-bottom: 10px;
+}
+
+.mini-label {
+  color: #6d28d9;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
 .stats, .cards, .selected-grid, .before-after {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -128,8 +164,10 @@ h1 {
 }
 
 .tools {
+  grid-column: 1 / -1;
   border-top: 1px solid #e5e7eb;
   padding-top: 24px;
+  margin-top: 8px;
 }
 
 .tools-label {
@@ -290,8 +328,20 @@ h2 {
 
 @media (max-width: 760px) {
   .page { padding: 42px 20px; }
-  .hero { padding: 50px 0 20px; }
-  .stats, .cards, .selected-grid, .before-after { grid-template-columns: 1fr; }
+
+  .hero {
+    display: block;
+    padding: 50px 0 20px;
+  }
+
+  .hero-card {
+    margin-top: 30px;
+  }
+
+  .stats, .cards, .selected-grid, .before-after {
+    grid-template-columns: 1fr;
+  }
+
   .role { font-size: 18px; }
 
   .tool-list::before,
@@ -306,35 +356,48 @@ h2 {
 <main class="page">
 
 <section class="hero">
-  <div class="eyebrow">Ecommerce Operations • Systems • Shopify Execution</div>
+  <div class="hero-left">
+    <div class="eyebrow">Ecommerce Operations • Systems • Shopify Execution</div>
 
-  <h1>Rea Bernales</h1>
+    <h1>Rea Bernales</h1>
 
-  <div class="role">
-    I help ecommerce teams move faster across Shopify, operations, creators, and internal systems.
+    <div class="role">
+      I help ecommerce teams move faster across Shopify, operations, creators, and internal systems.
+    </div>
+
+    <p class="intro">
+      I support founders and ecommerce teams by building workflows, managing execution, improving store operations, and keeping projects moving from idea to implementation.
+    </p>
+
+    <p class="proof-line">
+      From Shopify updates and cart optimization to Notion dashboards, Zapier automations, creator pipelines, and team coordination, I help turn scattered tasks into organized systems.
+    </p>
+
+    <div class="stats">
+      <div class="stat">
+        <h3>Shopify</h3>
+        <p>Store updates, apps, Liquid edits, and product page support</p>
+      </div>
+      <div class="stat">
+        <h3>Systems</h3>
+        <p>Notion dashboards, workflow tracking, and team coordination</p>
+      </div>
+      <div class="stat">
+        <h3>Automation</h3>
+        <p>Typeform, Zapier, Sheets, and Slack notification workflows</p>
+      </div>
+    </div>
   </div>
 
-  <p class="intro">
-    I support founders and ecommerce teams by building workflows, managing execution, improving store operations, and keeping projects moving from idea to implementation.
-  </p>
-
-  <p class="proof-line">
-    From Shopify updates and cart optimization to Notion dashboards, Zapier automations, creator pipelines, and team coordination, I help turn scattered tasks into organized systems.
-  </p>
-
-  <div class="stats">
-    <div class="stat">
-      <h3>Shopify</h3>
-      <p>Store updates, apps, Liquid edits, and product page support</p>
-    </div>
-    <div class="stat">
-      <h3>Systems</h3>
-      <p>Notion dashboards, workflow tracking, and team coordination</p>
-    </div>
-    <div class="stat">
-      <h3>Automation</h3>
-      <p>Typeform, Zapier, Sheets, and Slack notification workflows</p>
-    </div>
+  <div class="hero-card">
+    <p class="mini-label">Available for</p>
+    <h3>Shopify + Ecommerce Ops Support</h3>
+    <ul>
+      <li>Store updates & Liquid edits</li>
+      <li>Notion systems & workflows</li>
+      <li>Creator + affiliate coordination</li>
+      <li>Zapier automations</li>
+    </ul>
   </div>
 
   <div class="tools">
