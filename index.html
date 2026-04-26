@@ -263,15 +263,6 @@ h2 {
   margin-bottom: 34px;
 }
 
-.card, .work-card, .logo-card {
-  transition: all 0.25s ease;
-}
-
-.card:hover, .work-card:hover, .logo-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
-}
-
 .card h3, .work-card h3, .ba-card h3 {
   color: #121a33;
   margin-bottom: 10px;
@@ -432,24 +423,7 @@ h2 {
     width: 40px;
   }
 }
-  .hero::after {
-  content: "";
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  background: radial-gradient(circle, #c4b5fd, transparent);
-  bottom: 40px;
-  left: 20px;
-  filter: blur(60px);
-  opacity: 0.5;
-  animation: float 6s ease-in-out infinite;
-}
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
-}
 .icon-float {
   display: inline-block;
   font-size: 28px;
@@ -484,21 +458,6 @@ h2 {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-.contact .button:first-child {
-  animation: softPulse 2.4s ease-in-out infinite;
-}
-
-@keyframes softPulse {
-  0%, 100% {
-    box-shadow: 0 10px 24px rgba(109, 40, 217, 0.22);
-    transform: translateY(0);
-  }
-  50% {
-    box-shadow: 0 16px 34px rgba(109, 40, 217, 0.35);
-    transform: translateY(-2px);
   }
 }
   .button-row {
