@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rea Bernales | Ecommerce Operations</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: #ffffff;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 84px);
+      line-height: 1;
+      margin-bottom: 28px;
+      color: #121a33;
+    }
+
+    .role {
+      font-size: 22px;
+      color: #29344f;
+      margin-bottom: 28px;
+    }
+
+    .intro {
+      max-width: 620px;
+      font-size: 18px;
+      color: #334155;
+      margin-bottom: 36px;
+    }
+
+    .button {
+      display: inline-block;
+      width: fit-content;
+      padding: 14px 26px;
+      background: #6d0fc9;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(109, 15, 201, 0.22);
+    }
+
+    .tools {
+      margin-top: 70px;
+      padding-top: 32px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .tools-label {
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 14px;
+    }
+
+    .tool-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tool {
+      padding: 8px 16px;
+      border: 1px solid #dbe3ef;
+      border-radius: 999px;
+      font-size: 14px;
+      color: #1e293b;
+      background: white;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    h2 {
+      font-size: clamp(38px, 6vw, 58px);
+      line-height: 1.1;
+      margin-bottom: 22px;
+      color: #121a33;
+    }
+
+    .section-intro {
+      font-size: 18px;
+      color: #475569;
+      max-width: 760px;
+      margin-bottom: 48px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .card {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 32px;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 14px;
+      color: #121a33;
+    }
+
+    .card p {
+      color: #475569;
+      font-size: 16px;
+    }
+
+    .case-study {
+      margin-top: 56px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .case-study:last-child {
+      border-bottom: none;
+    }
+
+    .case-study h3 {
+      font-size: 28px;
+      margin-bottom: 14px;
+      color: #121a33;
+    }
+
+    .case-study p {
+      color: #475569;
+      font-size: 17px;
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+
+    .case-image {
+      width: 100%;
+      max-width: 760px;
+      border-radius: 16px;
+      border: 1px solid #e5e7eb;
+      margin: 18px 0 18px;
+      display: block;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+    }
+
+    .result {
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .results-list {
+      list-style: none;
+      margin-top: 30px;
+    }
+
+    .results-list li {
+      padding: 18px 0;
+      border-bottom: 1px solid #e5e7eb;
+      color: #334155;
+    }
+
+    .results-list li::before {
+      content: "•";
+      color: #6d0fc9;
+      font-weight: bold;
+      margin-right: 12px;
+    }
+
+    .contact {
+      background: #faf7ff;
+      padding: 70px 24px;
+      border-radius: 24px;
+      margin-top: 60px;
+    }
+
+    .contact p {
+      max-width: 680px;
+      font-size: 18px;
+      color: #475569;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        padding: 56px 20px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 40px 0;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <section class="hero">
+      <h1>Rea Bernales</h1>
+
+      <div class="role">
+        Ecommerce Operations • Shopify • Growth Support
+      </div>
+
+      <p class="intro">
+        I help ecommerce brands increase AOV, streamline operations, and execute quickly across Shopify, systems, and teams.
+      </p>
+
+      <a class="button" href="mailto:iyabernales@gmail.com?subject=Work%20Inquiry">
+        Work With Me →
+      </a>
+
+      <div class="tools">
+        <div class="tools-label">Tools I Use</div>
+        <div class="tool-list">
+          <span class="tool">Shopify</span>
+          <span class="tool">Notion</span>
+          <span class="tool">Slack</span>
+          <span class="tool">Zapier</span>
+          <span class="tool">Frame.io</span>
+          <span class="tool">Triple Whale</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>What I Do</h2>
+      <p class="section-intro">
+        I work across growth, operations, and execution to help ecommerce teams move faster.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Ecommerce Growth</h3>
+          <p>Optimize upsells, cart experience, and product pages to increase AOV and improve conversion.</p>
+        </div>
+
+        <div class="card">
+          <h3>Operations & Systems</h3>
+          <p>Build workflows using Notion, Slack, and Shopify apps. Support hiring and team coordination.</p>
+        </div>
+
+        <div class="card">
+          <h3>Creator & Affiliate</h3>
+          <p>Manage outreach, onboarding, and coordination of UGC creators and affiliates from sourcing to delivery.</p>
+        </div>
+
+        <div class="card">
+          <h3>Shopify & Execution</h3>
+          <p>Implement Shopify edits, customize themes using Liquid, manage apps, and execute frontend updates quickly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Selected Work & Results</h2>
+
+      <ul class="results-list">
+        <li>Supported ecommerce operations across Shopify, customer support, and fulfillment.</li>
+        <li>Built internal systems in Notion for tracking workflows and team tasks.</li>
+        <li>Set up and managed Shopify apps and implemented theme updates using Liquid.</li>
+        <li>Managed UGC creator outreach and affiliate program coordination.</li>
+        <li>Supported cart drawer and product page improvements for better AOV.</li>
+      </ul>
+
+      <div class="case-study">
+        <h3>Operations Dashboard & Systems</h3>
+        <p>
+          Built a centralized Notion dashboard to manage workflows, resources, and team coordination across operations, creative, and tech.
+        </p>
+
+        <img class="case-image" src="notion-dashboard.png" alt="Operations dashboard and systems screenshot">
+
+        <p class="result">
+          Provided full visibility across tasks, timelines, and internal resources to keep execution aligned.
+        </p>
+      </div>
+
+      <div class="case-study">
+        <h3>Creator Intake & Automation System</h3>
+        <p>
+          Built an automated pipeline connecting Typeform, Zapier, Google Sheets, and Slack to streamline creator applications and internal notifications.
+        </p>
+
+        <img class="case-image" src="creator-intake-system.png" alt="Creator intake and automation system screenshot">
+
+        <p class="result">
+          Reduced manual tracking by automatically capturing submissions and notifying the team in real time.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Let’s Work Together</h2>
+      <p>
+        If you’re looking for someone who can support your ecommerce operations, systems, and execution, I’d love to help.
+      </p>
+
+      <a class="button" href="mailto:iyabernales@gmail.com?subject=Work%20Inquiry">
+        Email Me
+      </a>
+    </section>
+
+  </main>
+</body>
+</html>
