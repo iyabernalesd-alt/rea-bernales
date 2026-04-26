@@ -7,7 +7,6 @@
 
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -64,45 +63,46 @@ h1 {
   margin-bottom: 24px;
 }
 
-.intro {
+.intro, .proof-line {
   max-width: 720px;
   font-size: 18px;
   color: #334155;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .proof-line {
-  max-width: 720px;
   font-size: 16px;
   color: #4b5563;
   margin-bottom: 34px;
 }
 
-.stats {
+.stats, .cards, .selected-grid, .before-after {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.stats {
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
   max-width: 760px;
   margin: 8px 0 42px;
 }
 
-.stat {
-  background: #ffffff;
-  border: 1px solid #eadff8;
+.stat, .card, .work-card, .ba-card {
+  padding: 28px;
+  border: 1px solid #eee;
   border-radius: 18px;
-  padding: 22px;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+  background: #ffffff;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
 }
 
 .stat h3 {
   font-size: 26px;
   color: #6d28d9;
-  margin-bottom: 4px;
 }
 
-.stat p {
-  font-size: 14px;
-  color: #64748b;
+.stat p, .card p, .work-card p, .ba-card li {
+  color: #475569;
 }
 
 .tools {
@@ -148,39 +148,17 @@ h2 {
   margin-bottom: 34px;
 }
 
-.cards,
-.selected-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.card,
-.work-card {
-  padding: 28px;
-  border: 1px solid #eee;
-  border-radius: 18px;
-  background: #ffffff;
-  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
-  transition: 0.25s ease;
-}
-
-.card:hover,
-.work-card:hover {
+.card:hover, .work-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 34px rgba(15, 23, 42, 0.09);
 }
 
-.card h3,
-.work-card h3 {
+.card, .work-card { transition: 0.25s ease; }
+
+.card h3, .work-card h3, .ba-card h3 {
   color: #121a33;
   margin-bottom: 10px;
   font-size: 21px;
-}
-
-.card p,
-.work-card p {
-  color: #475569;
 }
 
 .work-card img {
@@ -193,6 +171,14 @@ h2 {
 .result {
   font-weight: 700;
   color: #29344f !important;
+}
+
+.ba-card ul {
+  padding-left: 20px;
+}
+
+.ba-card li {
+  margin-bottom: 10px;
 }
 
 .contact {
@@ -226,10 +212,7 @@ h2 {
   text-decoration: none;
   font-weight: 700;
   box-shadow: 0 10px 24px rgba(109, 40, 217, 0.22);
-  transition: 0.2s ease;
 }
-
-.button:hover { transform: translateY(-2px); }
 
 .secondary {
   background: white;
@@ -240,22 +223,14 @@ h2 {
 
 @media (max-width: 760px) {
   .page { padding: 42px 20px; }
-
   .hero { padding: 50px 0 20px; }
-
-  .stats,
-  .cards,
-  .selected-grid {
-    grid-template-columns: 1fr;
-  }
-
+  .stats, .cards, .selected-grid, .before-after { grid-template-columns: 1fr; }
   .role { font-size: 18px; }
 }
 </style>
 </head>
 
 <body>
-
 <main class="page">
 
 <section class="hero">
@@ -294,22 +269,17 @@ h2 {
     <div class="tools-label">Tools I Work With</div>
     <div class="tool-list">
       <span class="tool">Shopify</span>
+      <span class="tool">Liquid</span>
       <span class="tool">Notion</span>
       <span class="tool">Slack</span>
       <span class="tool">Zapier</span>
+      <span class="tool">Google Sheets</span>
       <span class="tool">Frame.io</span>
       <span class="tool">Triple Whale</span>
       <span class="tool">GitHub</span>
       <span class="tool">Apploye</span>
       <span class="tool">GemPages</span>
       <span class="tool">Loox</span>
-      <span class="tool">Nano Banana Pro</span>
-      <span class="tool">Rook Aftersell</span>
-      <span class="tool">Klaviyo</span>
-      <span class="tool">HeyGen</span>
-      <span class="tool">Hedra</span>
-      <span class="tool">Atria</span>
-      <span class="tool">ElevenLabs</span>
       <span class="tool">Backstage</span>
       <span class="tool">TikTok One</span>
     </div>
@@ -329,7 +299,7 @@ h2 {
     </div>
     <div class="card">
       <h3>Operations & Systems</h3>
-      <p>Build internal dashboards, workflow trackers, and team systems using Notion, Sheets, Slack, and ecommerce tools.</p>
+      <p>Build dashboards, workflow trackers, and team systems using Notion, Sheets, Slack, and ecommerce tools.</p>
     </div>
     <div class="card">
       <h3>Creator & Affiliate Management</h3>
@@ -366,6 +336,61 @@ h2 {
 </section>
 
 <section>
+  <h2>Before & After</h2>
+  <p class="section-intro">
+    I focus on turning messy workflows into systems that are easier to track, manage, and scale.
+  </p>
+
+  <div class="before-after">
+    <div class="ba-card">
+      <h3>Before</h3>
+      <ul>
+        <li>Creator tracking was manual and scattered</li>
+        <li>Follow-ups could get buried across tools</li>
+        <li>Team resources were harder to find quickly</li>
+        <li>Shopify updates depended on back-and-forth execution</li>
+      </ul>
+    </div>
+
+    <div class="ba-card">
+      <h3>After</h3>
+      <ul>
+        <li>Creator intake flows into organized tracking sheets</li>
+        <li>Slack notifications keep the team updated in real time</li>
+        <li>Notion dashboards centralize resources and workflows</li>
+        <li>Store updates, app setup, and Liquid edits move faster</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>How I Work</h2>
+  <p class="section-intro">
+    I don’t just complete tasks. I organize them into systems, keep communication clear, and focus on execution that helps the business move forward.
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Clarity First</h3>
+      <p>I create structure so teams know what is happening, who owns it, and what needs to move next.</p>
+    </div>
+    <div class="card">
+      <h3>Fast Execution</h3>
+      <p>I move quickly on Shopify updates, internal workflows, creator coordination, and operational fixes.</p>
+    </div>
+    <div class="card">
+      <h3>Systems Thinking</h3>
+      <p>I look for ways to reduce repeated manual work through trackers, dashboards, and automations.</p>
+    </div>
+    <div class="card">
+      <h3>Founder Support</h3>
+      <p>I help founders and teams turn scattered ideas into clear action steps and working processes.</p>
+    </div>
+  </div>
+</section>
+
+<section>
   <h2>Impact Highlights</h2>
   <p class="section-intro">
     The value I bring is not just task completion. I help improve the way ecommerce teams operate.
@@ -392,9 +417,9 @@ h2 {
 </section>
 
 <section class="contact" id="contact">
-  <h2>Let’s Work Together</h2>
+  <h2>Looking for someone who can actually execute and organize your systems?</h2>
   <p>
-    If you need someone who can support ecommerce operations, organize systems, manage workflows, and execute quickly, I’d love to help.
+    If you need support across Shopify, ecommerce operations, creator workflows, and internal systems, I’d love to help.
   </p>
 
   <div class="button-row">
@@ -408,6 +433,5 @@ h2 {
 </section>
 
 </main>
-
 </body>
 </html>
