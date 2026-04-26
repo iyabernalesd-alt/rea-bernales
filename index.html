@@ -463,6 +463,44 @@ h2 {
   50% { top: -10px; }
   100% { top: 0; }
 }
+  .hero-left > *,
+.hero-card,
+.tools {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.hero-left .eyebrow { animation-delay: 0.1s; }
+.hero-left h1 { animation-delay: 0.25s; }
+.hero-left .role { animation-delay: 0.45s; }
+.hero-left .intro { animation-delay: 0.65s; }
+.hero-left .proof-line { animation-delay: 0.85s; }
+.hero-left .stats { animation-delay: 1.05s; }
+.hero-card { animation-delay: 1.15s; }
+.tools { animation-delay: 1.35s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact .button:first-child {
+  animation: softPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes softPulse {
+  0%, 100% {
+    box-shadow: 0 10px 24px rgba(109, 40, 217, 0.22);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 16px 34px rgba(109, 40, 217, 0.35);
+    transform: translateY(-2px);
+  }
+}
 </style>
 </head>
 
