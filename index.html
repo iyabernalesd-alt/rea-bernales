@@ -289,30 +289,60 @@ h2 {
   margin-bottom: 10px;
 }
 
-.logo-card {
-  text-align: center;
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 20px;
 }
 
 .logo-card {
-  text-align: center;
-  padding: 30px;
-  border-radius: 18px;
-  background: white;
-  transition: 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0.05);
+
+  backdrop-filter: blur(8px);
+
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: radial-gradient(circle at 50% 50%, rgba(109,40,217,0.15), transparent 70%);
+  opacity: 0;
+  transition: 0.3s ease;
 }
 
 .logo-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-6px) scale(1.02);
   box-shadow: 0 20px 40px rgba(109, 40, 217, 0.15);
 }
 
+.logo-card:hover::before {
+  opacity: 1;
+}
+
 .logo-card img {
-  max-height: 42px;
-  max-width: 180px;
+  max-height: 38px;
+  max-width: 140px;
   object-fit: contain;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
+
   filter: grayscale(60%);
-  opacity: 0.9;
+  opacity: 0.85;
+
   transition: all 0.25s ease;
 }
 
@@ -320,6 +350,13 @@ h2 {
   filter: grayscale(0%);
   opacity: 1;
   transform: scale(1.05);
+}
+
+.logo-card p {
+  font-size: 13px;
+  color: #64748b;
+  text-align: center;
+  line-height: 1.4;
 }
 
 .contact {
