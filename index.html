@@ -88,6 +88,14 @@ h1 {
   margin-bottom: 24px;
 }
 
+.highlight {
+  color: #6d28d9;
+  font-weight: 700;
+  background: linear-gradient(120deg, rgba(109,40,217,0.15), transparent);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
 .intro, .proof-line {
   max-width: 720px;
   font-size: 18px;
@@ -102,7 +110,7 @@ h1 {
 }
 
 .hero-card {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.82);
   border: 1px solid #eadff8;
   border-radius: 24px;
   padding: 30px;
@@ -134,7 +142,7 @@ h1 {
   margin-bottom: 10px;
 }
 
-.stats, .cards, .selected-grid, .before-after {
+.stats, .cards, .selected-grid, .before-after, .logo-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
@@ -146,7 +154,7 @@ h1 {
   margin: 8px 0 42px;
 }
 
-.stat, .card, .work-card, .ba-card {
+.stat, .card, .work-card, .ba-card, .logo-card {
   padding: 28px;
   border: 1px solid #eee;
   border-radius: 18px;
@@ -159,7 +167,7 @@ h1 {
   color: #6d28d9;
 }
 
-.stat p, .card p, .work-card p, .ba-card li {
+.stat p, .card p, .work-card p, .ba-card li, .logo-card p {
   color: #475569;
 }
 
@@ -246,11 +254,11 @@ h2 {
   margin-bottom: 34px;
 }
 
-.card, .work-card {
-  transition: 0.25s ease;
+.card, .work-card, .logo-card {
+  transition: all 0.25s ease;
 }
 
-.card:hover, .work-card:hover {
+.card:hover, .work-card:hover, .logo-card:hover {
   transform: translateY(-6px) scale(1.01);
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
 }
@@ -279,6 +287,29 @@ h2 {
 
 .ba-card li {
   margin-bottom: 10px;
+}
+
+.logo-card {
+  text-align: center;
+}
+
+.logo-card img {
+  max-height: 42px;
+  max-width: 180px;
+  object-fit: contain;
+  margin-bottom: 16px;
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition: all 0.2s ease;
+}
+
+.logo-card:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.logo-card p {
+  font-size: 14px;
 }
 
 .contact {
@@ -338,7 +369,7 @@ h2 {
     margin-top: 30px;
   }
 
-  .stats, .cards, .selected-grid, .before-after {
+  .stats, .cards, .selected-grid, .before-after, .logo-grid {
     grid-template-columns: 1fr;
   }
 
@@ -348,31 +379,6 @@ h2 {
   .tool-list::after {
     width: 40px;
   }
-}
-
-  .logo-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.logo-card {
-  background: white;
-  border: 1px solid #eee;
-  border-radius: 18px;
-  padding: 24px;
-  text-align: center;
-  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
-}
-
-.logo-card img {
-  max-height: 40px;
-  margin-bottom: 14px;
-}
-
-.logo-card p {
-  font-size: 14px;
-  color: #475569;
 }
 </style>
 </head>
@@ -387,9 +393,9 @@ h2 {
     <h1>Rea Bernales</h1>
 
     <div class="role">
-  I help ecommerce teams move faster across 
-  <span style="color:#6d28d9; font-weight:600;">Shopify, operations, and systems</span>.
-</div>
+      I help ecommerce teams move faster across
+      <span class="highlight">Shopify, operations, and systems</span>.
+    </div>
 
     <p class="intro">
       I support founders and ecommerce teams by building workflows, managing execution, improving store operations, and keeping projects moving from idea to implementation.
@@ -415,20 +421,21 @@ h2 {
     </div>
   </div>
 
-  <div class="availability-card">
-  <h3>Shopify + Ecommerce Ops Support</h3>
+  <div class="hero-card">
+    <p class="mini-label">Available for</p>
+    <h3>Shopify + Ecommerce Ops Support</h3>
 
-  <ul>
-    <li>Store updates & Liquid edits</li>
-    <li>Notion systems & workflows</li>
-    <li>Creator + affiliate coordination</li>
-    <li>Zapier automations</li>
-  </ul>
+    <ul>
+      <li>Store updates & Liquid edits</li>
+      <li>Notion systems & workflows</li>
+      <li>Creator + affiliate coordination</li>
+      <li>Zapier automations</li>
+    </ul>
 
-  <p style="margin-top:16px; font-size:14px; color:#64748b;">
-    Available for ongoing support and project-based work
-  </p>
-</div>
+    <p style="margin-top:16px; font-size:14px; color:#64748b;">
+      Available for ongoing support and project-based work
+    </p>
+  </div>
 
   <div class="tools">
     <div class="tools-label">Tools I Work With</div>
@@ -630,14 +637,13 @@ h2 {
   </div>
 </section>
 
-  <section>
+<section>
   <h2>Accounts & Platforms I’ve Supported</h2>
   <p class="section-intro">
     I’ve supported customer service, ecommerce, and partner operations across multiple platforms, handling calls, chats, emails, backend systems, and partner coordination.
   </p>
 
   <div class="logo-grid">
-
     <div class="logo-card">
       <img src="amerigas.png" alt="AmeriGas logo">
       <p>Inbound customer support handling billing, delivery, and service inquiries.</p>
@@ -657,7 +663,6 @@ h2 {
       <img src="dnata.png" alt="Dnata Travel logo">
       <p>Processed hotel contracts and backend listings for partner onboarding and system publishing.</p>
     </div>
-
   </div>
 </section>
   
