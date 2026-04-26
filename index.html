@@ -450,15 +450,18 @@ h2 {
   50% { transform: translateY(-12px); }
   100% { transform: translateY(0px); }
 }
-  .icon-float {
+.icon-float {
   display: inline-block;
   font-size: 28px;
-  animation: floatIcon 2.5s ease-in-out infinite;
+  line-height: 1;
+  animation: floatIcon 1.4s ease-in-out infinite;
+  position: relative;
 }
 
 @keyframes floatIcon {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
+  0% { top: 0; }
+  50% { top: -10px; }
+  100% { top: 0; }
 }
 </style>
 </head>
