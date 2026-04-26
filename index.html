@@ -119,9 +119,46 @@ h1 {
 }
 
 .tool-list {
+  position: relative;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.tool-list::before,
+.tool-list::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tool-list::before {
+  left: 0;
+  background: linear-gradient(to right, #ffffff, transparent);
+}
+
+.tool-list::after {
+  right: 0;
+  background: linear-gradient(to left, #ffffff, transparent);
+}
+
+.tool-track {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
+  width: max-content;
+  animation: scrollTools 30s linear infinite;
+}
+
+.tool-list:hover .tool-track {
+  animation-play-state: paused;
+}
+
+@keyframes scrollTools {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 .tool {
@@ -130,6 +167,7 @@ h1 {
   padding: 7px 14px;
   border-radius: 999px;
   font-size: 14px;
+  white-space: nowrap;
 }
 
 section { padding: 52px 0; }
@@ -148,12 +186,14 @@ h2 {
   margin-bottom: 34px;
 }
 
-.card:hover, .work-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.09);
+.card, .work-card {
+  transition: 0.25s ease;
 }
 
-.card, .work-card { transition: 0.25s ease; }
+.card:hover, .work-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+}
 
 .card h3, .work-card h3, .ba-card h3 {
   color: #121a33;
@@ -164,7 +204,7 @@ h2 {
 .work-card img {
   width: 100%;
   border-radius: 14px;
-  margin: 18px 0;
+  margin: 16px 0;
   border: 1px solid #e5e7eb;
 }
 
@@ -212,6 +252,11 @@ h2 {
   text-decoration: none;
   font-weight: 700;
   box-shadow: 0 10px 24px rgba(109, 40, 217, 0.22);
+  transition: 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
 }
 
 .secondary {
@@ -226,6 +271,11 @@ h2 {
   .hero { padding: 50px 0 20px; }
   .stats, .cards, .selected-grid, .before-after { grid-template-columns: 1fr; }
   .role { font-size: 18px; }
+
+  .tool-list::before,
+  .tool-list::after {
+    width: 40px;
+  }
 }
 </style>
 </head>
@@ -267,21 +317,39 @@ h2 {
 
   <div class="tools">
     <div class="tools-label">Tools I Work With</div>
+
     <div class="tool-list">
-      <span class="tool">Shopify</span>
-      <span class="tool">Liquid</span>
-      <span class="tool">Notion</span>
-      <span class="tool">Slack</span>
-      <span class="tool">Zapier</span>
-      <span class="tool">Google Sheets</span>
-      <span class="tool">Frame.io</span>
-      <span class="tool">Triple Whale</span>
-      <span class="tool">GitHub</span>
-      <span class="tool">Apploye</span>
-      <span class="tool">GemPages</span>
-      <span class="tool">Loox</span>
-      <span class="tool">Backstage</span>
-      <span class="tool">TikTok One</span>
+      <div class="tool-track">
+        <span class="tool">Shopify</span>
+        <span class="tool">Liquid</span>
+        <span class="tool">Notion</span>
+        <span class="tool">Slack</span>
+        <span class="tool">Zapier</span>
+        <span class="tool">Google Sheets</span>
+        <span class="tool">Frame.io</span>
+        <span class="tool">Triple Whale</span>
+        <span class="tool">GitHub</span>
+        <span class="tool">Apploye</span>
+        <span class="tool">GemPages</span>
+        <span class="tool">Loox</span>
+        <span class="tool">Backstage</span>
+        <span class="tool">TikTok One</span>
+
+        <span class="tool">Shopify</span>
+        <span class="tool">Liquid</span>
+        <span class="tool">Notion</span>
+        <span class="tool">Slack</span>
+        <span class="tool">Zapier</span>
+        <span class="tool">Google Sheets</span>
+        <span class="tool">Frame.io</span>
+        <span class="tool">Triple Whale</span>
+        <span class="tool">GitHub</span>
+        <span class="tool">Apploye</span>
+        <span class="tool">GemPages</span>
+        <span class="tool">Loox</span>
+        <span class="tool">Backstage</span>
+        <span class="tool">TikTok One</span>
+      </div>
     </div>
   </div>
 </section>
@@ -335,7 +403,7 @@ h2 {
   </div>
 </section>
 
-  <section>
+<section>
   <h2>Shopify Execution Example</h2>
   <p class="section-intro">
     Example of a homepage I helped implement and structure inside Shopify, focusing on layout, messaging flow, and product presentation.
@@ -349,10 +417,8 @@ h2 {
       visual layout, and section flow to improve clarity and user experience.
     </p>
 
-    <!-- REPLACE THIS IMAGE NAME WITH YOUR CROPPED FILE -->
     <img src="vetpets-homepage.png" alt="VetPets homepage screenshot">
-
-<img src="vetpets-section2.png" alt="VetPets section screenshot">
+    <img src="vetpets-section2.png" alt="VetPets section screenshot">
 
     <p class="result">Clear product positioning and improved visual storytelling across the page.</p>
 
