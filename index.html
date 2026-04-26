@@ -42,6 +42,21 @@ body {
   animation: floatGlow 6s ease-in-out infinite;
 }
 
+  .hero::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: #a78bfa;
+  border-radius: 50%;
+  bottom: 40px;
+  left: 10px;
+  z-index: -1;
+  filter: blur(80px);
+  opacity: 0.2;
+  animation: floatGlow 8s ease-in-out infinite;
+}
+
 @keyframes floatGlow {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
