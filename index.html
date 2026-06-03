@@ -128,8 +128,13 @@ h1 {
 }
 
 .profile-photo img {
-  width: 100%;
-  display: block;
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+    object-position: center top;
+
+    display: block;
+    border-radius: 32px;
 }
   
 .hero-card h3 {
@@ -534,6 +539,42 @@ h2 {
   display: block;
   border-radius: 0;
   box-shadow: none;
+}
+
+  .profile-photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px;
+}
+
+.profile-photo::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 180px;
+
+    background: linear-gradient(
+        to top,
+        #f8f8fb 0%,
+        rgba(248,248,251,0.95) 25%,
+        rgba(248,248,251,0.5) 60%,
+        transparent 100%
+    );
+
+    pointer-events: none;
+}
+
+  .hero-right {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.profile-photo {
+    width: 620px;
+    margin-top: -20px;
 }
 </style>
 </head>
