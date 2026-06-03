@@ -566,15 +566,55 @@ h2 {
     pointer-events: none;
 }
 
-  .hero-right {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
+  .hero-right{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
 }
 
-.profile-photo {
-    width: 620px;
-    margin-top: -20px;
+.profile-photo{
+    width:520px;
+    max-width:100%;
+    padding:12px;
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(12px);
+    border-radius:36px;
+    border:1px solid rgba(255,255,255,.9);
+    box-shadow:0 25px 60px rgba(109,40,217,.15);
+}
+
+.profile-photo img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:28px;
+    object-fit:cover;
+}
+
+.profile-photo::after{
+    display:none;
+}
+
+.hero-right::after{
+    display:none;
+}
+
+  .credibility{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:30px;
+}
+
+.credibility span{
+    background:#fff;
+    border:1px solid #eadff8;
+    padding:8px 14px;
+    border-radius:999px;
+    font-size:14px;
+    color:#475569;
+    font-weight:600;
 }
 </style>
 </head>
@@ -604,6 +644,13 @@ h2 {
       From Shopify updates and cart optimization to Notion dashboards, Zapier automations, creator pipelines, and team coordination, I help turn scattered tasks into organized systems.
     </p>
 
+    <div class="credibility">
+  <span>✓ Shopify Merchant Support</span>
+  <span>✓ Booking.com</span>
+  <span>✓ AmeriGas</span>
+  <span>✓ Dnata Travel</span>
+</div>
+
     <div class="stats">
       <div class="stat">
         <h3>Shopify</h3>
@@ -626,22 +673,7 @@ h2 {
     <img src="rea-profile.png" alt="Rea Bernales">
   </div>
 
-  <div class="hero-card" style="display:none;">
-    <p class="mini-label">Available for</p>
-    <h3>Shopify + Ecommerce Ops Support</h3>
-
-    <ul>
-      <li>Store updates & Liquid edits</li>
-      <li>Notion systems & workflows</li>
-      <li>Creator + affiliate coordination</li>
-      <li>Zapier automations</li>
-      <li>Gmail cleanup & admin systems</li>
-    </ul>
-
-    <p style="margin-top:16px;font-size:14px;color:#64748b;">
-      Available for ongoing support and project-based work
-    </p>
-  </div>
+</div>
 
 </div>
   
@@ -846,35 +878,6 @@ h2 {
   </div>
 </section>
 
-  <section>
-  <h2>Customer Support Experience</h2>
-  <p class="section-intro">
-    I’ve handled customer inquiries, complaints, and support workflows across email, chat, and backend systems, ensuring clear and timely communication.
-  </p>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Email Support</h3>
-      <p>Responded to customer emails related to refunds, tracking, and general inquiries while maintaining a clear and professional tone.</p>
-    </div>
-
-    <div class="card">
-      <h3>Complaint Handling</h3>
-      <p>Managed customer concerns calmly and professionally, focusing on resolution and customer satisfaction.</p>
-    </div>
-
-    <div class="card">
-      <h3>Process-Based Support</h3>
-      <p>Followed SOPs to ensure consistent responses, accurate information, and timely handling of customer requests.</p>
-    </div>
-
-    <div class="card">
-      <h3>Support Systems</h3>
-      <p>Worked within structured systems to track issues, manage workflows, and improve support processes over time.</p>
-    </div>
-  </div>
-</section>
-
 <section>
   <h2>How I Work</h2>
   <p class="section-intro">
@@ -897,32 +900,6 @@ h2 {
     <div class="card">
       <h3>Founder Support</h3>
       <p>I help founders and teams turn scattered ideas into clear action steps and working processes.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <h2>Impact Highlights</h2>
-  <p class="section-intro">
-    The value I bring is not just task completion. I help improve the way ecommerce teams operate.
-  </p>
-
-  <div class="cards">
-    <div class="card">
-      <h3>AOV Support</h3>
-      <p>Helped support cart drawer, upsell, and product page improvements aimed at increasing average order value.</p>
-    </div>
-    <div class="card">
-      <h3>Automation</h3>
-      <p>Created intake and notification workflows to reduce manual tracking and keep the team updated in real time.</p>
-    </div>
-    <div class="card">
-      <h3>Team Systems</h3>
-      <p>Centralized workflows, documentation, tasks, and resources so teams can work with better visibility.</p>
-    </div>
-    <div class="card">
-      <h3>Fast Execution</h3>
-      <p>Implemented Shopify updates, app setup, Liquid changes, and operational fixes quickly and clearly.</p>
     </div>
   </div>
 </section>
@@ -986,9 +963,9 @@ h2 {
 </section>
   
 <section class="contact" id="contact">
-  <h2>Looking for someone who can actually execute and organize your systems?</h2>
+  <h2>Ready to streamline your operations?</h2>
   <p>
-  If you need support across Shopify, ecommerce operations, creator workflows, and internal systems, I'd love to help.
+  From Shopify execution to creator workflows and internal systems, I help ecommerce teams stay organized and move faster.
 
   <br><br>
 
