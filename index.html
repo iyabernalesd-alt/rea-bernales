@@ -5,19 +5,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Rea Bernales | Shopify & Ecommerce Operations Specialist</title>
+  <title>Rea Bernales — Shopify & Ecommerce Operations</title>
 
   <meta
     name="description"
-    content="Rea Bernales is a Shopify and Ecommerce Operations Specialist focused on technical Shopify execution, CRO, A/B testing, funnels, systems, automation, and ecommerce operations."
+    content="Rea Bernales is a Shopify & Ecommerce Operations Specialist focused on technical execution, CRO, systems, automation, and ecommerce operations."
   />
 
-  <meta name="theme-color" content="#6d28d9" />
+  <meta name="theme-color" content="#f97316" />
 
   <style>
     /* =========================================================
-       RESET & BASE
+       FOUNDATION
     ========================================================= */
+
+    :root {
+      --black: #111111;
+      --black-soft: #1a1a1a;
+      --orange: #f97316;
+      --orange-dark: #ea580c;
+      --orange-soft: #fff3e8;
+      --cream: #fffdf9;
+      --white: #ffffff;
+      --gray-50: #fafafa;
+      --gray-100: #f4f4f4;
+      --gray-200: #e7e7e7;
+      --gray-400: #a3a3a3;
+      --gray-500: #737373;
+      --gray-600: #525252;
+      --shadow: 0 20px 60px rgba(17, 17, 17, 0.08);
+      --shadow-orange: 0 25px 70px rgba(249, 115, 22, 0.18);
+      --radius: 24px;
+    }
 
     * {
       box-sizing: border-box;
@@ -31,19 +50,14 @@
 
     body {
       font-family: Inter, Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(
-          circle at 85% 8%,
-          rgba(124, 58, 237, 0.08),
-          transparent 28%
-        ),
-        linear-gradient(180deg, #ffffff 0%, #fbf9ff 100%);
-      color: #111827;
+      color: var(--black);
+      background: var(--cream);
       line-height: 1.6;
       overflow-x: hidden;
     }
 
     img {
+      display: block;
       max-width: 100%;
     }
 
@@ -51,76 +65,74 @@
       color: inherit;
     }
 
-    .page {
-      width: min(1120px, calc(100% - 48px));
+    ::selection {
+      background: var(--orange);
+      color: var(--white);
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
       margin: 0 auto;
     }
 
     /* =========================================================
-       DESIGN TOKENS
+       NAVIGATION
     ========================================================= */
 
-    :root {
-      --ink: #121a33;
-      --text: #334155;
-      --muted: #64748b;
-      --purple: #6d28d9;
-      --purple-dark: #5b21b6;
-      --purple-light: #a78bfa;
-      --lavender: #f5efff;
-      --border: #e9e3f3;
-      --white: #ffffff;
-      --shadow: 0 20px 55px rgba(15, 23, 42, 0.07);
-      --shadow-purple: 0 22px 60px rgba(109, 40, 217, 0.14);
-      --radius: 22px;
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 253, 249, 0.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(17, 17, 17, 0.07);
     }
 
-    /* =========================================================
-       HEADER / NAV
-    ========================================================= */
-
-    .topbar {
+    .nav-inner {
+      height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 24px 0;
     }
 
-    .brand {
-      font-weight: 800;
-      font-size: 18px;
-      color: var(--ink);
+    .logo {
       text-decoration: none;
-      letter-spacing: -0.02em;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
     }
 
-    .brand span {
-      color: var(--purple);
+    .logo span {
+      color: var(--orange);
     }
 
-    .nav {
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 30px;
     }
 
-    .nav a {
+    .nav-links a {
       text-decoration: none;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
+      color: var(--gray-600);
+      font-size: 13px;
+      font-weight: 700;
       transition: color 0.2s ease;
     }
 
-    .nav a:hover {
-      color: var(--purple);
+    .nav-links a:hover {
+      color: var(--orange);
     }
 
-    .nav-cta {
-      padding: 9px 15px;
-      border-radius: 10px;
-      color: var(--purple) !important;
-      background: var(--lavender);
+    .nav-contact {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--black);
+      color: var(--white) !important;
+    }
+
+    .nav-contact:hover {
+      background: var(--orange);
     }
 
     /* =========================================================
@@ -129,115 +141,98 @@
 
     .hero {
       position: relative;
+      min-height: calc(100vh - 76px);
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
-      gap: 64px;
+      grid-template-columns: 1.08fr 0.92fr;
       align-items: center;
-      min-height: 720px;
-      padding: 70px 0 80px;
+      gap: 70px;
+      padding: 90px 0 110px;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      width: 380px;
-      height: 380px;
-      top: 30px;
-      right: -80px;
+      width: 500px;
+      height: 500px;
+      right: -180px;
+      top: 20px;
       border-radius: 50%;
-      background: rgba(109, 40, 217, 0.16);
+      background: rgba(249, 115, 22, 0.10);
       filter: blur(100px);
-      pointer-events: none;
       z-index: -1;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      bottom: 20px;
-      left: -120px;
-      border-radius: 50%;
-      background: rgba(167, 139, 250, 0.13);
-      filter: blur(90px);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .eyebrow {
+    .hero-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      margin-bottom: 22px;
-      color: var(--purple);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.15em;
+      gap: 9px;
+      margin-bottom: 25px;
+      color: var(--orange-dark);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.17em;
       text-transform: uppercase;
     }
 
-    .eyebrow::before {
+    .hero-eyebrow::before {
       content: "";
-      width: 26px;
+      width: 28px;
       height: 2px;
-      background: var(--purple);
-      border-radius: 999px;
+      background: var(--orange);
     }
 
     .hero h1 {
       max-width: 760px;
-      font-size: clamp(52px, 7vw, 86px);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-      color: var(--ink);
-      margin-bottom: 28px;
+      font-size: clamp(56px, 8vw, 100px);
+      line-height: 0.91;
+      letter-spacing: -0.07em;
+      font-weight: 900;
+      margin-bottom: 30px;
     }
 
-    .hero h1 .accent {
+    .hero h1 span {
       display: block;
-      color: var(--purple);
+      color: var(--orange);
     }
 
-    .hero-role {
+    .hero-subtitle {
       max-width: 700px;
-      font-size: clamp(21px, 3vw, 27px);
+      font-size: clamp(20px, 2.5vw, 26px);
       line-height: 1.35;
-      font-weight: 600;
       letter-spacing: -0.025em;
-      color: #29344f;
-      margin-bottom: 22px;
+      font-weight: 650;
+      color: #2b2b2b;
+      margin-bottom: 20px;
     }
 
-    .hero-role strong {
-      color: var(--purple);
+    .hero-subtitle strong {
+      color: var(--black);
     }
 
-    .hero-intro {
-      max-width: 720px;
-      font-size: 18px;
-      color: var(--text);
-      margin-bottom: 28px;
+    .hero-description {
+      max-width: 650px;
+      color: var(--gray-600);
+      font-size: 17px;
+      margin-bottom: 32px;
     }
 
     .hero-actions {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      margin-bottom: 28px;
+      gap: 12px;
+      margin-bottom: 32px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      min-height: 48px;
-      padding: 13px 20px;
+      min-height: 50px;
+      padding: 13px 21px;
       border-radius: 12px;
       text-decoration: none;
-      font-size: 14px;
-      font-weight: 800;
+      font-size: 13px;
+      font-weight: 850;
       transition:
         transform 0.2s ease,
         box-shadow 0.2s ease,
@@ -245,558 +240,444 @@
     }
 
     .button-primary {
-      color: #ffffff;
-      background: linear-gradient(
-        135deg,
-        var(--purple),
-        #7c3aed
-      );
-      box-shadow: 0 12px 28px rgba(109, 40, 217, 0.22);
+      background: var(--orange);
+      color: var(--white);
+      box-shadow: 0 12px 30px rgba(249, 115, 22, 0.22);
     }
 
     .button-primary:hover {
+      background: var(--orange-dark);
       transform: translateY(-2px);
-      box-shadow: 0 18px 34px rgba(109, 40, 217, 0.3);
+      box-shadow: 0 18px 35px rgba(249, 115, 22, 0.28);
     }
 
-    .button-secondary {
-      color: var(--purple);
-      background: #ffffff;
-      border: 1px solid var(--border);
+    .button-dark {
+      background: var(--black);
+      color: var(--white);
     }
 
-    .button-secondary:hover {
+    .button-dark:hover {
+      background: #2a2a2a;
       transform: translateY(-2px);
-      border-color: #cfc0e8;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
     }
 
-    .credibility {
+    .hero-trust {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
 
-    .credibility span {
+    .hero-trust span {
       padding: 7px 11px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--gray-200);
       border-radius: 999px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
+      color: var(--gray-500);
+      background: rgba(255, 255, 255, 0.6);
+      font-size: 11px;
+      font-weight: 750;
     }
 
     /* =========================================================
-       HERO VISUAL
+       HERO IMAGE
     ========================================================= */
 
-    .hero-visual {
+    .hero-image-wrap {
       position: relative;
       display: flex;
       justify-content: center;
     }
 
-    .profile-frame {
+    .hero-image {
       position: relative;
-      width: min(100%, 440px);
-      padding: 10px;
+      width: min(100%, 470px);
+      padding: 12px;
+      background: var(--white);
       border-radius: 34px;
-      background: rgba(255, 255, 255, 0.82);
-      border: 1px solid rgba(255, 255, 255, 0.95);
-      box-shadow: var(--shadow-purple);
-      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-orange);
+      transform: rotate(1.2deg);
     }
 
-    .profile-frame::before {
+    .hero-image::before {
       content: "";
       position: absolute;
-      inset: -18px;
+      inset: -12px;
+      border: 1px solid rgba(249, 115, 22, 0.20);
       border-radius: 42px;
-      background: linear-gradient(
-        135deg,
-        rgba(109, 40, 217, 0.14),
-        transparent 55%
-      );
       z-index: -1;
     }
 
-    .profile-frame img {
-      display: block;
+    .hero-image img {
       width: 100%;
-      border-radius: 27px;
+      border-radius: 25px;
     }
 
-    .hero-proof-card {
+    .hero-note {
       position: absolute;
-      left: -34px;
-      bottom: 32px;
-      width: 230px;
-      padding: 18px;
+      left: -40px;
+      bottom: 35px;
+      width: 235px;
+      padding: 19px;
+      background: var(--black);
+      color: var(--white);
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid var(--border);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
-      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 50px rgba(17, 17, 17, 0.20);
     }
 
-    .hero-proof-card .small {
-      color: var(--purple);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
+    .hero-note small {
+      display: block;
+      color: var(--orange);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
       margin-bottom: 6px;
     }
 
-    .hero-proof-card strong {
-      display: block;
-      color: var(--ink);
-      font-size: 15px;
-      line-height: 1.35;
+    .hero-note strong {
+      font-size: 14px;
+      line-height: 1.4;
     }
 
     /* =========================================================
-       SECTION COMMON
+       TRUST BAR
+    ========================================================= */
+
+    .trust-bar {
+      padding: 18px 0;
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .trust-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .trust-label {
+      color: var(--gray-400);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .trust-items {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 28px;
+      color: var(--gray-500);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       SECTIONS
     ========================================================= */
 
     section {
-      padding: 92px 0;
+      padding: 115px 0;
     }
 
-    .section-header {
-      max-width: 760px;
-      margin-bottom: 42px;
-    }
-
-    .section-label {
-      color: var(--purple);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.15em;
+    .section-kicker {
+      color: var(--orange-dark);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       margin-bottom: 12px;
     }
 
-    h2 {
-      color: var(--ink);
-      font-size: clamp(36px, 5vw, 58px);
-      line-height: 1.04;
-      letter-spacing: -0.045em;
-      margin-bottom: 18px;
+    .section-title {
+      max-width: 850px;
+      font-size: clamp(40px, 5.5vw, 68px);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      font-weight: 900;
+      margin-bottom: 22px;
     }
 
     .section-intro {
-      color: var(--text);
+      max-width: 700px;
+      color: var(--gray-600);
       font-size: 17px;
-      max-width: 720px;
     }
 
-    /* =========================================================
-       VALUE STRIP
-    ========================================================= */
-
-    .value-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      padding: 18px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.75);
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .value-item {
-      padding: 24px;
-      border-radius: 16px;
-    }
-
-    .value-item:not(:last-child) {
-      border-right: 1px solid var(--border);
-    }
-
-    .value-item strong {
-      display: block;
-      color: var(--ink);
-      font-size: 20px;
-      margin-bottom: 7px;
-    }
-
-    .value-item p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* =========================================================
-       CAPABILITY CARDS
-    ========================================================= */
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      position: relative;
-      padding: 30px;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 140px;
-      height: 140px;
-      top: -70px;
-      right: -70px;
-      border-radius: 50%;
-      background: rgba(109, 40, 217, 0.08);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #d8c8ee;
-      box-shadow: var(--shadow-purple);
-    }
-
-    .card-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      background: var(--lavender);
-      color: var(--purple);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .card h3 {
-      color: var(--ink);
-      font-size: 22px;
-      line-height: 1.2;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      color: var(--text);
-      font-size: 15px;
-      margin-bottom: 17px;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-
-    .tag {
-      padding: 6px 9px;
-      border-radius: 8px;
-      background: #f8f7fb;
-      color: #596579;
-      font-size: 11px;
-      font-weight: 700;
-      border: 1px solid #eeeaf4;
+    .section-heading {
+      margin-bottom: 50px;
     }
 
     /* =========================================================
        FEATURED WORK
     ========================================================= */
 
-    .work-grid {
+    .featured-work {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
+      gap: 30px;
     }
 
-    .work-card {
+    .project {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      min-height: 470px;
+      border-radius: 30px;
       overflow: hidden;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 24px;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
       box-shadow: var(--shadow);
       transition:
         transform 0.25s ease,
         box-shadow 0.25s ease;
     }
 
-    .work-card:hover {
+    .project:hover {
       transform: translateY(-5px);
-      box-shadow: var(--shadow-purple);
+      box-shadow: var(--shadow-orange);
     }
 
-    .work-image {
-      padding: 12px 12px 0;
+    .project.reverse {
+      grid-template-columns: 1.08fr 0.92fr;
     }
 
-    .work-image img {
-      display: block;
+    .project.reverse .project-image {
+      order: 2;
+    }
+
+    .project-image {
+      min-height: 100%;
+      padding: 18px;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-image img {
       width: 100%;
-      border-radius: 16px;
-      border: 1px solid #e7e5eb;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 18px;
+      border: 1px solid var(--gray-200);
+      box-shadow: 0 12px 35px rgba(17, 17, 17, 0.08);
     }
 
-    .work-content {
-      padding: 26px;
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 55px;
     }
 
-    .work-label {
-      color: var(--purple);
+    .project-number {
+      color: var(--orange);
       font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      margin-bottom: 20px;
     }
 
-    .work-content h3 {
-      color: var(--ink);
-      font-size: 25px;
-      line-height: 1.15;
-      margin-bottom: 11px;
+    .project-content h3 {
+      font-size: clamp(30px, 4vw, 45px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: 18px;
     }
 
-    .work-content p {
-      color: var(--text);
+    .project-content > p {
+      color: var(--gray-600);
       font-size: 15px;
-      margin-bottom: 16px;
+      margin-bottom: 25px;
     }
 
-    .work-outcome {
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      color: #29344f;
+    .project-details {
+      display: grid;
+      gap: 13px;
+    }
+
+    .project-detail {
+      padding-top: 13px;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .project-detail strong {
+      display: block;
+      color: var(--black);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      margin-bottom: 3px;
+    }
+
+    .project-detail span {
+      color: var(--gray-600);
+      font-size: 13px;
+    }
+
+    /* =========================================================
+       CAPABILITIES
+    ========================================================= */
+
+    .capability-layout {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .capability-sticky {
+      position: sticky;
+      top: 115px;
+    }
+
+    .capability-list {
+      display: grid;
+      gap: 1px;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .capability {
+      display: grid;
+      grid-template-columns: 55px 1fr;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .capability-number {
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 900;
+      padding-top: 3px;
+    }
+
+    .capability h3 {
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      margin-bottom: 7px;
+    }
+
+    .capability p {
+      max-width: 570px;
+      color: var(--gray-600);
       font-size: 14px;
+    }
+
+    .capability-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 13px;
+    }
+
+    .capability-tags span {
+      padding: 5px 8px;
+      border-radius: 7px;
+      background: var(--orange-soft);
+      color: var(--orange-dark);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    .about {
+      background: var(--black);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about::after {
+      content: "";
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      right: -180px;
+      top: -200px;
+      border-radius: 50%;
+      background: rgba(249, 115, 22, 0.15);
+      filter: blur(100px);
+    }
+
+    .about-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .about .section-kicker {
+      color: var(--orange);
+    }
+
+    .about .section-title {
+      color: var(--white);
+    }
+
+    .about-copy {
+      color: #cfcfcf;
+      font-size: 17px;
+      max-width: 680px;
+    }
+
+    .about-copy p {
+      margin-bottom: 20px;
+    }
+
+    .about-highlight {
+      padding: 24px;
+      margin-top: 30px;
+      border-left: 3px solid var(--orange);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--white);
+      font-size: 19px;
+      line-height: 1.45;
       font-weight: 700;
     }
 
     /* =========================================================
-       SHOPIFY FEATURE
+       EXPERIENCE
     ========================================================= */
 
-    .shopify-feature {
-      position: relative;
-      padding: 42px;
-      border-radius: 30px;
-      background:
-        radial-gradient(
-          circle at 85% 15%,
-          rgba(167, 139, 250, 0.2),
-          transparent 28%
-        ),
-        linear-gradient(135deg, #171331, #281957);
-      color: #ffffff;
-      overflow: hidden;
-      box-shadow: 0 30px 80px rgba(44, 23, 87, 0.22);
-    }
-
-    .shopify-feature::before {
-      content: "";
-      position: absolute;
-      width: 360px;
-      height: 360px;
-      right: -140px;
-      top: -180px;
-      border-radius: 50%;
-      background: rgba(167, 139, 250, 0.18);
-      filter: blur(50px);
-    }
-
-    .shopify-feature-grid {
-      position: relative;
-      z-index: 1;
+    .experience {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 40px;
-      align-items: center;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 80px;
     }
 
-    .shopify-feature .section-label {
-      color: #c4b5fd;
+    .experience-list {
+      border-top: 1px solid var(--gray-200);
     }
 
-    .shopify-feature h2 {
-      color: #ffffff;
-      font-size: clamp(34px, 4vw, 52px);
-    }
-
-    .shopify-feature .description {
-      color: #ddd6fe;
-      font-size: 16px;
-      margin-bottom: 24px;
-    }
-
-    .shopify-list {
+    .experience-item {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 9px;
-      list-style: none;
+      grid-template-columns: 150px 1fr;
+      gap: 25px;
+      padding: 27px 0;
+      border-bottom: 1px solid var(--gray-200);
     }
 
-    .shopify-list li {
-      color: #f5f3ff;
-      font-size: 13px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .shopify-list li::before {
-      content: "✓";
-      color: #c4b5fd;
-      font-weight: 800;
-      margin-right: 7px;
-    }
-
-    .shopify-images {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .shopify-image {
-      padding: 8px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 18px;
-    }
-
-    .shopify-image img {
-      display: block;
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    /* =========================================================
-       BEFORE / AFTER
-    ========================================================= */
-
-    .before-after {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .ba-card {
-      padding: 30px;
-      border-radius: 22px;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      box-shadow: var(--shadow);
-    }
-
-    .ba-card.after {
-      background:
-        linear-gradient(
-          135deg,
-          rgba(109, 40, 217, 0.06),
-          rgba(255, 255, 255, 0.96)
-        );
-      border-color: #ddd0ef;
-    }
-
-    .ba-label {
-      display: inline-block;
-      margin-bottom: 18px;
-      padding: 6px 10px;
-      border-radius: 8px;
+    .experience-year {
+      color: var(--orange-dark);
       font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 0.08em;
     }
 
-    .before .ba-label {
-      color: #64748b;
-      background: #f1f5f9;
+    .experience-item h3 {
+      font-size: 19px;
+      margin-bottom: 4px;
     }
 
-    .after .ba-label {
-      color: var(--purple);
-      background: var(--lavender);
-    }
-
-    .ba-card h3 {
-      color: var(--ink);
-      font-size: 25px;
-      margin-bottom: 16px;
-    }
-
-    .ba-card ul {
-      list-style: none;
-    }
-
-    .ba-card li {
-      position: relative;
-      padding-left: 25px;
-      color: var(--text);
-      font-size: 15px;
-      margin-bottom: 13px;
-    }
-
-    .before li::before {
-      content: "—";
-      position: absolute;
-      left: 0;
-      color: #94a3b8;
-      font-weight: 800;
-    }
-
-    .after li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--purple);
-      font-weight: 800;
-    }
-
-    /* =========================================================
-       HOW I WORK
-    ========================================================= */
-
-    .process {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .process-item {
-      padding: 24px;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      border-radius: 18px;
-    }
-
-    .process-number {
-      color: var(--purple);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      margin-bottom: 14px;
-    }
-
-    .process-item h3 {
-      color: var(--ink);
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .process-item p {
-      color: var(--muted);
+    .experience-item p {
+      color: var(--gray-600);
       font-size: 14px;
     }
 
@@ -804,23 +685,24 @@
        TOOLS
     ========================================================= */
 
-    .tools-box {
-      padding: 32px;
-      border-radius: 22px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.72);
-      box-shadow: var(--shadow);
+    .tools-section {
+      background: #f7f6f3;
+    }
+
+    .tools-layout {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 80px;
     }
 
     .tool-groups {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 35px;
     }
 
     .tool-group h3 {
-      color: var(--ink);
-      font-size: 15px;
+      font-size: 14px;
       margin-bottom: 12px;
     }
 
@@ -832,48 +714,12 @@
 
     .tool {
       padding: 7px 10px;
-      border: 1px solid var(--border);
+      background: var(--white);
+      border: 1px solid var(--gray-200);
       border-radius: 8px;
-      background: #ffffff;
-      color: #596579;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    /* =========================================================
-       PROFESSIONAL BACKGROUND
-    ========================================================= */
-
-    .background-box {
-      padding: 34px;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      background: #ffffff;
-      box-shadow: var(--shadow);
-    }
-
-    .background-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    .background-item {
-      padding: 22px;
-      border-radius: 16px;
-      background: #faf9fc;
-      border: 1px solid #eeeaf4;
-    }
-
-    .background-item h3 {
-      color: var(--ink);
-      font-size: 18px;
-      margin-bottom: 7px;
-    }
-
-    .background-item p {
-      color: var(--muted);
-      font-size: 14px;
+      color: var(--gray-600);
+      font-size: 11px;
+      font-weight: 750;
     }
 
     /* =========================================================
@@ -881,53 +727,48 @@
     ========================================================= */
 
     .contact {
-      position: relative;
-      margin: 60px 0 70px;
-      padding: 76px 40px;
-      border-radius: 30px;
+      padding: 125px 0 120px;
       text-align: center;
-      overflow: hidden;
-      background:
-        radial-gradient(
-          circle at 15% 20%,
-          rgba(196, 181, 253, 0.22),
-          transparent 25%
-        ),
-        radial-gradient(
-          circle at 85% 80%,
-          rgba(167, 139, 250, 0.2),
-          transparent 28%
-        ),
-        linear-gradient(135deg, #faf7ff, #f1eaff);
-      border: 1px solid #e6daf5;
     }
 
-    .contact h2 {
-      max-width: 720px;
-      margin: 0 auto 16px;
+    .contact-inner {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .contact .section-title {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .contact p {
-      max-width: 680px;
-      margin: 0 auto 30px;
-      color: var(--text);
+      max-width: 650px;
+      margin: 0 auto 32px;
+      color: var(--gray-600);
       font-size: 17px;
     }
 
-    .contact-links {
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .contact-email {
       margin-top: 22px;
-      color: var(--muted);
+      color: var(--gray-500);
       font-size: 13px;
     }
 
-    .contact-links a {
-      color: var(--purple);
+    .contact-email a {
+      color: var(--black);
+      font-weight: 800;
       text-decoration: none;
-      font-weight: 700;
     }
 
-    .contact-links a:hover {
-      text-decoration: underline;
+    .contact-email a:hover {
+      color: var(--orange);
     }
 
     /* =========================================================
@@ -935,198 +776,180 @@
     ========================================================= */
 
     footer {
-      padding: 0 0 40px;
-      text-align: center;
-      color: #94a3b8;
-      font-size: 12px;
+      padding: 25px 0 35px;
+      border-top: 1px solid var(--gray-200);
+      color: var(--gray-400);
+      font-size: 11px;
     }
 
-    /* =========================================================
-       ANIMATIONS
-    ========================================================= */
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .hero-copy > * {
-      opacity: 0;
-      animation: fadeUp 0.7s ease forwards;
-    }
-
-    .hero-copy .eyebrow {
-      animation-delay: 0.05s;
-    }
-
-    .hero-copy h1 {
-      animation-delay: 0.12s;
-    }
-
-    .hero-copy .hero-role {
-      animation-delay: 0.2s;
-    }
-
-    .hero-copy .hero-intro {
-      animation-delay: 0.28s;
-    }
-
-    .hero-copy .hero-actions {
-      animation-delay: 0.36s;
-    }
-
-    .hero-copy .credibility {
-      animation-delay: 0.44s;
-    }
-
-    .hero-visual {
-      opacity: 0;
-      animation: fadeUp 0.8s ease 0.25s forwards;
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     /* =========================================================
        RESPONSIVE
     ========================================================= */
 
-    @media (max-width: 900px) {
-      .hero {
+    @media (max-width: 950px) {
+      .hero,
+      .capability-layout,
+      .about-grid,
+      .experience,
+      .tools-layout {
         grid-template-columns: 1fr;
-        min-height: auto;
-        gap: 48px;
-        padding-top: 55px;
       }
 
-      .hero-visual {
-        order: -1;
+      .hero {
+        min-height: auto;
+        padding: 75px 0 90px;
       }
 
       .hero-copy {
         text-align: center;
       }
 
-      .eyebrow,
-      .credibility,
-      .hero-actions {
+      .hero-eyebrow,
+      .hero-actions,
+      .hero-trust {
         justify-content: center;
       }
 
       .hero h1,
-      .hero-role,
-      .hero-intro {
+      .hero-subtitle,
+      .hero-description {
         margin-left: auto;
         margin-right: auto;
       }
 
-      .hero-proof-card {
-        left: 10px;
+      .hero-image-wrap {
+        max-width: 550px;
+        margin: 0 auto;
+        width: 100%;
       }
 
-      .value-strip {
+      .capability-sticky {
+        position: static;
+      }
+
+      .about-grid,
+      .experience,
+      .tools-layout {
+        gap: 45px;
+      }
+
+      .project,
+      .project.reverse {
         grid-template-columns: 1fr;
       }
 
-      .value-item:not(:last-child) {
-        border-right: 0;
-        border-bottom: 1px solid var(--border);
+      .project.reverse .project-image {
+        order: 0;
       }
 
-      .shopify-feature-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .process {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .tool-groups {
-        grid-template-columns: 1fr 1fr;
+      .project-image {
+        min-height: auto;
       }
     }
 
-    @media (max-width: 680px) {
-      .page {
-        width: min(100% - 32px, 1120px);
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 32px, 1180px);
       }
 
-      .topbar {
-        padding: 18px 0;
-      }
-
-      .nav {
+      .nav-links {
         display: none;
       }
 
-      .hero {
-        padding: 48px 0 55px;
-      }
-
-      .hero h1 {
-        font-size: clamp(48px, 15vw, 68px);
-      }
-
-      .hero-role {
-        font-size: 20px;
-      }
-
-      .hero-intro {
-        font-size: 16px;
-      }
-
-      .profile-frame {
-        width: min(100%, 390px);
-      }
-
-      .hero-proof-card {
-        position: relative;
-        left: auto;
-        bottom: auto;
-        width: 100%;
-        margin-top: 14px;
+      .nav-inner {
+        height: 68px;
       }
 
       section {
-        padding: 65px 0;
+        padding: 80px 0;
       }
 
-      .cards,
-      .work-grid,
-      .before-after,
-      .background-grid,
-      .process,
-      .tool-groups {
-        grid-template-columns: 1fr;
+      .hero {
+        padding: 55px 0 75px;
       }
 
-      .shopify-feature {
-        padding: 28px 22px;
+      .hero h1 {
+        font-size: clamp(52px, 16vw, 75px);
       }
 
-      .shopify-list {
-        grid-template-columns: 1fr;
+      .hero-subtitle {
+        font-size: 19px;
       }
 
-      .tools-box {
-        padding: 24px;
+      .hero-description {
+        font-size: 15px;
       }
 
-      .contact {
-        padding: 55px 22px;
-        margin-bottom: 45px;
+      .hero-actions {
+        flex-direction: column;
       }
 
       .button {
         width: 100%;
       }
 
-      .hero-actions {
+      .hero-note {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        margin-top: 15px;
+      }
+
+      .trust-bar-inner {
+        align-items: flex-start;
         flex-direction: column;
+      }
+
+      .trust-items {
+        justify-content: flex-start;
+        gap: 13px;
+      }
+
+      .section-title {
+        font-size: 43px;
+      }
+
+      .project-content {
+        padding: 30px 24px;
+      }
+
+      .project-content h3 {
+        font-size: 33px;
+      }
+
+      .capability {
+        grid-template-columns: 40px 1fr;
+        gap: 12px;
+      }
+
+      .experience-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .tool-groups {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        padding: 90px 0;
+      }
+
+      .contact-actions {
+        flex-direction: column;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
       }
     }
 
@@ -1138,9 +961,8 @@
       *,
       *::before,
       *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+        animation: none !important;
+        transition: none !important;
       }
     }
   </style>
@@ -1148,54 +970,62 @@
 
 <body>
 
-  <main class="page">
+  <!-- =======================================================
+       NAVIGATION
+  ======================================================== -->
 
-    <!-- =====================================================
-         NAVIGATION
-    ====================================================== -->
+  <nav class="nav">
+    <div class="container nav-inner">
 
-    <header class="topbar">
-      <a href="#" class="brand">Rea<span>.</span></a>
+      <a href="#" class="logo">
+        Rea<span>.</span>
+      </a>
 
-      <nav class="nav" aria-label="Main navigation">
+      <div class="nav-links">
+        <a href="#work">Work</a>
         <a href="#capabilities">Capabilities</a>
-        <a href="#work">Selected Work</a>
-        <a href="#background">Background</a>
-        <a href="#contact" class="nav-cta">Let's Work Together</a>
-      </nav>
-    </header>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact" class="nav-contact">Let's Talk</a>
+      </div>
 
+    </div>
+  </nav>
+
+
+  <main>
 
     <!-- =====================================================
          HERO
     ====================================================== -->
 
-    <section class="hero">
+    <section class="hero container">
 
       <div class="hero-copy">
 
-        <div class="eyebrow">
-          Shopify • Ecommerce Operations • Technical Execution
+        <div class="hero-eyebrow">
+          Shopify & Ecommerce Operations
         </div>
 
         <h1>
           I make ecommerce
-          <span class="accent">operations work.</span>
+          <span>operations work.</span>
         </h1>
 
-        <div class="hero-role">
-          Shopify & Ecommerce Operations Specialist helping teams move from
-          <strong>messy execution to working systems.</strong>
-        </div>
+        <p class="hero-subtitle">
+          Technical Shopify execution, growth support, systems, and operations
+          — all handled by one person who can actually get into the details.
+        </p>
 
-        <p class="hero-intro">
-          I work across Shopify, technical implementation, CRO, A/B testing,
-          funnels, automation, and day-to-day ecommerce operations — taking
-          ideas, problems, and scattered tasks and turning them into something
-          that actually works.
+        <p class="hero-description">
+          I work with ecommerce teams across Shopify, Liquid, CRO, A/B testing,
+          funnels, automation, creator operations, and internal systems. When
+          something is messy, broken, scattered, or simply needs to get done,
+          I figure it out and move it forward.
         </p>
 
         <div class="hero-actions">
+
           <a
             href="https://wa.me/639696355486?text=Hi%20Rea,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20work%20with%20you."
             target="_blank"
@@ -1205,34 +1035,36 @@
             Work With Me →
           </a>
 
-          <a href="#work" class="button button-secondary">
-            See My Work
+          <a href="#work" class="button button-dark">
+            Explore My Work
           </a>
+
         </div>
 
-        <div class="credibility">
-          <span>✓ Shopify Merchant Support</span>
-          <span>✓ Ecommerce Operations</span>
-          <span>✓ Technical Shopify Work</span>
-          <span>✓ Systems & Automation</span>
+        <div class="hero-trust">
+          <span>Shopify</span>
+          <span>CRO & A/B Testing</span>
+          <span>Funnels</span>
+          <span>Automation</span>
+          <span>Ecommerce Operations</span>
         </div>
 
       </div>
 
 
-      <div class="hero-visual">
+      <div class="hero-image-wrap">
 
-        <div class="profile-frame">
+        <div class="hero-image">
           <img
             src="rea-profile.png"
-            alt="Rea Bernales, Shopify and Ecommerce Operations Specialist"
+            alt="Rea Bernales"
           />
         </div>
 
-        <div class="hero-proof-card">
-          <div class="small">The short version</div>
+        <div class="hero-note">
+          <small>My approach</small>
           <strong>
-            I don't just manage tasks. I figure out how the pieces fit together — then execute.
+            Understand the problem. Build the solution. Keep it moving.
           </strong>
         </div>
 
@@ -1242,35 +1074,263 @@
 
 
     <!-- =====================================================
-         VALUE STRIP
+         TRUST BAR
     ====================================================== -->
 
-    <section style="padding-top: 10px;">
+    <div class="trust-bar">
 
-      <div class="value-strip">
+      <div class="container trust-bar-inner">
 
-        <div class="value-item">
-          <strong>Shopify</strong>
-          <p>
-            Store implementation, Liquid edits, apps, funnels, troubleshooting,
-            CRO, and frontend execution.
-          </p>
+        <div class="trust-label">
+          Experience across
         </div>
 
-        <div class="value-item">
-          <strong>Systems</strong>
-          <p>
-            Dashboards, trackers, workflows, documentation, team coordination,
-            and operational structure.
-          </p>
+        <div class="trust-items">
+          <span>Shopify</span>
+          <span>Booking.com</span>
+          <span>AmeriGas</span>
+          <span>dnata Travel</span>
+          <span>Ecommerce Operations</span>
         </div>
 
-        <div class="value-item">
-          <strong>Execution</strong>
-          <p>
-            I can investigate a problem, organize the work, build the solution,
-            and keep it moving.
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         FEATURED WORK
+    ====================================================== -->
+
+    <section id="work">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <div class="section-kicker">
+            Selected work
+          </div>
+
+          <h2 class="section-title">
+            I don't just talk about systems. I build them.
+          </h2>
+
+          <p class="section-intro">
+            A look at the kind of Shopify, ecommerce, operations, and automation
+            work I actually get involved in.
           </p>
+
+        </div>
+
+
+        <div class="featured-work">
+
+
+          <!-- PROJECT 01 -->
+
+          <article class="project">
+
+            <div class="project-image">
+              <img
+                src="vetpets-homepage.png"
+                alt="Shopify ecommerce homepage implementation"
+              />
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-number">
+                01 / SHOPIFY
+              </div>
+
+              <h3>
+                Shopify store & funnel execution
+              </h3>
+
+              <p>
+                Hands-on Shopify implementation across storefront structure,
+                product pages, Liquid changes, apps, funnels, upsells, and
+                troubleshooting.
+              </p>
+
+              <div class="project-details">
+
+                <div class="project-detail">
+                  <strong>What I handled</strong>
+                  <span>
+                    Theme and frontend changes, Liquid implementation,
+                    product/page work, apps, funnels, and technical fixes.
+                  </span>
+                </div>
+
+                <div class="project-detail">
+                  <strong>Growth side</strong>
+                  <span>
+                    A/B testing, CRO-related changes, cart optimization,
+                    upsells, offers, and customer journey improvements.
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 02 -->
+
+          <article class="project reverse">
+
+            <div class="project-image">
+              <img
+                src="notion.png"
+                alt="Notion ecommerce operations dashboard"
+              />
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-number">
+                02 / OPERATIONS
+              </div>
+
+              <h3>
+                Turning scattered work into one operating system
+              </h3>
+
+              <p>
+                Built a centralized Notion workspace to bring workflows, team
+                tasks, resources, and recurring operational information into
+                one place.
+              </p>
+
+              <div class="project-details">
+
+                <div class="project-detail">
+                  <strong>The problem</strong>
+                  <span>
+                    Operational information and recurring work needed clearer
+                    structure and visibility.
+                  </span>
+                </div>
+
+                <div class="project-detail">
+                  <strong>The approach</strong>
+                  <span>
+                    Organize the information around actual workflows instead
+                    of creating another generic task list.
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 03 -->
+
+          <article class="project">
+
+            <div class="project-image">
+              <img
+                src="creatorintakeform.png"
+                alt="Creator intake and automation workflow"
+              />
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-number">
+                03 / AUTOMATION
+              </div>
+
+              <h3>
+                Creator workflow without the spreadsheet chaos
+              </h3>
+
+              <p>
+                Structured a creator intake and coordination process connecting
+                forms, tracking, notifications, and follow-up workflows.
+              </p>
+
+              <div class="project-details">
+
+                <div class="project-detail">
+                  <strong>Tools</strong>
+                  <span>
+                    Typeform, Zapier, Google Sheets, and Slack.
+                  </span>
+                </div>
+
+                <div class="project-detail">
+                  <strong>Focus</strong>
+                  <span>
+                    Make creator information easier to capture, track, and act
+                    on without relying entirely on manual follow-up.
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- PROJECT 04 -->
+
+          <article class="project reverse">
+
+            <div class="project-image">
+              <img
+                src="vetpets-section2.png"
+                alt="Shopify ecommerce brand messaging section"
+              />
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-number">
+                04 / STOREFRONT
+              </div>
+
+              <h3>
+                Building pages around the customer journey
+              </h3>
+
+              <p>
+                Supported homepage structure, brand messaging, visual hierarchy,
+                and product storytelling inside Shopify.
+              </p>
+
+              <div class="project-details">
+
+                <div class="project-detail">
+                  <strong>Focus</strong>
+                  <span>
+                    Page structure, messaging hierarchy, product presentation,
+                    and implementation.
+                  </span>
+                </div>
+
+                <div class="project-detail">
+                  <strong>Goal</strong>
+                  <span>
+                    Make the storefront easier to understand and move through,
+                    while keeping the brand experience consistent.
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
         </div>
 
       </div>
@@ -1284,157 +1344,187 @@
 
     <section id="capabilities">
 
-      <div class="section-header">
-        <div class="section-label">What I actually do</div>
+      <div class="container">
 
-        <h2>
-          More than Shopify admin.
-        </h2>
+        <div class="capability-layout">
 
-        <p class="section-intro">
-          My work sits at the intersection of technical Shopify execution,
-          ecommerce growth, systems, and operations. That means I can move
-          between the store, the workflow, and the people behind it.
-        </p>
-      </div>
+          <div class="capability-sticky">
 
+            <div class="section-kicker">
+              What I bring
+            </div>
 
-      <div class="cards">
+            <h2 class="section-title">
+              One operator. Multiple sides of ecommerce.
+            </h2>
 
-        <article class="card">
+            <p class="section-intro">
+              I sit between the technical, operational, and growth sides of an
+              ecommerce business. That's useful when the work doesn't fit
+              neatly into one job description.
+            </p>
 
-          <div class="card-number">01</div>
-
-          <h3>Shopify & Technical Execution</h3>
-
-          <p>
-            I handle the implementation work behind the storefront — from
-            Liquid and theme changes to apps, product pages, frontend fixes,
-            and troubleshooting.
-          </p>
-
-          <div class="tag-list">
-            <span class="tag">Shopify</span>
-            <span class="tag">Liquid</span>
-            <span class="tag">Themes</span>
-            <span class="tag">GemPages</span>
-            <span class="tag">App Setup</span>
-            <span class="tag">Troubleshooting</span>
           </div>
 
-        </article>
+
+          <div class="capability-list">
 
 
-        <article class="card">
+            <article class="capability">
 
-          <div class="card-number">02</div>
+              <div class="capability-number">
+                01
+              </div>
 
-          <h3>CRO, A/B Testing & Funnels</h3>
+              <div>
 
-          <p>
-            I support experiments and storefront improvements across product
-            pages, carts, upsells, offers, funnels, and customer journeys.
-          </p>
+                <h3>
+                  Build
+                </h3>
 
-          <div class="tag-list">
-            <span class="tag">A/B Testing</span>
-            <span class="tag">CRO</span>
-            <span class="tag">Upsells</span>
-            <span class="tag">Cart Optimization</span>
-            <span class="tag">Funnels</span>
-            <span class="tag">Offers</span>
+                <p>
+                  Shopify implementation, Liquid edits, theme changes,
+                  product pages, app configuration, frontend work, funnels,
+                  upsells, and technical troubleshooting.
+                </p>
+
+                <div class="capability-tags">
+                  <span>Shopify</span>
+                  <span>Liquid</span>
+                  <span>GemPages</span>
+                  <span>AfterSell</span>
+                  <span>Loop</span>
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <article class="capability">
+
+              <div class="capability-number">
+                02
+              </div>
+
+              <div>
+
+                <h3>
+                  Optimize
+                </h3>
+
+                <p>
+                  A/B testing, CRO implementation, cart drawer work, upsell
+                  structures, offer testing, product page improvements, and
+                  funnel execution.
+                </p>
+
+                <div class="capability-tags">
+                  <span>A/B Testing</span>
+                  <span>CRO</span>
+                  <span>Funnels</span>
+                  <span>Upsells</span>
+                  <span>Triple Whale</span>
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <article class="capability">
+
+              <div class="capability-number">
+                03
+              </div>
+
+              <div>
+
+                <h3>
+                  Organize
+                </h3>
+
+                <p>
+                  Notion dashboards, operational trackers, documentation,
+                  team workflows, fulfillment coordination, and internal
+                  systems that make work easier to see and manage.
+                </p>
+
+                <div class="capability-tags">
+                  <span>Notion</span>
+                  <span>Google Sheets</span>
+                  <span>SOPs</span>
+                  <span>Operations</span>
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <article class="capability">
+
+              <div class="capability-number">
+                04
+              </div>
+
+              <div>
+
+                <h3>
+                  Automate
+                </h3>
+
+                <p>
+                  Connect forms, spreadsheets, Slack, Shopify Flow, and other
+                  tools to reduce repetitive coordination and create clearer
+                  workflows.
+                </p>
+
+                <div class="capability-tags">
+                  <span>Zapier</span>
+                  <span>Typeform</span>
+                  <span>Slack</span>
+                  <span>Shopify Flow</span>
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <article class="capability">
+
+              <div class="capability-number">
+                05
+              </div>
+
+              <div>
+
+                <h3>
+                  Coordinate
+                </h3>
+
+                <p>
+                  Creator and affiliate operations, UGC coordination,
+                  onboarding, follow-ups, customer support systems, and team
+                  administration.
+                </p>
+
+                <div class="capability-tags">
+                  <span>UGC</span>
+                  <span>Affiliate Ops</span>
+                  <span>Re:amaze</span>
+                  <span>HR Support</span>
+                </div>
+
+              </div>
+
+            </article>
+
+
           </div>
 
-        </article>
-
-
-        <article class="card">
-
-          <div class="card-number">03</div>
-
-          <h3>Ecommerce Operations & Systems</h3>
-
-          <p>
-            I build the structure behind the work: dashboards, trackers,
-            documentation, workflows, fulfillment coordination, and systems
-            that give teams visibility.
-          </p>
-
-          <div class="tag-list">
-            <span class="tag">Notion</span>
-            <span class="tag">Google Sheets</span>
-            <span class="tag">SOPs</span>
-            <span class="tag">Team Workflows</span>
-            <span class="tag">3PL Coordination</span>
-          </div>
-
-        </article>
-
-
-        <article class="card">
-
-          <div class="card-number">04</div>
-
-          <h3>Automation & Workflow</h3>
-
-          <p>
-            I connect tools and processes so repetitive work becomes easier to
-            track, trigger, and manage.
-          </p>
-
-          <div class="tag-list">
-            <span class="tag">Zapier</span>
-            <span class="tag">Typeform</span>
-            <span class="tag">Slack</span>
-            <span class="tag">Shopify Flow</span>
-            <span class="tag">Sheets</span>
-          </div>
-
-        </article>
-
-
-        <article class="card">
-
-          <div class="card-number">05</div>
-
-          <h3>Creator & Affiliate Operations</h3>
-
-          <p>
-            I manage the operational side of creator and affiliate programs —
-            from outreach and onboarding to UGC coordination, tracking, and
-            follow-ups.
-          </p>
-
-          <div class="tag-list">
-            <span class="tag">UGC</span>
-            <span class="tag">Creator Outreach</span>
-            <span class="tag">Affiliate Onboarding</span>
-            <span class="tag">Tracking</span>
-          </div>
-
-        </article>
-
-
-        <article class="card">
-
-          <div class="card-number">06</div>
-
-          <h3>Team & Operational Support</h3>
-
-          <p>
-            I also support the people and processes around ecommerce operations:
-            HR administration, team coordination, activity review,
-            documentation, and customer support systems.
-          </p>
-
-          <div class="tag-list">
-            <span class="tag">HR Support</span>
-            <span class="tag">Apploye</span>
-            <span class="tag">Re:amaze</span>
-            <span class="tag">Customer Support</span>
-          </div>
-
-        </article>
+        </div>
 
       </div>
 
@@ -1442,146 +1532,55 @@
 
 
     <!-- =====================================================
-         SELECTED WORK
+         ABOUT
     ====================================================== -->
 
-    <section id="work">
+    <section class="about" id="about">
 
-      <div class="section-header">
-        <div class="section-label">Selected work</div>
+      <div class="container">
 
-        <h2>
-          I build systems people can actually use.
-        </h2>
-
-        <p class="section-intro">
-          A few examples of the operational, automation, and ecommerce work
-          I've handled.
-        </p>
-      </div>
-
-
-      <div class="work-grid">
-
-        <article class="work-card">
-
-          <div class="work-image">
-            <img
-              src="notion.png"
-              alt="Notion ecommerce operations dashboard"
-            />
-          </div>
-
-          <div class="work-content">
-
-            <div class="work-label">Operations System</div>
-
-            <h3>Centralized Operations Dashboard</h3>
-
-            <p>
-              Built a structured Notion workspace to bring team workflows,
-              tasks, resources, and recurring operational information into one
-              place.
-            </p>
-
-            <div class="work-outcome">
-              Scattered operational information → centralized visibility
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <article class="work-card">
-
-          <div class="work-image">
-            <img
-              src="creatorintakeform.png"
-              alt="Creator intake and automation workflow"
-            />
-          </div>
-
-          <div class="work-content">
-
-            <div class="work-label">Automation</div>
-
-            <h3>Creator Intake & Workflow System</h3>
-
-            <p>
-              Structured a creator intake workflow connecting forms, tracking,
-              notifications, and team follow-up using Typeform, Zapier, Google
-              Sheets, and Slack.
-            </p>
-
-            <div class="work-outcome">
-              Manual creator coordination → structured workflow
-            </div>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         SHOPIFY FEATURE
-    ====================================================== -->
-
-    <section>
-
-      <div class="shopify-feature">
-
-        <div class="shopify-feature-grid">
+        <div class="about-grid">
 
           <div>
 
-            <div class="section-label">
-              Shopify technical execution
+            <div class="section-kicker">
+              A little about me
             </div>
 
-            <h2>
-              I work inside the store — not just around it.
+            <h2 class="section-title">
+              I became the person who figures things out.
             </h2>
 
-            <p class="description">
-              My Shopify work goes beyond product uploads and basic admin.
-              I've worked on storefront implementation, Liquid edits, apps,
-              funnels, cart behavior, subscriptions, product pages,
-              troubleshooting, and CRO-related changes.
+          </div>
+
+
+          <div class="about-copy">
+
+            <p>
+              My background started in customer service, ecommerce support,
+              supplier relations, and partner operations. Those roles taught me
+              how businesses actually work from the inside — customers,
+              systems, processes, communication, and the small details that
+              keep everything moving.
             </p>
 
-            <ul class="shopify-list">
-              <li>Liquid & theme implementation</li>
-              <li>Product page changes</li>
-              <li>App configuration</li>
-              <li>Upsell funnels</li>
-              <li>Cart drawer troubleshooting</li>
-              <li>Subscription systems</li>
-              <li>CRO implementation</li>
-              <li>A/B test execution</li>
-            </ul>
+            <p>
+              Over time, my work moved deeper into ecommerce. I began working
+              hands-on with Shopify, technical implementation, CRO, funnels,
+              automation, creator operations, and internal systems.
+            </p>
 
-          </div>
+            <p>
+              Today, I work best in the space between strategy and execution.
+              I don't need every problem to arrive as a perfectly written task.
+              Give me the context, and I can investigate what is happening,
+              figure out what needs to change, and help turn it into something
+              that works.
+            </p>
 
-
-          <div class="shopify-images">
-
-            <div class="shopify-image">
-              <img
-                src="vetpets-homepage.png"
-                alt="Shopify ecommerce homepage implementation"
-              />
-            </div>
-
-            <div class="shopify-image">
-              <img
-                src="vetpets-section2.png"
-                alt="Shopify ecommerce brand messaging section"
-              />
+            <div class="about-highlight">
+              I'm at my best when there are a lot of moving pieces and someone
+              needs to turn them into a clear, working process.
             </div>
 
           </div>
@@ -1594,121 +1593,124 @@
 
 
     <!-- =====================================================
-         BEFORE / AFTER
+         EXPERIENCE
     ====================================================== -->
 
-    <section>
+    <section id="experience">
 
-      <div class="section-header">
-        <div class="section-label">How I create value</div>
+      <div class="container">
 
-        <h2>
-          From scattered tasks to a system.
-        </h2>
+        <div class="experience">
 
-        <p class="section-intro">
-          A big part of my work is taking processes that depend on memory,
-          repeated follow-ups, or scattered tools and giving them structure.
-        </p>
-      </div>
+          <div>
 
+            <div class="section-kicker">
+              Background
+            </div>
 
-      <div class="before-after">
+            <h2 class="section-title">
+              Built on real operations experience.
+            </h2>
 
-        <div class="ba-card before">
+            <p class="section-intro">
+              Before specializing further in ecommerce operations and Shopify,
+              I worked across customer, merchant, supplier, and partner
+              operations.
+            </p>
 
-          <div class="ba-label">Before</div>
-
-          <h3>When the process is scattered</h3>
-
-          <ul>
-            <li>Creator information lives across different places</li>
-            <li>Follow-ups depend on manual checking</li>
-            <li>Team resources are difficult to find quickly</li>
-            <li>Operational requests require repeated back-and-forth</li>
-            <li>Shopify issues can get buried among other tasks</li>
-          </ul>
-
-        </div>
+          </div>
 
 
-        <div class="ba-card after">
+          <div class="experience-list">
 
-          <div class="ba-label">After</div>
+            <div class="experience-item">
 
-          <h3>When the workflow has structure</h3>
+              <div class="experience-year">
+                CURRENT
+              </div>
 
-          <ul>
-            <li>Creator intake flows into organized tracking</li>
-            <li>Automated notifications surface important actions</li>
-            <li>Notion dashboards centralize resources and workflows</li>
-            <li>Tasks become easier to assign, follow, and review</li>
-            <li>Shopify implementation follows a clearer execution process</li>
-          </ul>
+              <div>
+                <h3>Shopify & Ecommerce Operations</h3>
+                <p>
+                  Technical Shopify execution, CRO, A/B testing, funnels,
+                  automation, creator operations, ecommerce systems, and
+                  ongoing operational support.
+                </p>
+              </div>
 
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         HOW I WORK
-    ====================================================== -->
-
-    <section>
-
-      <div class="section-header">
-        <div class="section-label">Working style</div>
-
-        <h2>
-          I don't just wait for instructions.
-        </h2>
-
-        <p class="section-intro">
-          My strongest work happens when I can take ownership of a problem,
-          understand what's happening, and move it toward a working solution.
-        </p>
-      </div>
+            </div>
 
 
-      <div class="process">
+            <div class="experience-item">
 
-        <div class="process-item">
-          <div class="process-number">01 / UNDERSTAND</div>
-          <h3>Get the context</h3>
-          <p>
-            I figure out what the business is trying to accomplish before
-            jumping into execution.
-          </p>
-        </div>
+              <div class="experience-year">
+                PREVIOUS
+              </div>
 
-        <div class="process-item">
-          <div class="process-number">02 / DIAGNOSE</div>
-          <h3>Find the problem</h3>
-          <p>
-            I investigate technical issues, workflow gaps, and operational
-            bottlenecks instead of treating symptoms.
-          </p>
-        </div>
+              <div>
+                <h3>Cloudstaff</h3>
+                <p>
+                  Customer service and operational support in a professional
+                  remote work environment.
+                </p>
+              </div>
 
-        <div class="process-item">
-          <div class="process-number">03 / BUILD</div>
-          <h3>Create the solution</h3>
-          <p>
-            I implement the Shopify changes, systems, trackers, automations,
-            or workflows needed.
-          </p>
-        </div>
+            </div>
 
-        <div class="process-item">
-          <div class="process-number">04 / IMPROVE</div>
-          <h3>Keep it moving</h3>
-          <p>
-            I look for ways to make the process clearer, easier to maintain,
-            and less dependent on manual work.
-          </p>
+
+            <div class="experience-item">
+
+              <div class="experience-year">
+                PREVIOUS
+              </div>
+
+              <div>
+                <h3>TaskUs — Ecommerce Advisor</h3>
+                <p>
+                  Supported online sellers and buyers across ecommerce
+                  platforms, including Shopify, Amazon, and eBay.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="experience-item">
+
+              <div class="experience-year">
+                PREVIOUS
+              </div>
+
+              <div>
+                <h3>dnata Travel — Supplier Relations</h3>
+                <p>
+                  Worked with suppliers and partners across contracts,
+                  operational issues, data, and SLA-related processes.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div class="experience-item">
+
+              <div class="experience-year">
+                PREVIOUS
+              </div>
+
+              <div>
+                <h3>Customer & Partner Operations</h3>
+                <p>
+                  Experience supporting customers and partners across calls,
+                  chats, email, scheduling, backend systems, and operational
+                  coordination.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
       </div>
@@ -1720,74 +1722,96 @@
          TOOLS
     ====================================================== -->
 
-    <section>
+    <section class="tools-section">
 
-      <div class="section-header">
-        <div class="section-label">Tools & platforms</div>
+      <div class="container">
 
-        <h2>
-          The tools are secondary. Knowing how to use them isn't.
-        </h2>
+        <div class="tools-layout">
 
-        <p class="section-intro">
-          These are some of the platforms and tools I've worked with across
-          Shopify, ecommerce operations, automation, customer support, and
-          team workflows.
-        </p>
-      </div>
+          <div>
 
-
-      <div class="tools-box">
-
-        <div class="tool-groups">
-
-          <div class="tool-group">
-
-            <h3>Shopify & Ecommerce</h3>
-
-            <div class="tool-list">
-              <span class="tool">Shopify</span>
-              <span class="tool">Liquid</span>
-              <span class="tool">GemPages</span>
-              <span class="tool">AfterSell</span>
-              <span class="tool">Loop</span>
-              <span class="tool">Kaching Bundles</span>
-              <span class="tool">Triple Whale</span>
-              <span class="tool">Microsoft Clarity</span>
+            <div class="section-kicker">
+              Toolkit
             </div>
+
+            <h2 class="section-title">
+              The tools change. The thinking doesn't.
+            </h2>
+
+            <p class="section-intro">
+              I use the tools that fit the workflow rather than trying to force
+              every problem into the same platform.
+            </p>
 
           </div>
 
 
-          <div class="tool-group">
+          <div class="tool-groups">
 
-            <h3>Systems & Automation</h3>
+            <div class="tool-group">
 
-            <div class="tool-list">
-              <span class="tool">Notion</span>
-              <span class="tool">Zapier</span>
-              <span class="tool">Google Sheets</span>
-              <span class="tool">Typeform</span>
-              <span class="tool">Slack</span>
-              <span class="tool">Shopify Flow</span>
-              <span class="tool">GitHub</span>
+              <h3>Shopify & Ecommerce</h3>
+
+              <div class="tool-list">
+                <span class="tool">Shopify</span>
+                <span class="tool">Liquid</span>
+                <span class="tool">GemPages</span>
+                <span class="tool">AfterSell</span>
+                <span class="tool">Loop</span>
+                <span class="tool">Kaching Bundles</span>
+                <span class="tool">Triple Whale</span>
+                <span class="tool">Microsoft Clarity</span>
+              </div>
+
             </div>
 
-          </div>
+
+            <div class="tool-group">
+
+              <h3>Systems & Automation</h3>
+
+              <div class="tool-list">
+                <span class="tool">Notion</span>
+                <span class="tool">Zapier</span>
+                <span class="tool">Google Sheets</span>
+                <span class="tool">Typeform</span>
+                <span class="tool">Slack</span>
+                <span class="tool">Shopify Flow</span>
+                <span class="tool">GitHub</span>
+              </div>
+
+            </div>
 
 
-          <div class="tool-group">
+            <div class="tool-group">
 
-            <h3>Operations & Support</h3>
+              <h3>Operations</h3>
 
-            <div class="tool-list">
-              <span class="tool">Re:amaze</span>
-              <span class="tool">Zendesk</span>
-              <span class="tool">Salesforce</span>
-              <span class="tool">Apploye</span>
-              <span class="tool">Loox</span>
-              <span class="tool">TikTok One</span>
-              <span class="tool">DeepL</span>
+              <div class="tool-list">
+                <span class="tool">Re:amaze</span>
+                <span class="tool">Zendesk</span>
+                <span class="tool">Salesforce</span>
+                <span class="tool">Apploye</span>
+                <span class="tool">Loox</span>
+                <span class="tool">TikTok One</span>
+                <span class="tool">DeepL</span>
+              </div>
+
+            </div>
+
+
+            <div class="tool-group">
+
+              <h3>Creative & Content</h3>
+
+              <div class="tool-list">
+                <span class="tool">Canva</span>
+                <span class="tool">CapCut</span>
+                <span class="tool">Frame.io</span>
+                <span class="tool">Meta Business Suite</span>
+                <span class="tool">UGC Workflows</span>
+              </div>
+
             </div>
 
           </div>
@@ -1800,60 +1824,64 @@
 
 
     <!-- =====================================================
-         PROFESSIONAL BACKGROUND
+         CONTACT
     ====================================================== -->
 
-    <section id="background">
+    <section class="contact" id="contact">
 
-      <div class="section-header">
-        <div class="section-label">Professional background</div>
+      <div class="container">
 
-        <h2>
-          Built from real operational experience.
-        </h2>
+        <div class="contact-inner">
 
-        <p class="section-intro">
-          Before moving deeper into ecommerce operations and Shopify
-          execution, I worked across customer service, ecommerce support,
-          supplier relations, and partner operations.
-        </p>
-      </div>
-
-
-      <div class="background-box">
-
-        <div class="background-grid">
-
-          <div class="background-item">
-            <h3>Shopify Merchant Support</h3>
-            <p>
-              Supported merchants through calls, chats, and email, including
-              store and ecommerce-related troubleshooting.
-            </p>
+          <div class="section-kicker">
+            Let's work
           </div>
 
-          <div class="background-item">
-            <h3>Ecommerce Advisory</h3>
-            <p>
-              Supported online sellers and buyers across ecommerce platforms,
-              helping troubleshoot store, transaction, and operational issues.
-            </p>
+          <h2 class="section-title">
+            Have a Shopify operation that needs someone to own it?
+          </h2>
+
+          <p>
+            Whether you need technical Shopify work, a funnel implemented,
+            an operational system cleaned up, or someone who can keep the
+            moving pieces under control — let's talk.
+          </p>
+
+
+          <div class="contact-actions">
+
+            <a
+              href="https://wa.me/639696355486?text=Hi%20Rea,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20work%20with%20you."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button button-primary"
+            >
+              Work With Me →
+            </a>
+
+            <a
+              href="https://v2.onlinejobs.ph/jobseekers/info/2248939"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button button-dark"
+            >
+              View My OnlineJobs Profile
+            </a>
+
+            <a
+              href="mailto:hello@reabernales.space"
+              class="button button-dark"
+            >
+              Email Me
+            </a>
+
           </div>
 
-          <div class="background-item">
-            <h3>Supplier Relations</h3>
-            <p>
-              Worked with suppliers and partners, managed operational issues,
-              maintained records, and supported contract and SLA processes.
-            </p>
-          </div>
 
-          <div class="background-item">
-            <h3>Customer & Partner Operations</h3>
-            <p>
-              Experience across customer communication, scheduling, backend
-              systems, partner coordination, and operational support.
-            </p>
+          <div class="contact-email">
+            <a href="mailto:hello@reabernales.space">
+              hello@reabernales.space
+            </a>
           </div>
 
         </div>
@@ -1861,138 +1889,29 @@
       </div>
 
     </section>
-
-
-    <!-- =====================================================
-         ACCOUNTS / PLATFORMS
-    ====================================================== -->
-
-    <section>
-
-      <div class="section-header">
-        <div class="section-label">Experience across real businesses</div>
-
-        <h2>
-          I've worked where operations matter.
-        </h2>
-
-        <p class="section-intro">
-          My background includes customer, merchant, supplier, and ecommerce
-          operations across established platforms and businesses.
-        </p>
-      </div>
-
-
-      <div class="work-grid">
-
-        <article class="card">
-          <div class="card-number">01</div>
-          <h3>Shopify</h3>
-          <p>
-            Merchant support experience combined with hands-on Shopify
-            implementation and ecommerce operations.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-number">02</div>
-          <h3>Booking.com</h3>
-          <p>
-            Customer and partner communication across calls, chats, email, and
-            backend coordination.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-number">03</div>
-          <h3>AmeriGas</h3>
-          <p>
-            Customer operations involving billing, delivery, service inquiries,
-            and issue resolution.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card-number">04</div>
-          <h3>dnata Travel</h3>
-          <p>
-            Supplier and hotel partner operations involving contracts, listings,
-            backend systems, and coordination.
-          </p>
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         FINAL CTA
-    ====================================================== -->
-
-    <section id="contact" class="contact">
-
-      <h2>
-        Have a Shopify operation that needs to move faster?
-      </h2>
-
-      <p>
-        If your store needs technical execution, your workflows need structure,
-        or there's a problem that simply needs someone to figure it out —
-        let's talk.
-      </p>
-
-
-      <div class="hero-actions" style="justify-content: center; margin-bottom: 0;">
-
-        <a
-          href="https://wa.me/639696355486?text=Hi%20Rea,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20work%20with%20you."
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button button-primary"
-        >
-          Work With Me →
-        </a>
-
-        <a
-          href="https://v2.onlinejobs.ph/jobseekers/info/2248939"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button button-secondary"
-        >
-          View My OnlineJobs Profile
-        </a>
-
-        <a
-          href="mailto:hello@reabernales.space"
-          class="button button-secondary"
-        >
-          Email Me
-        </a>
-
-      </div>
-
-
-      <div class="contact-links">
-        <a href="mailto:hello@reabernales.space">
-          hello@reabernales.space
-        </a>
-
-        &nbsp;·&nbsp;
-
-        <a href="https://reabernales.space" target="_blank" rel="noopener noreferrer">
-          reabernales.space
-        </a>
-      </div>
-
-    </section>
-
-
-    <footer>
-      © 2026 Rea Bernales · Shopify & Ecommerce Operations
-    </footer>
 
   </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <span>
+        © 2026 Rea Bernales
+      </span>
+
+      <span>
+        Shopify & Ecommerce Operations
+      </span>
+
+    </div>
+
+  </footer>
 
 </body>
 </html>
