@@ -1,1542 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rea Bernales — Shopify & Ecommerce Operations</title>
-  <meta
-    name="description"
-    content="Rea Bernales is a Shopify & Ecommerce Operations Specialist. I own the details from Shopify technical to customer operations, systems, and fulfillment coordination."
-  />
-  <meta name="theme-color" content="#f97316" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rea Bernales is a Shopify & E-Commerce Operations Specialist who owns the details from Shopify to customer operations.">
+  <meta name="theme-color" content="#f97316">
+  <title>Rea Bernales — Shopify & E-Commerce Operations</title>
   <style>
-    /* =========================================================
-       FOUNDATION
-    ========================================================= */
-    :root {
-      --black: #111111;
-      --black-soft: #1a1a1a;
-      --orange: #f97316;
-      --orange-dark: #ea580c;
-      --orange-soft: #fff3e8;
-      --cream: #fffdf9;
-      --white: #ffffff;
-      --gray-50: #fafafa;
-      --gray-100: #f4f4f4;
-      --gray-200: #e7e7e7;
-      --gray-400: #a3a3a3;
-      --gray-500: #737373;
-      --gray-600: #525252;
-      --shadow: 0 20px 60px rgba(17, 17, 17, 0.08);
-      --shadow-orange: 0 25px 70px rgba(249, 115, 22, 0.18);
-      --radius: 24px;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      color: var(--black);
-      background: var(--cream);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    img {
-      display: block;
-      max-width: 100%;
-    }
-    a {
-      color: inherit;
-    }
-    ::selection {
-      background: var(--orange);
-      color: var(--white);
-    }
-    .container {
-      width: min(1180px, calc(100% - 48px));
-      margin: 0 auto;
-    }
-    /* =========================================================
-       NAVIGATION
-    ========================================================= */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 253, 249, 0.88);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(17, 17, 17, 0.07);
-    }
-    .nav-inner {
-      height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      text-decoration: none;
-      font-size: 20px;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-    }
-    .logo span {
-      color: var(--orange);
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--gray-600);
-      font-size: 13px;
-      font-weight: 700;
-      transition: color 0.2s ease;
-    }
-    .nav-links a:hover {
-      color: var(--orange);
-    }
-    .nav-contact {
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: var(--black);
-      color: var(--white) !important;
-    }
-    .nav-contact:hover {
-      background: var(--orange);
-    }
-    /* =========================================================
-       HERO
-    ========================================================= */
-    .hero {
-      position: relative;
-      min-height: calc(100vh - 76px);
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      align-items: center;
-      gap: 70px;
-      padding: 90px 0 110px;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      right: -180px;
-      top: 20px;
-      border-radius: 50%;
-      background: rgba(249, 115, 22, 0.10);
-      filter: blur(100px);
-      z-index: -1;
-    }
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 25px;
-      color: var(--orange-dark);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.17em;
-      text-transform: uppercase;
-    }
-    .hero-eyebrow::before {
-      content: "";
-      width: 28px;
-      height: 2px;
-      background: var(--orange);
-    }
-    .hero h1 {
-      max-width: 760px;
-      font-size: clamp(56px, 8vw, 100px);
-      line-height: 0.91;
-      letter-spacing: -0.07em;
-      font-weight: 900;
-      margin-bottom: 30px;
-    }
-    .hero h1 span {
-      display: block;
-      color: var(--orange);
-    }
-    .hero-subtitle {
-      max-width: 700px;
-      font-size: clamp(20px, 2.5vw, 26px);
-      line-height: 1.35;
-      letter-spacing: -0.025em;
-      font-weight: 650;
-      color: #2b2b2b;
-      margin-bottom: 20px;
-    }
-    .hero-subtitle strong {
-      color: var(--black);
-    }
-    .hero-description {
-      max-width: 650px;
-      color: var(--gray-600);
-      font-size: 17px;
-      margin-bottom: 32px;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 32px;
-    }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 13px 21px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 850;
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
-    }
-    .button-primary {
-      background: var(--orange);
-      color: var(--white);
-      box-shadow: 0 12px 30px rgba(249, 115, 22, 0.22);
-    }
-    .button-primary:hover {
-      background: var(--orange-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 18px 35px rgba(249, 115, 22, 0.28);
-    }
-    .button-dark {
-      background: var(--black);
-      color: var(--white);
-    }
-    .button-dark:hover {
-      background: #2a2a2a;
-      transform: translateY(-2px);
-    }
-    .hero-trust {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .hero-trust span {
-      padding: 7px 11px;
-      border: 1px solid var(--gray-200);
-      border-radius: 999px;
-      color: var(--gray-500);
-      background: rgba(255, 255, 255, 0.6);
-      font-size: 11px;
-      font-weight: 750;
-    }
-    /* =========================================================
-       HERO IMAGE
-    ========================================================= */
-    .hero-image-wrap {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
-    .hero-image {
-      position: relative;
-      width: min(100%, 470px);
-      padding: 12px;
-      background: var(--white);
-      border-radius: 34px;
-      box-shadow: var(--shadow-orange);
-      transform: rotate(1.2deg);
-    }
-    .hero-image::before {
-      content: "";
-      position: absolute;
-      inset: -12px;
-      border: 1px solid rgba(249, 115, 22, 0.20);
-      border-radius: 42px;
-      z-index: -1;
-    }
-    .hero-image img {
-      width: 100%;
-      border-radius: 25px;
-    }
-    .hero-note {
-      position: absolute;
-      left: -40px;
-      bottom: 35px;
-      width: 235px;
-      padding: 19px;
-      background: var(--black);
-      color: var(--white);
-      border-radius: 18px;
-      box-shadow: 0 20px 50px rgba(17, 17, 17, 0.20);
-    }
-    .hero-note small {
-      display: block;
-      color: var(--orange);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .hero-note strong {
-      font-size: 14px;
-      line-height: 1.4;
-    }
-    /* =========================================================
-       TRUST BAR
-    ========================================================= */
-    .trust-bar {
-      padding: 18px 0;
-      border-top: 1px solid var(--gray-200);
-      border-bottom: 1px solid var(--gray-200);
-    }
-    .trust-bar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-    .trust-label {
-      color: var(--gray-400);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-    .trust-items {
-      display: flex;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-      gap: 28px;
-      color: var(--gray-500);
-      font-size: 12px;
-      font-weight: 800;
-    }
-    /* =========================================================
-       SECTIONS
-    ========================================================= */
-    section {
-      padding: 115px 0;
-    }
-    .section-kicker {
-      color: var(--orange-dark);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .section-title {
-      max-width: 850px;
-      font-size: clamp(40px, 5.5vw, 68px);
-      line-height: 0.98;
-      letter-spacing: -0.06em;
-      font-weight: 900;
-      margin-bottom: 22px;
-    }
-    .section-intro {
-      max-width: 700px;
-      color: var(--gray-600);
-      font-size: 17px;
-    }
-    .section-heading {
-      margin-bottom: 50px;
-    }
-    /* =========================================================
-       FEATURED WORK - ACCORDION
-    ========================================================= */
-    .featured-work {
-      display: grid;
-      gap: 12px;
-    }
-    .project-accordion-item {
-      border: 1px solid var(--gray-200);
-      border-radius: 20px;
-      background: var(--white);
-      transition: box-shadow 0.25s ease;
-    }
-    .project-accordion-item.expanded {
-      box-shadow: var(--shadow-orange);
-    }
-    .project-header {
-      padding: 28px 40px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      user-select: none;
-      transition: background 0.2s ease;
-    }
-    .project-header:hover {
-      background: var(--gray-50);
-    }
-    .project-header-content {
-      flex: 1;
-      min-width: 0;
-    }
-    .project-number {
-      color: var(--orange);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.14em;
-      margin-bottom: 8px;
-    }
-    .project-header h3 {
-      font-size: clamp(20px, 2.5vw, 28px);
-      line-height: 1.2;
-      letter-spacing: -0.03em;
-      margin: 0;
-      color: var(--black);
-    }
-    .project-toggle {
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--gray-100);
-      transition: transform 0.3s ease, background 0.2s ease;
-    }
-    .project-accordion-item.expanded .project-toggle {
-      transform: rotate(180deg);
-      background: var(--orange-soft);
-    }
-    .project-toggle svg {
-      width: 18px;
-      height: 18px;
-      stroke: var(--black);
-      stroke-width: 2.5;
-      fill: none;
-    }
-    .project-content-expanded {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .project-accordion-item.expanded .project-content-expanded {
-      max-height: 1000px;
-    }
-    .project-details-layout {
-      display: grid;
-      grid-template-columns: 0.92fr 1.08fr;
-      gap: 50px;
-      align-items: center;
-      padding: 0 40px 40px;
-      border-top: 1px solid var(--gray-200);
-    }
-    .project-details-layout.reverse {
-      grid-template-columns: 1.08fr 0.92fr;
-    }
-    .project-details-layout.reverse .project-image {
-      order: 2;
-    }
-    .project-image {
-      min-height: 350px;
-      padding: 18px;
-      background: #f5f5f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 18px;
-      order: 1;
-    }
-    .project-image img {
-      width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      border-radius: 14px;
-      border: 1px solid var(--gray-200);
-      box-shadow: 0 12px 35px rgba(17, 17, 17, 0.08);
-    }
-    .project-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .project-content > p {
-      color: var(--gray-600);
-      font-size: 15px;
-      margin-bottom: 25px;
-    }
-    .project-detail {
-      padding-top: 13px;
-      border-top: 1px solid var(--gray-200);
-    }
-    .project-detail:first-child {
-      padding-top: 0;
-      border-top: none;
-    }
-    .project-detail strong {
-      display: block;
-      color: var(--black);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.11em;
-      margin-bottom: 3px;
-    }
-    .project-detail span {
-      color: var(--gray-600);
-      font-size: 13px;
-    }
-    /* =========================================================
-       CAPABILITIES
-    ========================================================= */
-    .capability-layout {
-      display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .capability-sticky {
-      position: sticky;
-      top: 115px;
-    }
-    .capability-list {
-      display: grid;
-      gap: 1px;
-      border-top: 1px solid var(--gray-200);
-    }
-    .capability {
-      display: grid;
-      grid-template-columns: 55px 1fr;
-      gap: 20px;
-      padding: 28px 0;
-      border-bottom: 1px solid var(--gray-200);
-    }
-    .capability-number {
-      color: var(--orange);
-      font-size: 11px;
-      font-weight: 900;
-      padding-top: 3px;
-    }
-    .capability h3 {
-      font-size: 22px;
-      letter-spacing: -0.03em;
-      margin-bottom: 7px;
-    }
-    .capability p {
-      max-width: 570px;
-      color: var(--gray-600);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-    .capability-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 13px;
-    }
-    .capability-tags span {
-      padding: 5px 8px;
-      border-radius: 7px;
-      background: var(--orange-soft);
-      color: var(--orange-dark);
-      font-size: 10px;
-      font-weight: 800;
-    }
-    /* =========================================================
-       ABOUT
-    ========================================================= */
-    .about {
-      background: var(--black);
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-    .about::after {
-      content: "";
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      right: -180px;
-      top: -200px;
-      border-radius: 50%;
-      background: rgba(249, 115, 22, 0.15);
-      filter: blur(100px);
-    }
-    .about-grid {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      gap: 90px;
-      align-items: start;
-    }
-    .about .section-kicker {
-      color: var(--orange);
-    }
-    .about .section-title {
-      color: var(--white);
-    }
-    .about-copy {
-      color: #cfcfcf;
-      font-size: 17px;
-      max-width: 680px;
-      line-height: 1.7;
-    }
-    .about-copy p {
-      margin-bottom: 20px;
-    }
-    .about-highlight {
-      padding: 24px;
-      margin-top: 30px;
-      border-left: 3px solid var(--orange);
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--white);
-      font-size: 19px;
-      line-height: 1.45;
-      font-weight: 700;
-    }
-    /* =========================================================
-       EXPERIENCE
-    ========================================================= */
-    .experience {
-      display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      gap: 80px;
-    }
-    .experience-list {
-      border-top: 1px solid var(--gray-200);
-    }
-    .experience-item {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 25px;
-      padding: 27px 0;
-      border-bottom: 1px solid var(--gray-200);
-    }
-    .experience-year {
-      color: var(--orange-dark);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-    }
-    .experience-item h3 {
-      font-size: 19px;
-      margin-bottom: 4px;
-    }
-    .experience-item p {
-      color: var(--gray-600);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-    /* =========================================================
-       TOOLS
-    ========================================================= */
-    .tools-section {
-      background: #f7f6f3;
-    }
-    .tools-layout {
-      display: grid;
-      grid-template-columns: 0.7fr 1.3fr;
-      gap: 80px;
-    }
-    .tool-groups {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 35px;
-    }
-    .tool-group h3 {
-      font-size: 14px;
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-    .tool-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-    .tool {
-      padding: 7px 10px;
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 8px;
-      color: var(--gray-600);
-      font-size: 11px;
-      font-weight: 750;
-    }
-    /* =========================================================
-       CTA
-    ========================================================= */
-    .contact {
-      padding: 125px 0 120px;
-      text-align: center;
-    }
-    .contact-inner {
-      max-width: 850px;
-      margin: 0 auto;
-    }
-    .contact .section-title {
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .contact p {
-      max-width: 650px;
-      margin: 0 auto 32px;
-      color: var(--gray-600);
-      font-size: 17px;
-    }
-    .contact-actions {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .contact-email {
-      margin-top: 22px;
-      color: var(--gray-500);
-      font-size: 13px;
-    }
-    .contact-email a {
-      color: var(--black);
-      font-weight: 800;
-      text-decoration: none;
-    }
-    .contact-email a:hover {
-      color: var(--orange);
-    }
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-    footer {
-      padding: 25px 0 35px;
-      border-top: 1px solid var(--gray-200);
-      color: var(--gray-400);
-      font-size: 11px;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
-    @media (max-width: 950px) {
-      .hero,
-      .capability-layout,
-      .about-grid,
-      .experience,
-      .tools-layout {
-        grid-template-columns: 1fr;
-      }
-      .hero {
-        min-height: auto;
-        padding: 75px 0 90px;
-      }
-      .hero-copy {
-        text-align: center;
-      }
-      .hero-eyebrow,
-      .hero-actions,
-      .hero-trust {
-        justify-content: center;
-      }
-      .hero h1,
-      .hero-subtitle,
-      .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .hero-image-wrap {
-        max-width: 550px;
-        margin: 0 auto;
-        width: 100%;
-      }
-      .capability-sticky {
-        position: static;
-      }
-      .about-grid,
-      .experience,
-      .tools-layout {
-        gap: 45px;
-      }
-      .project-details-layout,
-      .project-details-layout.reverse {
-        grid-template-columns: 1fr;
-      }
-      .project-details-layout.reverse .project-image {
-        order: 0;
-      }
-      .project-image {
-        min-height: auto;
-      }
-    }
-    @media (max-width: 700px) {
-      .container {
-        width: min(100% - 32px, 1180px);
-      }
-      .nav-links {
-        display: none;
-      }
-      .nav-inner {
-        height: 68px;
-      }
-      section {
-        padding: 80px 0;
-      }
-      .hero {
-        padding: 55px 0 75px;
-      }
-      .hero h1 {
-        font-size: clamp(52px, 16vw, 75px);
-      }
-      .hero-subtitle {
-        font-size: 19px;
-      }
-      .hero-description {
-        font-size: 15px;
-      }
-      .hero-actions {
-        flex-direction: column;
-      }
-      .button {
-        width: 100%;
-      }
-      .hero-note {
-        position: relative;
-        left: auto;
-        bottom: auto;
-        width: 100%;
-        margin-top: 15px;
-      }
-      .trust-bar-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-      .trust-items {
-        justify-content: flex-start;
-        gap: 13px;
-      }
-      .section-title {
-        font-size: 43px;
-      }
-      .project-header {
-        padding: 20px 24px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      .project-header h3 {
-        font-size: 20px;
-      }
-      .project-toggle {
-        align-self: flex-end;
-        transform: translateY(-32px);
-      }
-      .project-details-layout {
-        padding: 0 24px 24px;
-        gap: 24px;
-      }
-      .project-image {
-        min-height: auto;
-        padding: 12px;
-      }
-      .capability {
-        grid-template-columns: 40px 1fr;
-        gap: 12px;
-      }
-      .experience-item {
-        grid-template-columns: 1fr;
-        gap: 6px;
-      }
-      .tool-groups {
-        grid-template-columns: 1fr;
-      }
-      .contact {
-        padding: 90px 0;
-      }
-      .contact-actions {
-        flex-direction: column;
-      }
-      .footer-inner {
-        flex-direction: column;
-        gap: 8px;
-        text-align: center;
-      }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-      }
-    }
+    :root { --ink:#111; --ink-soft:#252525; --orange:#f97316; --orange-dark:#d95909; --cream:#fffdf9; --paper:#fff; --orange-pale:#fff1e6; --line:#e9e5df; --muted:#66615b; --shadow:0 24px 70px rgba(17,17,17,.09); --radius:26px; }
+    * { box-sizing:border-box; margin:0; }
+    html { scroll-behavior:smooth; }
+    body { min-width:320px; overflow-x:hidden; background:var(--cream); color:var(--ink); font:16px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    a { color:inherit; }
+    button { font:inherit; }
+    ::selection { background:var(--orange); color:#fff; }
+    :focus-visible { outline:3px solid var(--orange); outline-offset:4px; }
+    .wrap { width:min(1180px, calc(100% - 48px)); margin-inline:auto; }
+    .eyebrow { display:flex; align-items:center; gap:10px; color:var(--orange-dark); font-size:.72rem; font-weight:850; letter-spacing:.14em; text-transform:uppercase; }
+    .eyebrow::before { content:""; width:28px; height:2px; background:currentColor; }
+    .section { padding:120px 0; }
+    .section-head { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:end; margin-bottom:54px; }
+    h1,h2,h3 { letter-spacing:-.065em; line-height:.96; }
+    h2 { max-width:700px; font-size:clamp(2.7rem,5.4vw,5.3rem); font-weight:900; }
+    .section-intro { max-width:440px; color:var(--muted); font-size:1.05rem; }
+    .nav { position:sticky; top:0; z-index:20; border-bottom:1px solid rgba(17,17,17,.07); background:rgba(255,253,249,.88); backdrop-filter:blur(18px); }
+    .nav-inner { height:76px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .logo { text-decoration:none; font-size:1.28rem; font-weight:950; letter-spacing:-.07em; }
+    .logo b { color:var(--orange); }
+    .nav-links { display:flex; align-items:center; gap:28px; }
+    .nav-links a { color:#514c46; font-size:.8rem; font-weight:800; text-decoration:none; }
+    .nav-links a:hover { color:var(--orange); }
+    .pill { padding:10px 16px; border-radius:999px; background:var(--ink); color:#fff!important; }
+    .pill:hover { background:var(--orange)!important; }
+    .hero { position:relative; min-height:calc(100svh - 76px); display:grid; grid-template-columns:1.12fr .88fr; align-items:center; gap:64px; padding:90px 0 105px; }
+    .hero::after { content:""; position:absolute; right:-130px; top:45px; z-index:-1; width:500px; aspect-ratio:1; border-radius:50%; background:rgba(249,115,22,.11); filter:blur(90px); }
+    .hero .eyebrow { margin-bottom:24px; }
+    h1 { max-width:800px; font-size:clamp(4rem,8vw,7rem); font-weight:950; }
+    h1 span { display:block; color:var(--orange); }
+    .hero-subtitle { max-width:650px; margin:30px 0 16px; font-size:clamp(1.25rem,2.2vw,1.62rem); font-weight:700; letter-spacing:-.035em; line-height:1.3; }
+    .hero-copy { max-width:590px; color:var(--muted); font-size:1.03rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:31px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:50px; padding:12px 20px; border:1px solid transparent; border-radius:12px; font-size:.84rem; font-weight:850; text-decoration:none; transition:.2s ease; }
+    .button:hover { transform:translateY(-2px); }
+    .button.primary { background:var(--orange); color:#fff; box-shadow:0 12px 26px rgba(249,115,22,.24); }
+    .button.primary:hover { background:var(--orange-dark); }
+    .button.secondary { border-color:var(--line); background:#fff; }
+    .trust { display:flex; flex-wrap:wrap; gap:8px; margin-top:31px; }
+    .trust span { padding:6px 10px; border:1px solid var(--line); border-radius:99px; color:#716b63; background:rgba(255,255,255,.65); font-size:.68rem; font-weight:760; }
+    .portrait { position:relative; width:min(100%,450px); justify-self:end; padding:12px; border-radius:34px; background:#fff; box-shadow:0 26px 70px rgba(249,115,22,.18); transform:rotate(1.3deg); }
+    .portrait::before { content:""; position:absolute; inset:-12px; z-index:-1; border:1px solid rgba(249,115,22,.35); border-radius:41px; }
+    .portrait-art { position:relative; min-height:510px; overflow:hidden; border-radius:24px; background:var(--ink); }
+    .portrait-art::before { content:"REA"; position:absolute; right:-15px; bottom:-48px; color:var(--orange); font-size:11rem; font-weight:950; letter-spacing:-.15em; line-height:1; opacity:.97; }
+    .portrait-art::after { content:"SHOPIFY + OPERATIONS"; position:absolute; top:22px; left:22px; color:#fff; font-size:.64rem; font-weight:900; letter-spacing:.14em; }
+    .orbit { position:absolute; inset:70px 42px 80px; border:1px solid rgba(255,255,255,.35); border-radius:50%; transform:rotate(-25deg); }
+    .orbit::after { content:""; position:absolute; right:18%; top:2%; width:20px; height:20px; border-radius:50%; background:#fff; box-shadow:0 0 0 8px rgba(249,115,22,.82); }
+    .label { position:absolute; right:20px; bottom:22px; max-width:230px; color:#fff; font-size:1rem; font-weight:700; line-height:1.15; letter-spacing:-.04em; }
+    .strip { border-block:1px solid var(--line); background:#fff; }
+    .strip-inner { display:grid; grid-template-columns:repeat(5,1fr); }
+    .strip-item { min-height:92px; display:flex; align-items:center; justify-content:center; padding:16px; border-right:1px solid var(--line); color:#5b554e; text-align:center; font-size:.7rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .strip-item:first-child { border-left:1px solid var(--line); }
+    .about { background:var(--ink); color:#fff; }
+    .about-grid { display:grid; grid-template-columns:.77fr 1.23fr; gap:80px; align-items:start; }
+    .about h2 { font-size:clamp(3rem,6vw,6.5rem); }
+    .about h2 span { color:var(--orange); }
+    .about-copy { max-width:610px; padding-top:13px; color:#dbd7d1; font-size:1.15rem; }
+    .about-copy p + p { margin-top:20px; }
+    .about-line { margin-top:35px; color:#fff; font-size:1.4rem; font-weight:800; letter-spacing:-.04em; }
+    .about-line b { color:var(--orange); }
+    .capabilities { display:grid; border-top:1px solid var(--line); }
+    .capability { display:grid; grid-template-columns:100px minmax(190px,.62fr) 1fr; gap:34px; padding:30px 0; border-bottom:1px solid var(--line); }
+    .cap-num { color:var(--orange); font-weight:900; font-size:.8rem; letter-spacing:.1em; }
+    .capability h3 { font-size:clamp(1.55rem,2.7vw,2.4rem); font-weight:900; }
+    .cap-content p { max-width:530px; color:var(--muted); }
+    .tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:15px; }
+    .tags span { padding:5px 9px; border:1px solid var(--line); border-radius:99px; color:#5f5952; font-size:.68rem; font-weight:800; }
+    .work { padding-bottom:130px; background:var(--orange-pale); }
+    .work .section-intro { color:#6c5642; }
+    .accordion { border-top:1px solid rgba(17,17,17,.2); }
+    .project { border-bottom:1px solid rgba(17,17,17,.2); }
+    .project-trigger { width:100%; display:grid; grid-template-columns:88px 1fr auto; gap:20px; align-items:center; padding:28px 0; border:0; background:transparent; color:inherit; cursor:pointer; text-align:left; }
+    .project-no { color:var(--orange-dark); font-size:.78rem; font-weight:950; letter-spacing:.1em; }
+    .project-title { font-size:clamp(1.7rem,3.8vw,3.65rem); font-weight:950; letter-spacing:-.065em; line-height:1; }
+    .project-icon { width:38px; aspect-ratio:1; display:grid; place-items:center; border:1px solid rgba(17,17,17,.35); border-radius:50%; font-size:1.5rem; transition:transform .3s ease,background .3s ease,color .3s ease; }
+    .project.open .project-icon { transform:rotate(45deg); color:#fff; background:var(--ink); }
+    .project-panel { display:grid; grid-template-rows:0fr; opacity:0; transition:grid-template-rows .42s cubic-bezier(.2,.75,.25,1),opacity .2s ease; }
+    .project.open .project-panel { grid-template-rows:1fr; opacity:1; }
+    .project-panel > div { min-height:0; overflow:hidden; }
+    .project-inner { display:grid; grid-template-columns:1fr 1fr; gap:55px; padding:2px 0 43px 88px; }
+    .project-copy h3 { margin-bottom:18px; font-size:clamp(1.65rem,3vw,2.7rem); font-weight:900; }
+    .project-copy p { max-width:480px; color:#574c40; }
+    .project-copy p + p { margin-top:13px; }
+    .project-notes { display:grid; gap:11px; margin-top:24px; }
+    .project-note { padding:11px 0; border-top:1px solid rgba(17,17,17,.15); color:#382e26; font-size:.88rem; }
+    .project-note b { display:block; margin-bottom:2px; color:var(--orange-dark); font-size:.66rem; letter-spacing:.11em; text-transform:uppercase; }
+    .work-visual { position:relative; min-height:300px; overflow:hidden; border:1px solid rgba(17,17,17,.12); border-radius:20px; background:#fffaf5; }
+    .work-visual::before,.work-visual::after { position:absolute; content:""; border-radius:16px; }
+    .store::before { width:68%; height:70%; top:15%; left:12%; background:var(--ink); box-shadow:24px 25px 0 var(--orange); }
+    .store::after { content:"SHOPIFY\A STOREFRONT"; white-space:pre; top:31%; left:21%; color:#fff; font-size:1.05rem; font-weight:900; letter-spacing:-.05em; line-height:1.1; }
+    .support::before { width:71%; height:64%; top:18%; left:14%; background:var(--orange); transform:rotate(-4deg); }
+    .support::after { content:"ORDER\A → CHECK\A → RESOLVE"; white-space:pre; top:29%; left:25%; color:var(--ink); font-size:1rem; font-weight:900; letter-spacing:-.05em; line-height:1.15; }
+    .optimize::before { width:70%; height:70%; top:15%; left:15%; background:var(--ink); border-radius:50%; }
+    .optimize::after { content:"NOTICE\A THE\A DETAILS"; white-space:pre; top:27%; left:29%; color:var(--orange); font-size:1.25rem; font-weight:950; letter-spacing:-.07em; line-height:.95; }
+    .systems::before { inset:20% 14%; border:2px solid var(--ink); background:repeating-linear-gradient(90deg,transparent 0 24%,rgba(249,115,22,.95) 24% 30%,transparent 30% 54%); }
+    .systems::after { content:"SYSTEMS\A THAT MOVE"; white-space:pre; top:38%; left:25%; color:var(--ink); font-size:1.1rem; font-weight:950; letter-spacing:-.06em; line-height:1; }
+    .experience-grid { display:grid; grid-template-columns:1fr 1fr; gap:26px; }
+    .experience-card { min-height:280px; padding:31px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; }
+    .experience-card.dark { background:var(--ink); color:#fff; border-color:var(--ink); }
+    .experience-card .eyebrow { margin-bottom:30px; }
+    .experience-card h3 { max-width:420px; font-size:clamp(2rem,3.7vw,3.5rem); font-weight:900; }
+    .experience-card p { max-width:450px; margin-top:20px; color:var(--muted); }
+    .experience-card.dark p { color:#d6d2cd; }
+    .tools { padding-top:0; }
+    .tool-groups { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); }
+    .tool-group { padding:27px 27px 30px 0; border-bottom:1px solid var(--line); }
+    .tool-group:nth-child(3n+2) { padding-left:27px; border-inline:1px solid var(--line); }
+    .tool-group:nth-child(3n) { padding-left:27px; }
+    .tool-group h3 { margin-bottom:14px; color:var(--orange-dark); font-size:.75rem; font-weight:900; letter-spacing:.11em; text-transform:uppercase; }
+    .tool-group p { max-width:260px; color:var(--ink-soft); font-size:.95rem; font-weight:720; line-height:1.65; }
+    .contact { background:var(--orange); color:var(--ink); }
+    .contact-grid { display:grid; grid-template-columns:1.25fr .75fr; gap:45px; align-items:end; }
+    .contact h2 { font-size:clamp(3.4rem,7vw,7.4rem); }
+    .contact h2 span { display:block; color:#fff; }
+    .contact p { max-width:420px; font-size:1.1rem; font-weight:650; }
+    .contact .button { margin-top:25px; background:var(--ink); color:#fff; }
+    .contact .button:hover { background:#fff; color:var(--ink); }
+    footer { padding:24px 0; background:var(--ink); color:#bcb8b1; font-size:.75rem; }
+    .footer-inner { display:flex; justify-content:space-between; gap:18px; }
+    @media (max-width:800px) {
+      .wrap { width:min(100% - 34px,1180px); } .nav-links a:not(.pill) { display:none; } .hero,.section-head,.about-grid,.contact-grid { grid-template-columns:1fr; } .hero { min-height:auto; gap:58px; padding:72px 0; } .portrait { justify-self:start; width:min(100%,380px); } .portrait-art { min-height:410px; } .section { padding:82px 0; } .section-head { gap:19px; margin-bottom:35px; } .strip-inner { grid-template-columns:repeat(2,1fr); } .strip-item { min-height:65px; } .strip-item:last-child { grid-column:span 2; } .strip-item:nth-child(3) { border-left:1px solid var(--line); } .about-grid { gap:28px; } .capability { grid-template-columns:58px 1fr; gap:14px; } .cap-content { grid-column:2; } .project-trigger { grid-template-columns:52px 1fr auto; gap:10px; padding:23px 0; } .project-inner { grid-template-columns:1fr; gap:27px; padding:3px 0 30px; } .work-visual { min-height:230px; } .experience-grid { grid-template-columns:1fr; } .tool-groups { grid-template-columns:1fr; } .tool-group,.tool-group:nth-child(3n+2),.tool-group:nth-child(3n) { padding:23px 0; border-inline:0; } .footer-inner { flex-direction:column; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition-duration:.01ms!important; animation-duration:.01ms!important; } }
   </style>
 </head>
 <body>
-  <!-- =======================================================
-       NAVIGATION
-  ======================================================== -->
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="#" class="logo">
-        Rea<span>.</span>
-      </a>
-      <div class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact" class="nav-contact">Let's Talk</a>
-      </div>
-    </div>
-  </nav>
-  <main>
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
-    <section class="hero container">
-      <div class="hero-copy">
-        <div class="hero-eyebrow">
-          Shopify & Ecommerce Operations
-        </div>
-        <h1>
-          I own the details
-          <span>— from Shopify to customer operations.</span>
-        </h1>
-        <p class="hero-subtitle">
-          Shopify technical, customer operations, systems, and optimization — handled by someone who understands how the pieces connect.
-        </p>
-        <p class="hero-description">
-          I work across Shopify technical, customer and order operations, CRO, systems, and automation. I don't just field customer issues—I investigate root causes across Shopify, fulfillment, and operations. When something is broken, scattered, or needs investigation, I figure it out and move it forward.
-        </p>
-        <div class="hero-actions">
-          <a
-            href="https://wa.me/639696355486?text=Hi%20Rea,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20work%20with%20you."
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button button-primary"
-          >
-            Work With Me →
-          </a>
-          <a href="#work" class="button button-dark">
-            Explore My Work
-          </a>
-        </div>
-        <div class="hero-trust">
-          <span>Shopify</span>
-          <span>Customer Operations</span>
-          <span>Order Management</span>
-          <span>Systems & Automation</span>
-          <span>CRO & A/B Testing</span>
-          <span>Fulfillment Coordination</span>
-        </div>
-      </div>
-      <div class="hero-image-wrap">
-        <div class="hero-image">
-          <img
-            src="rea-profile.png"
-            alt="Rea Bernales"
-          />
-        </div>
-        <div class="hero-note">
-          <small>My approach</small>
-          <strong>
-            Understand the problem. Build the solution. Keep it moving.
-          </strong>
-        </div>
-      </div>
-    </section>
-    <!-- =====================================================
-         TRUST BAR
-    ====================================================== -->
-    <div class="trust-bar">
-      <div class="container trust-bar-inner">
-        <div class="trust-label">
-          Experience across
-        </div>
-        <div class="trust-items">
-          <span>Shopify</span>
-          <span>Customer Operations</span>
-          <span>Fulfillment Coordination</span>
-          <span>Booking.com</span>
-          <span>dnata Travel</span>
-        </div>
-      </div>
-    </div>
-    <!-- =====================================================
-         FEATURED WORK
-    ====================================================== -->
-    <section id="work">
-      <div class="container">
-        <div class="section-heading">
-          <div class="section-kicker">
-            Selected work
-          </div>
-          <h2 class="section-title">
-            I own the full workflow — from technical execution to customer operations.
-          </h2>
-          <p class="section-intro">
-            A look at the kind of Shopify, customer operations, ecommerce, systems, and automation work I actually get involved in.
-          </p>
-        </div>
-        <div class="featured-work">
-          <!-- PROJECT 01 -->
-          <article class="project-accordion-item">
-            <div class="project-header">
-              <div class="project-header-content">
-                <div class="project-number">01 / SHOPIFY</div>
-                <h3>Shopify store & funnel execution</h3>
-              </div>
-              <div class="project-toggle">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="project-content-expanded">
-              <div class="project-details-layout">
-                <div class="project-content">
-                  <p>
-                    Hands-on Shopify implementation across storefront structure, product pages, Liquid changes, apps, funnels, upsells, and troubleshooting.
-                  </p>
-                  <div class="project-detail">
-                    <strong>What I handled</strong>
-                    <span>
-                      Theme and frontend changes, Liquid implementation, product/page work, apps, funnels, and technical fixes.
-                    </span>
-                  </div>
-                  <div class="project-detail">
-                    <strong>Growth side</strong>
-                    <span>
-                      A/B testing, CRO-related changes, cart optimization, upsells, offers, and customer journey improvements.
-                    </span>
-                  </div>
-                </div>
-                <div class="project-image">
-                  <img
-                    src="vetpets-homepage.png"
-                    alt="Shopify ecommerce homepage implementation"
-                  />
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 02 -->
-          <article class="project-accordion-item">
-            <div class="project-header">
-              <div class="project-header-content">
-                <div class="project-number">02 / OPERATIONS</div>
-                <h3>Turning scattered work into one operating system</h3>
-              </div>
-              <div class="project-toggle">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="project-content-expanded">
-              <div class="project-details-layout reverse">
-                <div class="project-image">
-                  <img
-                    src="notion.png"
-                    alt="Notion ecommerce operations dashboard"
-                  />
-                </div>
-                <div class="project-content">
-                  <p>
-                    Built a centralized Notion workspace to bring workflows, team tasks, resources, and recurring operational information into one place.
-                  </p>
-                  <div class="project-detail">
-                    <strong>The problem</strong>
-                    <span>
-                      Operational information and recurring work needed clearer structure and visibility.
-                    </span>
-                  </div>
-                  <div class="project-detail">
-                    <strong>The approach</strong>
-                    <span>
-                      Organize the information around actual workflows instead of creating another generic task list.
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 03 -->
-          <article class="project-accordion-item">
-            <div class="project-header">
-              <div class="project-header-content">
-                <div class="project-number">03 / AUTOMATION</div>
-                <h3>Creator workflow without the spreadsheet chaos</h3>
-              </div>
-              <div class="project-toggle">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="project-content-expanded">
-              <div class="project-details-layout">
-                <div class="project-content">
-                  <p>
-                    Structured a creator intake and coordination process connecting forms, tracking, notifications, and follow-up workflows.
-                  </p>
-                  <div class="project-detail">
-                    <strong>Tools</strong>
-                    <span>
-                      Typeform, Zapier, Google Sheets, and Slack.
-                    </span>
-                  </div>
-                  <div class="project-detail">
-                    <strong>Focus</strong>
-                    <span>
-                      Make creator information easier to capture, track, and act on without relying entirely on manual follow-up.
-                    </span>
-                  </div>
-                </div>
-                <div class="project-image">
-                  <img
-                    src="creatorintakeform.png"
-                    alt="Creator intake and automation workflow"
-                  />
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 04 -->
-          <article class="project-accordion-item">
-            <div class="project-header">
-              <div class="project-header-content">
-                <div class="project-number">04 / STOREFRONT</div>
-                <h3>Building pages around the customer journey</h3>
-              </div>
-              <div class="project-toggle">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </div>
-            </div>
-            <div class="project-content-expanded">
-              <div class="project-details-layout reverse">
-                <div class="project-image">
-                  <img
-                    src="vetpets-section2.png"
-                    alt="Shopify ecommerce brand messaging section"
-                  />
-                </div>
-                <div class="project-content">
-                  <p>
-                    Supported homepage structure, brand messaging, visual hierarchy, and product storytelling inside Shopify.
-                  </p>
-                  <div class="project-detail">
-                    <strong>Focus</strong>
-                    <span>
-                      Page structure, messaging hierarchy, product presentation, and implementation.
-                    </span>
-                  </div>
-                  <div class="project-detail">
-                    <strong>Goal</strong>
-                    <span>
-                      Make the storefront easier to understand and move through, while keeping the brand experience consistent.
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-    <!-- =====================================================
-         CAPABILITIES
-    ====================================================== -->
-    <section id="capabilities">
-      <div class="container">
-        <div class="capability-layout">
-          <div class="capability-sticky">
-            <div class="section-kicker">
-              What I bring
-            </div>
-            <h2 class="section-title">
-              Shopify. Customer operations. The full workflow.
-            </h2>
-            <p class="section-intro">
-              I sit between the technical, operational, and customer sides of ecommerce. I own the details across the full workflow—from Shopify backend to customer experience.
-            </p>
-          </div>
-          <div class="capability-list">
-            <article class="capability">
-              <div class="capability-number">
-                01
-              </div>
-              <div>
-                <h3>
-                  Shopify
-                </h3>
-                <p>
-                  Shopify implementation, Liquid edits, theme changes, product pages, app configuration, frontend work, funnels, upsells, and technical troubleshooting.
-                </p>
-                <div class="capability-tags">
-                  <span>Shopify</span>
-                  <span>Liquid</span>
-                  <span>GemPages</span>
-                  <span>AfterSell</span>
-                  <span>Loop</span>
-                </div>
-              </div>
-            </article>
-            <article class="capability">
-              <div class="capability-number">
-                02
-              </div>
-              <div>
-                <h3>
-                  Customer Operations
-                </h3>
-                <p>
-                  Customer and order issue investigation, troubleshooting, and coordination. When a customer has a problem—delayed shipment, tracking issue, wrong address, returns/refunds, fulfillment problem, or checkout issue—I investigate the root cause across customer communication, Shopify backend, fulfillment systems, and operations. I work with customers and fulfillment partners to identify what needs to happen next and see it through to clear resolution.
-                </p>
-                <div class="capability-tags">
-                  <span>Order Management</span>
-                  <span>Troubleshooting</span>
-                  <span>Returns & Refunds</span>
-                  <span>Fulfillment Coordination</span>
-                  <span>Re:amaze</span>
-                  <span>Zendesk</span>
-                </div>
-              </div>
-            </article>
-            <article class="capability">
-              <div class="capability-number">
-                03
-              </div>
-              <div>
-                <h3>
-                  Optimize
-                </h3>
-                <p>
-                  A/B testing, CRO implementation, cart optimization, upsell structures, offer testing, product page improvements, and funnel execution.
-                </p>
-                <div class="capability-tags">
-                  <span>A/B Testing</span>
-                  <span>CRO</span>
-                  <span>Funnels</span>
-                  <span>Upsells</span>
-                  <span>Triple Whale</span>
-                </div>
-              </div>
-            </article>
-            <article class="capability">
-              <div class="capability-number">
-                04
-              </div>
-              <div>
-                <h3>
-                  Systems & Automation
-                </h3>
-                <p>
-                  Notion dashboards, operational trackers, documentation, team workflows, and automation to reduce manual work and create clearer processes. Connect forms, spreadsheets, Slack, Shopify Flow, and other tools to support both internal operations and customer experience.
-                </p>
-                <div class="capability-tags">
-                  <span>Notion</span>
-                  <span>Google Sheets</span>
-                  <span>Zapier</span>
-                  <span>Shopify Flow</span>
-                  <span>Typeform</span>
-                  <span>Slack</span>
-                </div>
-              </div>
-            </article>
-            <article class="capability">
-              <div class="capability-number">
-                05
-              </div>
-              <div>
-                <h3>
-                  Coordinate
-                </h3>
-                <p>
-                  Creator and affiliate operations, UGC coordination, onboarding, follow-ups, and team administration.
-                </p>
-                <div class="capability-tags">
-                  <span>UGC</span>
-                  <span>Affiliate Ops</span>
-                  <span>Creator Operations</span>
-                  <span>HR Support</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- =====================================================
-         ABOUT
-    ====================================================== -->
-    <section class="about" id="about">
-      <div class="container">
-        <div class="about-grid">
-          <div>
-            <div class="section-kicker">
-              A little about me
-            </div>
-            <h2 class="section-title">
-              I became the person who figures things out.
-            </h2>
-          </div>
-          <div class="about-copy">
-            <p>
-              My background started in customer service, ecommerce support, and supplier operations. I learned that to understand how a business actually works, you need to sit in the middle—understanding customers, systems, processes, fulfillment, and the operational details that keep everything moving forward.
-            </p>
-            <p>
-              From there, my work moved deeper into ecommerce. But I brought that customer and operational mindset with me. I started working hands-on with Shopify technical, customer order management, CRO, fulfillment coordination, systems, and automation—always thinking about how these pieces affect both customers and operations.
-            </p>
-            <p>
-              Today, I work best in the space between strategy and execution. I don't need every problem to arrive as a perfectly written task. Give me the context, and I can investigate what is happening, figure out what needs to change, and help turn it into something that works.
-            </p>
-            <div class="about-highlight">
-              I'm at my best when someone needs to understand the full picture—customer, Shopify, operations—and connect the dots to solve problems.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- =====================================================
-         EXPERIENCE
-    ====================================================== -->
-    <section id="experience">
-      <div class="container">
-        <div class="experience">
-          <div>
-            <div class="section-kicker">
-              Background
-            </div>
-            <h2 class="section-title">
-              Built on real operations experience.
-            </h2>
-            <p class="section-intro">
-              My progression from customer service to ecommerce operations to Shopify technical shows how I built an integrated understanding of how ecommerce businesses work.
-            </p>
-          </div>
-          <div class="experience-list">
-            <div class="experience-item">
-              <div class="experience-year">
-                CURRENT
-              </div>
-              <div>
-                <h3>Shopify & Ecommerce Operations</h3>
-                <p>
-                  Technical Shopify, customer and order operations, CRO, systems, automation, fulfillment coordination. Owner of the details across the full ecommerce workflow.
-                </p>
-              </div>
-            </div>
-            <div class="experience-item">
-              <div class="experience-year">
-                PREVIOUS
-              </div>
-              <div>
-                <h3>Cloudstaff</h3>
-                <p>
-                  Customer service and operational support in a professional remote work environment.
-                </p>
-              </div>
-            </div>
-            <div class="experience-item">
-              <div class="experience-year">
-                PREVIOUS
-              </div>
-              <div>
-                <h3>TaskUs — Ecommerce Advisor</h3>
-                <p>
-                  Supported online sellers and buyers across ecommerce platforms. This taught me how to troubleshoot from both customer and operations perspectives.
-                </p>
-              </div>
-            </div>
-            <div class="experience-item">
-              <div class="experience-year">
-                PREVIOUS
-              </div>
-              <div>
-                <h3>dnata Travel — Supplier Relations</h3>
-                <p>
-                  Worked with suppliers and partners across contracts, operational issues, data, and SLA-related processes. Learned how to coordinate across teams and systems.
-                </p>
-              </div>
-            </div>
-            <div class="experience-item">
-              <div class="experience-year">
-                PREVIOUS
-              </div>
-              <div>
-                <h3>Customer & Partner Operations</h3>
-                <p>
-                  Experience supporting customers and partners across calls, chats, email, scheduling, backend systems, and operational coordination.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- =====================================================
-         TOOLS
-    ====================================================== -->
-    <section class="tools-section">
-      <div class="container">
-        <div class="tools-layout">
-          <div>
-            <div class="section-kicker">
-              Toolkit
-            </div>
-            <h2 class="section-title">
-              The tools change. The thinking doesn't.
-            </h2>
-            <p class="section-intro">
-              I use the tools that fit the workflow rather than trying to force every problem into the same platform.
-            </p>
-          </div>
-          <div class="tool-groups">
-            <div class="tool-group">
-              <h3>Shopify & Ecommerce</h3>
-              <div class="tool-list">
-                <span class="tool">Shopify</span>
-                <span class="tool">Liquid</span>
-                <span class="tool">GemPages</span>
-                <span class="tool">AfterSell</span>
-                <span class="tool">Loop</span>
-                <span class="tool">Kaching Bundles</span>
-                <span class="tool">Triple Whale</span>
-                <span class="tool">Microsoft Clarity</span>
-              </div>
-            </div>
-            <div class="tool-group">
-              <h3>Customer & Support Operations</h3>
-              <div class="tool-list">
-                <span class="tool">Re:amaze</span>
-                <span class="tool">Zendesk</span>
-                <span class="tool">Salesforce</span>
-                <span class="tool">Apploye</span>
-                <span class="tool">Loox</span>
-              </div>
-            </div>
-            <div class="tool-group">
-              <h3>Systems & Automation</h3>
-              <div class="tool-list">
-                <span class="tool">Notion</span>
-                <span class="tool">Zapier</span>
-                <span class="tool">Google Sheets</span>
-                <span class="tool">Typeform</span>
-                <span class="tool">Slack</span>
-                <span class="tool">Shopify Flow</span>
-                <span class="tool">GitHub</span>
-              </div>
-            </div>
-            <div class="tool-group">
-              <h3>Creative & Content</h3>
-              <div class="tool-list">
-                <span class="tool">Canva</span>
-                <span class="tool">CapCut</span>
-                <span class="tool">Frame.io</span>
-                <span class="tool">Meta Business Suite</span>
-                <span class="tool">UGC Workflows</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- =====================================================
-         CONTACT
-    ====================================================== -->
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="contact-inner">
-          <div class="section-kicker">
-            Let's work
-          </div>
-          <h2 class="section-title">
-            Ready to hand off your Shopify operations?
-          </h2>
-          <p>
-            Whether you need technical Shopify work, customer support coordination, a system built out, or someone who understands and can own the full ecommerce workflow—let's talk.
-          </p>
-          <div class="contact-actions">
-            <a
-              href="https://wa.me/639696355486?text=Hi%20Rea,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20work%20with%20you."
-              target="_blank"
-              rel="noopener noreferrer"
-              class="button button-primary"
-            >
-              Work With Me →
-            </a>
-            <a
-              href="https://v2.onlinejobs.ph/jobseekers/info/2248939"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="button button-dark"
-            >
-              View My OnlineJobs Profile
-            </a>
-            <a
-              href="mailto:hello@reabernales.space"
-              class="button button-dark"
-            >
-              Email Me
-            </a>
-          </div>
-          <div class="contact-email">
-            <a href="mailto:hello@reabernales.space">
-              hello@reabernales.space
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+  <nav class="nav" aria-label="Primary navigation"><div class="wrap nav-inner"><a class="logo" href="#top">REA<b>.</b></a><div class="nav-links"><a href="#about">About</a><a href="#capabilities">Capabilities</a><a href="#work">Selected work</a><a href="#contact" class="pill">Get in touch</a></div></div></nav>
+  <main id="top">
+    <section class="wrap hero" aria-labelledby="hero-title"><div><p class="eyebrow">Rea Bernales · Shopify & E-Commerce Operations</p><h1 id="hero-title">I own the details<span>from Shopify to customer operations.</span></h1><p class="hero-subtitle">For e-commerce teams that need someone who can understand the store, the customer, and the work in between.</p><p class="hero-copy">I support the practical work that keeps an e-commerce business moving: Shopify operations, customer and order follow-through, optimization, systems, and coordination.</p><div class="actions"><a class="button primary" href="#work">Explore selected work</a><a class="button secondary" href="#contact">Start a conversation</a></div><div class="trust" aria-label="Areas of experience"><span>Shopify</span><span>Customer operations</span><span>Store optimization</span><span>Systems & automation</span></div></div><div class="portrait" aria-label="Rea Bernales, Shopify and e-commerce operations specialist"><div class="portrait-art"><div class="orbit"></div><p class="label">Practical support for the details that make a store work.</p></div></div></section>
+    <section class="strip" aria-label="Areas of work"><div class="wrap strip-inner"><p class="strip-item">Shopify operations</p><p class="strip-item">Customer operations</p><p class="strip-item">Order & fulfillment</p><p class="strip-item">Optimization</p><p class="strip-item">Systems & coordination</p></div></section>
+    <section id="about" class="about section"><div class="wrap about-grid"><h2>I became the person who <span>figures things out.</span></h2><div class="about-copy"><p>I work best when there is a real problem to understand: an order that needs tracing, a Shopify detail that is not behaving as expected, a process with too many loose ends, or a customer who needs a clear answer.</p><p>That perspective comes from working across the customer-facing and operational sides of e-commerce. I do not treat a support question as an isolated ticket; I look at the order, store, fulfillment, and next steps needed to move it forward.</p><p class="about-line">Curious about the <b>why</b>. Reliable about the follow-through.</p></div></div></section>
+    <section id="capabilities" class="section"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Capabilities</p><h2>Useful where the work gets real.</h2></div><p class="section-intro">A broad operational skill set, organised around the places where Shopify stores need steady attention and good judgment.</p></div><div class="capabilities">
+      <article class="capability"><p class="cap-num">01 /</p><h3>Shopify</h3><div class="cap-content"><p>Store updates, product and page work, theme and Liquid changes, cart and checkout-related investigation, and the everyday details that keep a storefront accurate and usable.</p><div class="tags"><span>Store management</span><span>Liquid & themes</span><span>Products & pages</span><span>Apps & integrations</span></div></div></article>
+      <article class="capability"><p class="cap-num">02 /</p><h3>Customer operations</h3><div class="cap-content"><p>Clear customer communication backed by investigation. I handle order questions, tracking, delays, missing parcels, failed deliveries, address issues, returns, refunds, fulfillment follow-ups, and Shopify order checks.</p><div class="tags"><span>Order investigation</span><span>Shipping & tracking</span><span>Returns & refunds</span><span>Fulfillment coordination</span></div></div></article>
+      <article class="capability"><p class="cap-num">03 /</p><h3>Optimize</h3><div class="cap-content"><p>Looking closely at the storefront and customer journey to spot friction, improve clarity, and turn what is observed into practical next steps.</p><div class="tags"><span>CRO support</span><span>Product pages</span><span>A/B testing</span><span>Behaviour analysis</span></div></div></article>
+      <article class="capability"><p class="cap-num">04 /</p><h3>Systems & automation</h3><div class="cap-content"><p>Making recurring work easier to track and more consistent through sensible workflows, store tools, and automation—without losing sight of the people using them.</p><div class="tags"><span>Shopify Flow</span><span>Workflows</span><span>Process improvement</span><span>Documentation</span></div></div></article>
+      <article class="capability"><p class="cap-num">05 /</p><h3>Coordinate</h3><div class="cap-content"><p>Keeping moving parts connected: fulfillment providers, customer follow-ups, creators, affiliates, content, and the operational handoffs that can otherwise get missed.</p><div class="tags"><span>Creator operations</span><span>Affiliate support</span><span>Follow-ups</span><span>Cross-team coordination</span></div></div></article>
+    </div></div></section>
+    <section id="work" class="work section"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Selected work</p><h2>Four ways I help keep things moving.</h2></div><p class="section-intro">A closer look at the kinds of work I handle. These are honest snapshots of responsibilities and approach—not invented case studies or metrics.</p></div><div class="accordion" data-accordion>
+      <article class="project open"><h3><button class="project-trigger" type="button" id="project-one" aria-expanded="true" aria-controls="panel-one"><span class="project-no">01 /</span><span class="project-title">Shopify storefront</span><span class="project-icon" aria-hidden="true">+</span></button></h3><div class="project-panel" id="panel-one" role="region" aria-labelledby="project-one"><div><div class="project-inner"><div class="project-copy"><h3>Store details, handled with care.</h3><p>I support the visible and behind-the-scenes work of a Shopify store: product and content updates, theme and Liquid changes, store sections, cart functionality, and customer-facing issues that need to be checked from the store side.</p><div class="project-notes"><p class="project-note"><b>Focus</b>Store accuracy, functionality, and day-to-day upkeep.</p><p class="project-note"><b>Tools</b>Shopify, Liquid, GemPages, and Shopify apps.</p></div></div><div class="work-visual store" aria-hidden="true"></div></div></div></div></article>
+      <article class="project"><h3><button class="project-trigger" type="button" id="project-two" aria-expanded="false" aria-controls="panel-two"><span class="project-no">02 /</span><span class="project-title">Customer operations</span><span class="project-icon" aria-hidden="true">+</span></button></h3><div class="project-panel" id="panel-two" role="region" aria-labelledby="project-two"><div><div class="project-inner"><div class="project-copy"><h3>More than an answer in the inbox.</h3><p>When a customer has an issue, I check what actually happened. That can mean reviewing the Shopify order, fulfillment status, tracking, delivery information, or the relevant store process—then coordinating a next step and following up clearly.</p><div class="project-notes"><p class="project-note"><b>Common work</b>Delays, missing parcels, tracking, failed deliveries, wrong addresses, returns, refunds, and fulfillment problems.</p><p class="project-note"><b>Approach</b>Investigate, communicate, coordinate, and follow through to a clear resolution.</p></div></div><div class="work-visual support" aria-hidden="true"></div></div></div></div></article>
+      <article class="project"><h3><button class="project-trigger" type="button" id="project-three" aria-expanded="false" aria-controls="panel-three"><span class="project-no">03 /</span><span class="project-title">Optimize</span><span class="project-icon" aria-hidden="true">+</span></button></h3><div class="project-panel" id="panel-three" role="region" aria-labelledby="project-three"><div><div class="project-inner"><div class="project-copy"><h3>Pay attention to the journey.</h3><p>I bring a practical optimisation mindset to storefront work—reviewing page and checkout experiences, behaviour signals, and customer-facing details to identify where a store can be clearer, easier to use, or less likely to create avoidable friction.</p><div class="project-notes"><p class="project-note"><b>Focus</b>Product pages, pre-landers, cart and checkout experience, and user behaviour.</p><p class="project-note"><b>Tools</b>Microsoft Clarity, Triple Whale, Shopify, and testing tools.</p></div></div><div class="work-visual optimize" aria-hidden="true"></div></div></div></div></article>
+      <article class="project"><h3><button class="project-trigger" type="button" id="project-four" aria-expanded="false" aria-controls="panel-four"><span class="project-no">04 /</span><span class="project-title">Systems & automation</span><span class="project-icon" aria-hidden="true">+</span></button></h3><div class="project-panel" id="panel-four" role="region" aria-labelledby="project-four"><div><div class="project-inner"><div class="project-copy"><h3>Make repeat work easier to run.</h3><p>I use systems, workflows, and automation to give recurring work more structure—supporting more consistent follow-ups, clearer handoffs, and fewer details getting lost when several parts of an e-commerce operation are moving at once.</p><div class="project-notes"><p class="project-note"><b>Focus</b>Operational workflows, follow-ups, and process improvement.</p><p class="project-note"><b>Tools</b>Shopify Flow, Shopify apps, Google Workspace, Microsoft 365, and operational tools.</p></div></div><div class="work-visual systems" aria-hidden="true"></div></div></div></div></article>
+    </div></div></section>
+    <section class="section"><div class="wrap"><div class="section-head"><div><p class="eyebrow">How I work</p><h2>Calm, practical, and accountable.</h2></div><p class="section-intro">I am comfortable working independently, but I also know when an issue needs the right context, a clear update, or an escalation.</p></div><div class="experience-grid"><article class="experience-card dark"><p class="eyebrow">The approach</p><h3>Understand it before deciding what to do.</h3><p>I check the relevant information, identify what is unresolved, and take the next useful action—not the quickest generic response.</p></article><article class="experience-card"><p class="eyebrow">The follow-through</p><h3>Keep ownership until there is a clear next step.</h3><p>Whether the work is in Shopify, the support queue, or an operations workflow, I keep details organised and communicate clearly when something needs attention.</p></article></div></div></section>
+    <section class="tools section"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Tools</p><h2>Comfortable inside the stack.</h2></div><p class="section-intro">Tools support the work. The value is knowing where to look, what to check, and how to move a task forward.</p></div><div class="tool-groups"><article class="tool-group"><h3>Shopify & store</h3><p>Shopify · Liquid · GemPages · Shopify Flow · Phoenix Checkout Builder</p></article><article class="tool-group"><h3>Customer support</h3><p>Re:amaze · Gorgias · Zendesk · Outlook · Microsoft 365</p></article><article class="tool-group"><h3>E-commerce</h3><p>Loop Subscriptions · AfterSell · Kaching Bundles · Triple Whale · Microsoft Clarity</p></article><article class="tool-group"><h3>Operations</h3><p>Google Workspace · Microsoft 365 · Notion · Miro</p></article><article class="tool-group"><h3>Content & coordination</h3><p>Canva · CapCut · Meta Business Suite · Creator and affiliate workflows</p></article><article class="tool-group"><h3>Working style</h3><p>Investigate · Organise · Coordinate · Improve · Follow through</p></article></div></div></section>
+    <section id="contact" class="contact section"><div class="wrap contact-grid"><h2>Have an operation that needs<span>a steady pair of hands?</span></h2><div><p>I am open to full-time, long-term roles as well as freelance and contract work with Shopify and e-commerce teams.</p><a class="button" href="mailto:YOUR-EMAIL@example.com">Email Rea <span aria-hidden="true">→</span></a></div></div></section>
   </main>
-  <!-- =======================================================
-       FOOTER
-  ======================================================== -->
-  <footer>
-    <div class="container footer-inner">
-      <span>
-        © 2026 Rea Bernales
-      </span>
-      <span>
-        Shopify & Ecommerce Operations
-      </span>
-    </div>
-  </footer>
-
-  <!-- ======================================================= 
-       ACCORDION FUNCTIONALITY
-  ======================================================== -->
+  <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Rea Bernales</span><span>Shopify & E-Commerce Operations Specialist</span></div></footer>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const projectItems = document.querySelectorAll('.project-accordion-item');
-      
-      projectItems.forEach((item, index) => {
-        const header = item.querySelector('.project-header');
-        
-        header.addEventListener('click', function() {
-          // Close all other items
-          projectItems.forEach((otherItem, otherIndex) => {
-            if (otherIndex !== index) {
-              otherItem.classList.remove('expanded');
-            }
-          });
-          
-          // Toggle current item
-          item.classList.toggle('expanded');
-        });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const projects = [...document.querySelectorAll('.project')];
+    const triggers = projects.map(project => project.querySelector('.project-trigger'));
+    function openProject(project) { projects.forEach(item => { const active = item === project; item.classList.toggle('open', active); item.querySelector('.project-trigger').setAttribute('aria-expanded', active); }); }
+    triggers.forEach((trigger, index) => {
+      trigger.addEventListener('click', () => openProject(projects[index]));
+      trigger.addEventListener('keydown', event => {
+        let destination = null;
+        if (event.key === 'ArrowDown') destination = (index + 1) % triggers.length;
+        if (event.key === 'ArrowUp') destination = (index - 1 + triggers.length) % triggers.length;
+        if (event.key === 'Home') destination = 0;
+        if (event.key === 'End') destination = triggers.length - 1;
+        if (destination !== null) { event.preventDefault(); triggers[destination].focus(); openProject(projects[destination]); }
       });
     });
   </script>
