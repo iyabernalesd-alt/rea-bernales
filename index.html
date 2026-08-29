@@ -342,8 +342,13 @@
     document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', event => { if (event.target === lightbox) closeLightbox(); });
     document.addEventListener('keydown', event => { if (event.key === 'Escape') closeLightbox(); });
-        const revealTargets = document.querySelectorAll('.hero .eyebrow, .section-head .eyebrow, .section-intro, .capability, .experience-card, .tool-group, .strip-item, .about-copy, .hero-copy');
-    revealTargets.forEach(el => el.classList.add('reveal'));
+            const revealTargets = document.querySelectorAll('.hero .eyebrow, .hero-subtitle, .hero-copy, .actions, .trust, .section-head .eyebrow, .section-intro, .capability, .experience-card, .tool-group, .strip-item, .about-copy, .project, .contact p, .contact .button, .footer-inner');
+    revealTargets.forEach(el => {
+      el.classList.add('reveal');
+      const siblings = [...el.parentElement.children].filter(child => child.matches('.hero .eyebrow, .hero-subtitle, .hero-copy, .actions, .trust, .section-head .eyebrow, .section-intro, .capability, .experience-card, .tool-group, .strip-item, .about-copy, .project, .contact p, .contact .button, .footer-inner'));
+      const index = siblings.indexOf(el);
+      if (index > 0) el.style.transitionDelay = Math.min(index * 80, 320) + 'ms';
+    });
     const revealObserver = new IntersectionObserver(entries => {      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); } });
     }, { threshold: .15 });
     revealTargets.forEach(el => revealObserver.observe(el));
