@@ -259,7 +259,14 @@
       .contact::before { content:""; position:absolute; top:-30%; left:-25%; width:70%; height:160%; pointer-events:none; background:radial-gradient(50% 50% at 50% 50%, rgba(255,255,255,.16), rgba(255,255,255,0) 70%); animation:ctaDrift 26s ease-in-out infinite alternate; }
     }
         @keyframes ctaDrift { from { transform:translate3d(0,0,0); } to { transform:translate3d(95%,6%,0); } }
-
+        /* 10 · Portrait frame — slow orange breathe */
+    @media (prefers-reduced-motion:no-preference) {
+      .portrait::before { animation:portraitBreathe 7s ease-in-out infinite; }
+    }
+    @keyframes portraitBreathe {
+      0%, 100% { opacity:.5; box-shadow:0 0 0 0 rgba(249,115,22,0); }
+      50% { opacity:1; box-shadow:0 0 40px 6px rgba(249,115,22,.15); }
+    }
     /* 9 · Reduced motion */
     @media (prefers-reduced-motion:reduce) {
       .rv-word, .rv-line { opacity:1!important; transform:none!important; }
