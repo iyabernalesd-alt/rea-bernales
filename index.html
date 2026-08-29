@@ -258,7 +258,16 @@
     @media (prefers-reduced-motion:no-preference) {
       .contact::before { content:""; position:absolute; top:-30%; left:-25%; width:70%; height:160%; pointer-events:none; background:radial-gradient(50% 50% at 50% 50%, rgba(255,255,255,.16), rgba(255,255,255,0) 70%); animation:ctaDrift 26s ease-in-out infinite alternate; }
     }
-    @keyframes ctaDrift { from { transform:translate3d(0,0,0); } to { transform:translate3d(95%,6%,0); } }
+        @keyframes ctaDrift { from { transform:translate3d(0,0,0); } to { transform:translate3d(95%,6%,0); } }
+
+    /* 9 · Reduced motion */
+    @media (prefers-reduced-motion:reduce) {
+      .rv-word, .rv-line { opacity:1!important; transform:none!important; }
+      .eyebrow::before { width:28px; }
+      h1 span { animation:none; }
+      .contact::before { display:none; }
+    }
+  </style>
   </style>
 </head>
 <body>
@@ -291,10 +300,10 @@
     <section id="contact" class="contact section"><div class="wrap contact-grid"><h2>Have an operation that needs<span>a steady pair of hands?</span></h2><div><p>I am open to full-time, long-term roles as well as freelance and contract work with Shopify, e-commerce, and customer operations teams.</p><a class="button" href="mailto:hello.reabernales@gmail.com">Email Rea <span aria-hidden="true">→</span></a><p style="margin-top:14px;font-size:.9rem;font-weight:700;">hello.reabernales@gmail.com</p></div></div></section>
   </main>
   <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Rea Bernales</span><span>Shopify & E-Commerce Operations Specialist</span></div></footer>
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image"><div class="lightbox-inner"><button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image">×</button><img id="lightbox-img" src="" alt=""><p class="lightbox-caption" id="lightbox-caption"></p></div></div>
-      const prefersReducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+        <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image"><div class="lightbox-inner"><button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image">×</button><img id="lightbox-img" src="" alt=""><p class="lightbox-caption" id="lightbox-caption"></p></div></div>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    const prefersReducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
     const projects = [...document.querySelectorAll('.project')];
     const triggers = projects.map(project => project.querySelector('.project-trigger'));
     function closeProjects() { projects.forEach(item => { item.classList.remove('open'); item.querySelector('.project-trigger').setAttribute('aria-expanded', 'false'); }); }
