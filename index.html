@@ -100,7 +100,10 @@
     @media (max-width:800px) { .companies-inner { gap:32px; } }
     .capabilities { display:flex; gap:20px; width:100vw; max-width:none; margin-left:calc(50% - 50vw); overflow-x:auto; overflow-y:hidden; padding:40px max(6vw, 24px); scroll-snap-type:x proximity; scrollbar-width:none; -webkit-overflow-scrolling:touch; border-top:none; }
     .capabilities::-webkit-scrollbar { display:none; }
-    .capability { display:grid; grid-template-columns:1fr; flex:0 0 clamp(280px, 28vw, 360px); min-height:420px; padding:0; border:none; border-radius:12px; background:#fff; overflow:hidden; box-shadow:0 8px 24px rgba(17,17,17,.08); }
+    .capability { display:grid; grid-template-columns:1fr; flex:0 0 clamp(280px, 28vw, 360px); min-height:420px; padding:0; border:none; border-radius:12px; background:#fff; overflow:hidden; box-shadow:0 8px 24px rgba(17,17,17,.08); -webkit-user-select:none; user-select:none; }
+    @media (max-width:800px) {
+      .capability { flex:0 0 clamp(260px, 72vw, 300px); min-height:360px; }
+    }
     .cap-num { display:none; }
     .capability h3 { font-size:1.35rem; font-weight:900; margin:12px 0 0; padding:0 24px; color:var(--ink); }
     .cap-content { display:grid; grid-template-columns:1fr; gap:0; padding:0; margin-top:auto; }
@@ -250,6 +253,9 @@
     .tool-gallery-dots { display:flex; justify-content:center; gap:7px; margin-top:18px; }
     .tool-gallery-dot { width:8px; height:8px; padding:0; border:0; border-radius:50%; background:#d7d0c8; cursor:pointer; transition:transform .2s ease, background-color .2s ease; }
     .tool-gallery-dot.is-active { background:var(--orange); transform:scale(1.35); }
+    .capability-gallery-dots { display:flex; justify-content:center; gap:7px; margin-top:28px; padding:0; }
+    .capability-gallery-dot { width:8px; height:8px; padding:0; border:0; border-radius:50%; background:#d7d0c8; cursor:pointer; transition:transform .2s ease, background-color .2s ease; }
+    .capability-gallery-dot.is-active { background:var(--orange); transform:scale(1.35); }
     @media (max-width:800px) {
       .tool-groups { gap:12px; padding-inline:calc((100% - min(78vw, 300px)) / 2); scroll-padding-inline:calc((100% - min(78vw, 300px)) / 2); }
       .tool-group { flex-basis:min(78vw,300px); min-height:190px; }
@@ -650,6 +656,55 @@
       preview.appendChild(thumb);
       trigger.appendChild(preview);
     });
+    /* Capabilities gallery: dots navigation */
+    const capGallery = document.querySelector('.capabilities');
+    if (capGallery) {
+      const capGroups = [...document.querySelectorAll('.capability')];
+      const capSection = capGallery.closest('.section');
+      const dotsContainer = document.createElement('div');
+      dotsContainer.className = 'capability-gallery-dots';
+
+      capGroups.forEach((cap, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'capability-gallery-dot';
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Show capability ${index + 1}`);
+        dot.addEventListener('click', () => {
+          cap.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      if (capSection) {
+        capSection.appendChild(dotsContainer);
+      }
+
+      let scrollFrame;
+      capGallery.addEventListener('scroll', () => {
+        cancelAnimationFrame(scrollFrame);
+        scrollFrame = requestAnimationFrame(() => {
+          const center = capGallery.getBoundingClientRect().left + capGallery.clientWidth / 2;
+          let nearest = 0;
+          let distance = Infinity;
+          capGroups.forEach((cap, index) => {
+            const rect = cap.getBoundingClientRect();
+            const nextDistance = Math.abs(rect.left + rect.width / 2 - center);
+            if (nextDistance < distance) { distance = nextDistance; nearest = index; }
+          });
+          document.querySelectorAll('.capability-gallery-dot').forEach((dot, dotIndex) => {
+            dot.classList.toggle('is-active', dotIndex === nearest);
+            dot.setAttribute('aria-current', dotIndex === nearest ? 'true' : 'false');
+          });
+        });
+      }, { passive: true });
+
+      capGallery.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
+          e.preventDefault();
+          capGallery.scrollLeft += e.deltaY;
+        }
+      }, { passive: false });
+    }
     /* Company logos: smooth continuous marquee with manual touch/scroll control. */
     const logoGallery = document.querySelector('.companies-grid');
     if (logoGallery) {
