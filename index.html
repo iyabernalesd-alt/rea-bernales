@@ -8,7 +8,6 @@
   <title>Rea Bernales — Shopify & E-Commerce Operations</title>
       <style>
     @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400..1000&display=swap');
-
     :root { --ink:#111; --ink-soft:#252525; --orange:#f97316; --orange-dark:#d95909; --cream:#fffdf9; --paper:#fff; --orange-pale:#fff1e6; --line:#e9e5df; --muted:#66615b; --shadow:0 24px 70px rgba(17,17,17,.09); --radius:26px; }
     * { box-sizing:border-box; margin:0; }
     html { scroll-behavior:smooth; }
@@ -662,8 +661,19 @@
       let resumeTimer;
       let animationFrame;
       const measureLoop = () => {
+        if (originalLogos.length === 0) return;
         const midpoint = logoGallery.children[originalLogos.length];
-        loopWidth = midpoint ? midpoint.offsetLeft - logoGallery.children[0].offsetLeft : 0;
+        if (midpoint) {
+          loopWidth = midpoint.offsetLeft - logoGallery.children[0].offsetLeft;
+        } else {
+          // Fallback: calculate based on first logo width and gap
+          const firstLogo = logoGallery.children[0];
+          if (firstLogo) {
+            const style = window.getComputedStyle(logoGallery);
+            const gap = parseFloat(style.gap) || 24;
+            loopWidth = (firstLogo.offsetWidth + gap) * originalLogos.length;
+          }
+        }
       };
       const pauseMarquee = () => { paused = true; clearTimeout(resumeTimer); };
       const resumeMarquee = () => {
@@ -677,8 +687,14 @@
         }
         animationFrame = requestAnimationFrame(moveMarquee);
       };
+      // Measure on load and after images load
       measureLoop();
+      window.addEventListener('load', () => {
+        setTimeout(measureLoop, 100);
+      });
+      // Remeasure on resize
       window.addEventListener('resize', measureLoop);
+      // Pause on interaction
       logoGallery.addEventListener('mouseenter', pauseMarquee);
       logoGallery.addEventListener('mouseleave', resumeMarquee);
       logoGallery.addEventListener('pointerdown', pauseMarquee, { passive:true });
