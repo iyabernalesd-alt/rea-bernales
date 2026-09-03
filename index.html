@@ -89,9 +89,15 @@
     }
     .company-logo img { max-width:100%; max-height:60px; object-fit:contain; }
     .companies-section { overflow:hidden; }
-    .companies-grid::-webkit-scrollbar { height:8px; }
-    .companies-grid::-webkit-scrollbar-thumb { border-radius:99px; background:rgba(17,17,17,.2); }
-    .companies-grid::-webkit-scrollbar-track { background:rgba(17,17,17,.05); }
+    .companies-grid { gap:24px; overflow-x:auto; overflow-y:hidden; padding:10px 4px 18px; scroll-behavior:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+    .companies-grid::-webkit-scrollbar { display:none; }
+    .company-logo { flex:0 0 clamp(170px, 17vw, 200px); width:auto; min-height:80px; transition:none; scroll-snap-align:none; }
+    .company-logo:hover { transform:none; border-color:var(--line); box-shadow:none; }
+    @media (max-width:800px) {
+      .companies-grid { gap:12px; padding-inline:2px; }
+      .company-logo { flex-basis:42vw; width:auto; min-height:72px; padding:10px; }
+      .company-logo img { max-height:48px; }
+    }
     @media (max-width:800px) { .companies-inner { gap:32px; } }
     .capabilities { display:grid; border-top:1px solid var(--line); }
     .capability { display:grid; grid-template-columns:100px minmax(190px,.62fr) 1fr; gap:34px; padding:30px 0; border-bottom:1px solid var(--line); }
@@ -220,6 +226,25 @@
       .tool-group:hover::before { transform:translateX(-50%); }
       .tool-group:hover h3 { color:var(--orange-dark); transform:none; }
       .tool-group:hover p { color:var(--ink-soft); }
+    }
+    /* Static swipeable tools gallery */
+    .tool-groups { display:flex; align-items:center; gap:18px; overflow-x:auto; overflow-y:hidden; padding:28px max(6vw, 24px) 38px; scroll-snap-type:x mandatory; scroll-padding-inline:calc((100% - min(78vw, 340px)) / 2); scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+    .tool-groups::-webkit-scrollbar { display:none; }
+    .tool-group { flex:0 0 clamp(220px, 30vw, 340px); min-height:220px; scroll-snap-align:center; scroll-snap-stop:always; opacity:.62; transform:scale(.9); cursor:pointer; transition:opacity .25s ease, transform .25s ease, box-shadow .25s ease; }
+    .tool-group.is-active { opacity:1; transform:scale(1); box-shadow:0 24px 48px rgba(17,17,17,.16); }
+    .tool-group:hover { transform:scale(.9); box-shadow:0 20px 40px rgba(17,17,17,.12); border-color:var(--line); background:#fff; }
+    .tool-group.is-active:hover { transform:scale(1); box-shadow:0 24px 48px rgba(17,17,17,.16); }
+    .tool-group:hover h3, .tool-group:hover p { transform:none; color:inherit; }
+    .tool-gallery-controls { display:flex; align-items:center; justify-content:center; gap:18px; margin-top:12px; }
+    .tool-gallery-arrow { display:grid; place-items:center; width:42px; height:42px; border:1px solid var(--line); border-radius:50%; background:#fff; color:var(--ink); font-size:1.25rem; line-height:1; cursor:pointer; transition:background-color .2s ease, color .2s ease, border-color .2s ease; }
+    .tool-gallery-arrow:hover, .tool-gallery-arrow:focus-visible { border-color:var(--orange); background:var(--orange); color:#fff; }
+    .tool-gallery-hint { margin:0; color:var(--muted); font-size:.78rem; font-weight:800; letter-spacing:.04em; text-align:center; }
+    .tool-gallery-dots { display:flex; justify-content:center; gap:7px; margin-top:18px; }
+    .tool-gallery-dot { width:8px; height:8px; padding:0; border:0; border-radius:50%; background:#d7d0c8; cursor:pointer; transition:transform .2s ease, background-color .2s ease; }
+    .tool-gallery-dot.is-active { background:var(--orange); transform:scale(1.35); }
+    @media (max-width:800px) {
+      .tool-groups { gap:12px; padding-inline:calc((100% - min(78vw, 300px)) / 2); scroll-padding-inline:calc((100% - min(78vw, 300px)) / 2); }
+      .tool-group { flex-basis:min(78vw,300px); min-height:190px; }
     }
     /* Peeking cat on portrait - removed */
     .contact { background:var(--orange); color:var(--ink); }
@@ -374,7 +399,7 @@
     </div></div></section>
     <section class="creative-work section"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Creative & Marketing Work</p><h2>Real campaign examples from VetPets.</h2></div><p class="section-intro">Beyond store development, I create marketing creatives that drive customer acquisition, engagement, and reactivation.</p></div><div class="creative-grid"><article class="creative-card"><h3>Affiliate & Creator Recruitment</h3><p class="creative-description">I created a series of static marketing creatives designed to recruit creators and affiliates for VetPets. The campaign communicated the partnership opportunity, outlined commission structure, highlighted creator benefits, and included clear calls to action to encourage applications.</p><p class="creative-role">My contribution: Creative direction, copy, visual layout</p><a class="creative-button" href="https://canva.link/6gzxh4anqffbyy5" target="_blank" rel="noopener noreferrer">View Affiliate Creative Samples →</a></article><article class="creative-card"><h3>Customer Winback Campaign</h3><p class="creative-description">I created email marketing creatives for a customer reactivation campaign encouraging past buyers to restart their daily pet care routine. The campaign featured educational messaging, value reinforcement, and a limited-time savings offer (40% off) designed to re-engage inactive customers.</p><p class="creative-role">My contribution: Email creative design, offer messaging, visual strategy</p><a class="creative-button" href="https://canva.link/o4xdzn6402jpbc9" target="_blank" rel="noopener noreferrer">View Winback Campaign →</a></article></div></div></section>
     <section class="section"><div class="wrap"><div class="section-head"><div><p class="eyebrow">How I work</p><h2>Calm, practical, and accountable.</h2></div><p class="section-intro">I work well alone, but I know when to ask for help and when to escalate an issue.</p></div><div class="experience-grid"><article class="experience-card dark"><div class="experience-card-inner"><div class="experience-card-front"><p class="eyebrow"><span class="card-flip-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 10L4 5L6 8L10 6L6 10Z" fill="#f97316"/><path d="M22 10L24 5L22 8L18 6L22 10Z" fill="#f97316"/><circle cx="10" cy="15" r="1.5" fill="#f97316"/><circle cx="18" cy="15" r="1.5" fill="#f97316"/><path d="M14 16.5C13 17.5 12 18 14 19 16 18 15 17.5 14 16.5Z" fill="#f97316"/><path d="M8 9C8 6 10 4 14 4C18 4 20 6 20 9C20 11 19 12 18 13L10 13C9 12 8 11 8 9Z" stroke="#111" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 2.5C9.5 1.5 10 0.5 11 0.5C11.5 0.5 12 1 12 1.5M18 2.5C18.5 1.5 18 0.5 17 0.5C16.5 0.5 16 1 16 1.5" stroke="#111" stroke-width="1.2" stroke-linecap="round"/></svg></span><span class="card-flip-hint">Click to reveal</span></p><h3>Understand it before deciding what to do.</h3></div><div class="experience-card-back"><p class="eyebrow">The approach</p><p>I check the facts, find what needs to happen next, and take action. I investigate what's really going on behind a customer issue instead of just sending a quick response.</p></div></div></article><article class="experience-card"><div class="experience-card-inner"><div class="experience-card-front"><p class="eyebrow"><span class="card-flip-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 10L4 5L6 8L10 6L6 10Z" fill="#f97316"/><path d="M22 10L24 5L22 8L18 6L22 10Z" fill="#f97316"/><circle cx="10" cy="15" r="1.5" fill="#f97316"/><circle cx="18" cy="15" r="1.5" fill="#f97316"/><path d="M14 16.5C13 17.5 12 18 14 19 16 18 15 17.5 14 16.5Z" fill="#f97316"/><path d="M8 9C8 6 10 4 14 4C18 4 20 6 20 9C20 11 19 12 18 13L10 13C9 12 8 11 8 9Z" stroke="#111" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 2.5C9.5 1.5 10 0.5 11 0.5C11.5 0.5 12 1 12 1.5M18 2.5C18.5 1.5 18 0.5 17 0.5C16.5 0.5 16 1 16 1.5" stroke="#111" stroke-width="1.2" stroke-linecap="round"/></svg></span><span class="card-flip-hint">Click to reveal</span></p><h3>Keep ownership until there is a clear next step.</h3></div><div class="experience-card-back"><p class="eyebrow">The follow-through</p><p>In Shopify, support, or operations work, I keep details organized, communicate clearly, and let people know when something needs attention.</p></div></div></article><article class="experience-card"><div class="experience-card-inner"><div class="experience-card-front"><p class="eyebrow"><span class="card-flip-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 10L4 5L6 8L10 6L6 10Z" fill="#f97316"/><path d="M22 10L24 5L22 8L18 6L22 10Z" fill="#f97316"/><circle cx="10" cy="15" r="1.5" fill="#f97316"/><circle cx="18" cy="15" r="1.5" fill="#f97316"/><path d="M14 16.5C13 17.5 12 18 14 19 16 18 15 17.5 14 16.5Z" fill="#f97316"/><path d="M8 9C8 6 10 4 14 4C18 4 20 6 20 9C20 11 19 12 18 13L10 13C9 12 8 11 8 9Z" stroke="#111" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 2.5C9.5 1.5 10 0.5 11 0.5C11.5 0.5 12 1 12 1.5M18 2.5C18.5 1.5 18 0.5 17 0.5C16.5 0.5 16 1 16 1.5" stroke="#111" stroke-width="1.2" stroke-linecap="round"/></svg></span><span class="card-flip-hint">Click to reveal</span></p><h3>Built to stay online.</h3></div><div class="experience-card-back"><p class="eyebrow">The setup</p><p>I work from a dedicated home office with backup power, so nothing stops the work. I also have rescue cats at home, so I understand pet owners and their needs firsthand.</p></div></div></article></div></div></section>
-    <section class="tools section"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Tools</p><h2>Comfortable inside the stack.</h2></div><p class="section-intro">Tools help get the work done. What matters is knowing where to look, what to check, and how to move forward.</p></div><div class="tool-groups"><article class="tool-group"><h3>Shopify & store</h3><p>Shopify · Liquid · GemPages · Shopify Flow · Phoenix Checkout Builder</p></article><article class="tool-group"><h3>Customer support</h3><p>Re:amaze · Gorgias · Zendesk · Outlook · Loopia · Salesforce · Microsoft 365</p></article><article class="tool-group"><h3>E-commerce</h3><p>Loop Subscriptions · AfterSell · Kaching Bundles · Triple Whale · Microsoft Clarity</p></article><article class="tool-group"><h3>Operations</h3><p>Google Workspace · Microsoft 365 · Notion · Miro</p></article><article class="tool-group"><h3>Content & coordination</h3><p>Canva · CapCut · Meta Business Suite · Creator and affiliate workflows</p></article><article class="tool-group"><h3>Working style</h3><p>Investigate · Organise · Coordinate · Improve · Follow through</p></article></div></div></section>
+    <section class="tools section"><div class="wrap"><div class="section-head"><div><p class="eyebrow">Tools</p><h2>Comfortable inside the stack.</h2></div><p class="section-intro">Tools help get the work done. What matters is knowing where to look, what to check, and how to move forward.</p></div><div class="tool-gallery-controls"><button class="tool-gallery-arrow" id="tools-prev" type="button" aria-label="Previous tool card">←</button><p class="tool-gallery-hint">Swipe or select a card</p><button class="tool-gallery-arrow" id="tools-next" type="button" aria-label="Next tool card">→</button></div><div class="tool-gallery-dots" id="tool-gallery-dots" aria-label="Choose a tool card"></div><div class="tool-groups"><article class="tool-group"><h3>Shopify & store</h3><p>Shopify · Liquid · GemPages · Shopify Flow · Phoenix Checkout Builder</p></article><article class="tool-group"><h3>Customer support</h3><p>Re:amaze · Gorgias · Zendesk · Outlook · Loopia · Salesforce · Microsoft 365</p></article><article class="tool-group"><h3>E-commerce</h3><p>Loop Subscriptions · AfterSell · Kaching Bundles · Triple Whale · Microsoft Clarity</p></article><article class="tool-group"><h3>Operations</h3><p>Google Workspace · Microsoft 365 · Notion · Miro</p></article><article class="tool-group"><h3>Content & coordination</h3><p>Canva · CapCut · Meta Business Suite · Creator and affiliate workflows</p></article><article class="tool-group"><h3>Working style</h3><p>Investigate · Organise · Coordinate · Improve · Follow through</p></article></div></div></section>
     <section id="contact" class="contact section"><div class="wrap contact-grid"><h2>Have an operation that needs<span>a steady pair of hands?</span></h2><div><p>I'm available for full-time roles, freelance work, and contract projects with Shopify and e-commerce teams.</p><a class="button" href="mailto:hello.reabernales@gmail.com">Email Rea <span aria-hidden="true">→</span></a><p style="margin-top:14px;font-size:.9rem;font-weight:700;">hello.reabernales@gmail.com</p></div></div></section>
   </main>
   <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Rea Bernales</span><span>Shopify & E-Commerce Operations Specialist</span></div></footer>
@@ -533,6 +558,62 @@
       });
     }, { threshold: .1 });
     toolGroups.forEach(tool => toolObserver.observe(tool));
+    /* Tools gallery: click a card or swipe between cards. */
+    const toolGallery = document.querySelector('.tool-groups');
+    let activeToolIndex = 0;
+    function setActiveTool(index, shouldScroll = true) {
+      if (!toolGallery || !toolGroups.length) return;
+      activeToolIndex = (index + toolGroups.length) % toolGroups.length;
+      toolGroups.forEach((tool, toolIndex) => {
+        const active = toolIndex === activeToolIndex;
+        tool.classList.toggle('is-active', active);
+        tool.setAttribute('aria-current', active ? 'true' : 'false');
+      });
+      document.querySelectorAll('.tool-gallery-dot').forEach((dot, dotIndex) => {
+        dot.classList.toggle('is-active', dotIndex === activeToolIndex);
+        dot.setAttribute('aria-current', dotIndex === activeToolIndex ? 'true' : 'false');
+      });
+      if (shouldScroll) toolGroups[activeToolIndex].scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });
+    }
+    if (toolGallery) {
+      const dots = document.getElementById('tool-gallery-dots');
+      toolGroups.forEach((tool, index) => {
+        if (dots) {
+          const dot = document.createElement('button');
+          dot.className = 'tool-gallery-dot';
+          dot.type = 'button';
+          dot.setAttribute('aria-label', `Show tool card ${index + 1}`);
+          dot.addEventListener('click', () => setActiveTool(index));
+          dots.appendChild(dot);
+        }
+        tool.setAttribute('tabindex','0');
+        tool.setAttribute('role','button');
+        tool.addEventListener('click', () => setActiveTool(index));
+        tool.addEventListener('keydown', event => {
+          if (event.key === 'ArrowRight' || event.key === 'ArrowDown') { event.preventDefault(); setActiveTool(index + 1); }
+          if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') { event.preventDefault(); setActiveTool(index - 1); }
+          if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); setActiveTool(index); }
+        });
+      });
+      let scrollFrame;
+      document.getElementById('tools-prev')?.addEventListener('click', () => setActiveTool(activeToolIndex - 1));
+      document.getElementById('tools-next')?.addEventListener('click', () => setActiveTool(activeToolIndex + 1));
+      toolGallery.addEventListener('scroll', () => {
+        cancelAnimationFrame(scrollFrame);
+        scrollFrame = requestAnimationFrame(() => {
+          const center = toolGallery.getBoundingClientRect().left + toolGallery.clientWidth / 2;
+          let nearest = 0;
+          let distance = Infinity;
+          toolGroups.forEach((tool, index) => {
+            const rect = tool.getBoundingClientRect();
+            const nextDistance = Math.abs(rect.left + rect.width / 2 - center);
+            if (nextDistance < distance) { distance = nextDistance; nearest = index; }
+          });
+          setActiveTool(nearest, false);
+        });
+      }, { passive:true });
+      setActiveTool(0, false);
+    }
     /* Experience cards: flip on click with auto-flip timer */
     const expCards = [...document.querySelectorAll('.experience-card')];
     const autoFlipTimers = new Map();
@@ -564,6 +645,48 @@
       preview.appendChild(thumb);
       trigger.appendChild(preview);
     });
+    /* Company logos: smooth continuous marquee with manual touch/scroll control. */
+    const logoGallery = document.querySelector('.companies-grid');
+    if (logoGallery) {
+      logoGallery.setAttribute('role', 'region');
+      logoGallery.setAttribute('aria-label', 'Company experience logos');
+      const originalLogos = [...logoGallery.children];
+      originalLogos.forEach(logo => {
+        const clone = logo.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.setAttribute('tabindex', '-1');
+        logoGallery.appendChild(clone);
+      });
+      let loopWidth = 0;
+      let paused = false;
+      let resumeTimer;
+      let animationFrame;
+      const measureLoop = () => {
+        const midpoint = logoGallery.children[originalLogos.length];
+        loopWidth = midpoint ? midpoint.offsetLeft - logoGallery.children[0].offsetLeft : 0;
+      };
+      const pauseMarquee = () => { paused = true; clearTimeout(resumeTimer); };
+      const resumeMarquee = () => {
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(() => { paused = false; }, 1600);
+      };
+      const moveMarquee = () => {
+        if (!paused && loopWidth > 0) {
+          logoGallery.scrollLeft += 0.45;
+          if (logoGallery.scrollLeft >= loopWidth) logoGallery.scrollLeft -= loopWidth;
+        }
+        animationFrame = requestAnimationFrame(moveMarquee);
+      };
+      measureLoop();
+      window.addEventListener('resize', measureLoop);
+      logoGallery.addEventListener('mouseenter', pauseMarquee);
+      logoGallery.addEventListener('mouseleave', resumeMarquee);
+      logoGallery.addEventListener('pointerdown', pauseMarquee, { passive:true });
+      logoGallery.addEventListener('pointerup', resumeMarquee, { passive:true });
+      logoGallery.addEventListener('touchend', resumeMarquee, { passive:true });
+      logoGallery.addEventListener('wheel', pauseMarquee, { passive:true });
+      moveMarquee();
+    }
   </script>
 </body>
 </html>
