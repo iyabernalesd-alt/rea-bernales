@@ -10,7 +10,7 @@
     :root { --ink:#111; --ink-soft:#252525; --orange:#f97316; --orange-dark:#d95909; --cream:#fffdf9; --paper:#fff; --orange-pale:#fff1e6; --line:#e9e5df; --muted:#66615b; --shadow:0 24px 70px rgba(17,17,17,.09); --radius:26px; }
     * { box-sizing:border-box; margin:0; }
     html { scroll-behavior:smooth; }
-    body { min-width:320px; overflow-x:hidden; background:var(--cream); color:var(--ink); font:16px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { min-width:320px; overflow-x:hidden; background:var(--cream); color:var(--ink); font:16px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="24" height="24"><path d="M6 10L4 5L6 8L10 6L6 10Z" fill="%23f97316"/><path d="M22 10L24 5L22 8L18 6L22 10Z" fill="%23f97316"/><circle cx="10" cy="15" r="1.5" fill="%23111"/><circle cx="18" cy="15" r="1.5" fill="%23111"/><path d="M14 16.5C13 17.5 12 18 14 19 16 18 15 17.5 14 16.5Z" fill="%23111"/><path d="M8 9C8 6 10 4 14 4C18 4 20 6 20 9C20 11 19 12 18 13L10 13C9 12 8 11 8 9Z" stroke="%23111" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 2.5C9.5 1.5 10 0.5 11 0.5C11.5 0.5 12 1 12 1.5M18 2.5C18.5 1.5 18 0.5 17 0.5C16.5 0.5 16 1 16 1.5" stroke="%23111" stroke-width="1.2" stroke-linecap="round"/></svg>') 12 4, auto; }
     a { color:inherit; }
     button { font:inherit; }
     ::selection { background:var(--orange); color:#fff; }
@@ -49,8 +49,8 @@
     .trust span { padding:6px 10px; border:1px solid var(--line); border-radius:99px; color:#716b63; background:rgba(255,255,255,.65); font-size:.68rem; font-weight:760; }
     .portrait { position:relative; width:min(100%,450px); justify-self:end; padding:12px; border-radius:34px; background:#fff; box-shadow:0 26px 70px rgba(249,115,22,.18); transform:rotate(1.3deg); }
     .portrait::after { content:""; position:absolute; top:-20px; left:40px; width:60px; height:70px; background:#fff; border-radius:50% 50% 0% 0%; box-shadow:-100px 0 0 0 #fff, 0 -8px 0 -4px rgba(249,115,22,.35), -100px -8px 0 -4px rgba(249,115,22,.35); z-index:2; border:1px solid rgba(249,115,22,.35); }
-    .portrait::before { content:""; position:absolute; inset:-12px; z-index:-1; border:1px solid rgba(249,115,22,.35); border-radius:41px; clip-path:polygon(25% 5%, 75% 5%, 90% 15%, 95% 30%, 95% 75%, 90% 90%, 75% 97%, 50% 100%, 25% 97%, 10% 90%, 5% 75%, 5% 30%, 10% 15%); }
-    .portrait-art { position:relative; min-height:510px; overflow:visible; border-radius:24px; background:var(--ink); clip-path:polygon(20% 0%, 80% 0%, 95% 12%, 100% 25%, 100% 75%, 95% 88%, 80% 95%, 50% 100%, 20% 95%, 5% 88%, 0% 75%, 0% 25%, 5% 12%); }
+    .portrait::before { display:none; }
+    .portrait-art { position:relative; min-height:510px; overflow:hidden; border-radius:24px; background:var(--ink); }
     .portrait-photo { display:block; width:100%; aspect-ratio:.88; object-fit:cover; object-position:center top; border-radius:24px; background:var(--ink); }
     .portrait-art::before { content:"REA"; position:absolute; right:-15px; bottom:-48px; color:var(--orange); font-size:11rem; font-weight:950; letter-spacing:-.15em; line-height:1; opacity:.97; }
     .portrait-art::after { content:"SHOPIFY + OPERATIONS"; position:absolute; top:22px; left:22px; color:#fff; font-size:.64rem; font-weight:900; letter-spacing:.14em; }
@@ -208,10 +208,7 @@
       .tool-group:hover h3 { color:var(--orange); transform:translateX(4px); }
       .tool-group:hover p { color:var(--ink); }
     }
-    /* Peeking cat on portrait */
-    .portrait::after { content:"🐱"; position:absolute; right:-35px; bottom:60px; font-size:3.2rem; z-index:10; pointer-events:none; animation:catPeek 4s ease-in-out infinite; }
-    @keyframes catPeek { 0%, 10%, 90%, 100% { transform:translateX(100px); opacity:0; } 15%, 85% { transform:translateX(0); opacity:1; } 50% { transform:translateX(-6px); opacity:1; } }
-    @media (max-width:1024px) { .portrait::after { display:none; } }
+    /* Peeking cat on portrait - removed */
     .contact { background:var(--orange); color:var(--ink); }
     .contact-grid { display:grid; grid-template-columns:1.25fr .75fr; gap:45px; align-items:end; }
     .contact h2 { font-size:clamp(3.4rem,7vw,7.4rem); }
