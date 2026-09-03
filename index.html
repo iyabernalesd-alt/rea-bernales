@@ -84,8 +84,23 @@
     .companies-inner { display:grid; align-items:center; gap:60px; }
     .companies-text { max-width:420px; }
     .companies-text p { color:var(--muted); font-size:1.05rem; margin-top:12px; }
-    .companies-grid { display:flex; gap:24px; align-items:center; animation:smoothScroll 40s linear infinite; }
-    @keyframes smoothScroll { 0% { transform:translateX(0); } 100% { transform:translateX(calc(-200px * 5 - 24px * 5)); } }
+    .companies-grid {
+  display:flex;
+  width:max-content;
+  gap:24px;
+  align-items:center;
+  animation:smoothScroll 75s linear infinite;
+  will-change:transform;
+}
+
+@keyframes smoothScroll {
+  from {
+    transform:translateX(0);
+  }
+  to {
+    transform:translateX(calc(-5 * 200px - 5 * 24px));
+  }
+}
     .company-logo { display:flex; align-items:center; justify-content:center; min-height:80px; padding:16px; border:2px solid var(--line); border-radius:12px; background:rgba(255,255,255,.5); transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease; position:relative; flex-shrink:0; width:200px; }
     @media (hover:hover) {
       .company-logo:hover { transform:scale(1.08) translateY(-4px); border-color:var(--orange); box-shadow:0 8px 24px rgba(249,115,22,.2); }
