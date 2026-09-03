@@ -181,8 +181,19 @@
     .tool-group { padding:27px 27px 30px 0; border-bottom:1px solid var(--line); }
     .tool-group:nth-child(3n+2) { padding-left:27px; border-inline:1px solid var(--line); }
     .tool-group:nth-child(3n) { padding-left:27px; }
-    .tool-group h3 { margin-bottom:14px; color:var(--orange-dark); font-size:.75rem; font-weight:900; letter-spacing:.11em; text-transform:uppercase; }
+    .tool-group { opacity:0; transform:translateY(20px); animation:none; }
+    .tool-group.visible { opacity:1; transform:translateY(0); animation:toolReveal .6s var(--ease-out) forwards; }
+    @keyframes toolReveal { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .tool-group h3 { margin-bottom:14px; color:var(--orange-dark); font-size:.75rem; font-weight:900; letter-spacing:.11em; text-transform:uppercase; transition:color .3s ease; }
     .tool-group p { max-width:260px; color:var(--ink-soft); font-size:.95rem; font-weight:720; line-height:1.65; }
+    @media (hover:hover) {
+      .tool-group:hover h3 { color:var(--orange); }
+      .tool-group:hover p { color:var(--ink); }
+    }
+    /* Peeking cat on portrait */
+    .portrait::after { content:"🐱"; position:absolute; right:-35px; bottom:60px; font-size:3.2rem; z-index:10; pointer-events:none; animation:catPeek 4s ease-in-out infinite; }
+    @keyframes catPeek { 0%, 10%, 90%, 100% { transform:translateX(100px); opacity:0; } 15%, 85% { transform:translateX(0); opacity:1; } 50% { transform:translateX(-6px); opacity:1; } }
+    @media (max-width:1024px) { .portrait::after { display:none; } }
     .contact { background:var(--orange); color:var(--ink); }
     .contact-grid { display:grid; grid-template-columns:1.25fr .75fr; gap:45px; align-items:end; }
     .contact h2 { font-size:clamp(3.4rem,7vw,7.4rem); }
@@ -473,6 +484,19 @@
       });
     }, { threshold: .5 });
     capNums.forEach(num => counterObserver.observe(num));
+    /* Tools: stagger reveal on scroll */
+    const toolGroups = [...document.querySelectorAll('.tool-group')];
+    const toolObserver = new IntersectionObserver(entries => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 80);
+          toolObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .1 });
+    toolGroups.forEach(tool => toolObserver.observe(tool));
     /* Selected work: a small preview thumbnail per row, reusing the project's own image. */
     projects.forEach(project => {
       const trigger = project.querySelector('.project-trigger');
