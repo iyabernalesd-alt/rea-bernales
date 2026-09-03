@@ -107,7 +107,13 @@
     }
     .company-logo img { max-width:100%; max-height:60px; object-fit:contain; }
     .companies-section { overflow:hidden; }
-    @media (max-width:800px) { .companies-inner { gap:32px; } .companies-grid { animation:smoothScroll 50s linear infinite; } }
+    @media (max-width:800px) {
+  .companies-inner { gap:32px; }
+
+  .companies-grid {
+    animation:smoothScroll 65s linear infinite;
+  }
+}
     .capabilities { display:grid; border-top:1px solid var(--line); }
     .capability { display:grid; grid-template-columns:100px minmax(190px,.62fr) 1fr; gap:34px; padding:30px 0; border-bottom:1px solid var(--line); }
     .cap-num { color:var(--orange); font-weight:900; font-size:.8rem; letter-spacing:.1em; }
