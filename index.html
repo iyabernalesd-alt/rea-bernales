@@ -89,12 +89,12 @@
     }
     .company-logo img { max-width:100%; max-height:60px; object-fit:contain; }
     .companies-section { overflow:hidden; }
-    .companies-grid { gap:24px; overflow-x:auto; overflow-y:hidden; padding:10px 4px 18px; scroll-behavior:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+    .companies-grid { width:100vw; max-width:none; margin-left:calc(50% - 50vw); gap:24px; overflow-x:auto; overflow-y:hidden; padding:10px max(6vw, 24px) 18px; scroll-behavior:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
     .companies-grid::-webkit-scrollbar { display:none; }
     .company-logo { flex:0 0 clamp(170px, 17vw, 200px); width:auto; min-height:80px; transition:none; scroll-snap-align:none; }
     .company-logo:hover { transform:none; border-color:var(--line); box-shadow:none; }
     @media (max-width:800px) {
-      .companies-grid { gap:12px; padding-inline:2px; }
+      .companies-grid { width:100%; margin-left:0; gap:12px; padding-inline:2px; }
       .company-logo { flex-basis:42vw; width:auto; min-height:72px; padding:10px; }
       .company-logo img { max-height:48px; }
     }
