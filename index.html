@@ -273,6 +273,16 @@
       .contact::before { content:""; position:absolute; top:-30%; left:-25%; width:70%; height:160%; pointer-events:none; background:radial-gradient(50% 50% at 50% 50%, rgba(255,255,255,.16), rgba(255,255,255,0) 70%); animation:ctaDrift 26s ease-in-out infinite alternate; }
     }
         @keyframes ctaDrift { from { transform:translate3d(0,0,0); } to { transform:translate3d(95%,6%,0); } }
+    /* Button pulse glow effect */
+    @keyframes buttonPulse { 0%, 100% { box-shadow:0 12px 26px rgba(249,115,22,.24); } 50% { box-shadow:0 12px 40px rgba(249,115,22,.42), 0 0 20px rgba(249,115,22,.3); } }
+    .button.primary { animation:buttonPulse 2.5s ease-in-out infinite; }
+    /* Hero floating particles */
+    .hero::before { content:""; position:absolute; inset:0; z-index:0; pointer-events:none; background:radial-gradient(circle at 20% 50%, rgba(249,115,22,.08) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(249,115,22,.05) 0%, transparent 50%); animation:particleDrift 20s ease-in-out infinite; }
+    @keyframes particleDrift { 0%, 100% { transform:translate(0, 0); } 50% { transform:translate(30px, -20px); } }
+    .hero { position:relative; z-index:1; }
+    /* Spark animation on contact section */
+    @keyframes sparkle { 0%, 100% { opacity:.6; transform:scale(1); } 50% { opacity:1; transform:scale(1.1); } }
+    .contact .button { animation:sparkle 1.8s ease-in-out infinite; }
             /* 10 · Portrait frame — drop in on load, then breathe */
     @media (prefers-reduced-motion:no-preference) {
       .portrait { animation:portraitDrop 1s cubic-bezier(.2,.85,.3,1.05) .2s both; }
